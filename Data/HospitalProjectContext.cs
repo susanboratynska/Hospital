@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations.Schema;
+using HospitalProject.Models;
+using System.ComponentModel.DataAnnotations;
+
+namespace HospitalProject.Data
+{
+    // To add profile data for the user, add more properties to our ApplicationUser class (REF: https://go.microsoft.com/fwlink/?LinkID=317594)
+    // The ApplicationUser IdentityUser is the class used to describe a user who is logged in
+    // Leverage this class by associating it with a Doctor, Volunteer, Admin, etc.
+
+    public class ApplicationUser : IdentityUser
+    {
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+        {
+            // NOTE: the AuthenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
+            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            // Add custom user claims here
+            return userIdentity;
+        }
+
+
+        // A logged in user could be a Doctor:
+        // public virtual Doctor Doctor { get; set; }
+
+        // A logged in user could be Volunteer:
+        // public virtual Volunteer Volunteer { get; set; }
+
+        //A logged in user could be an Admin
+    }
+
+
+    public class HospitalProjectContext : IdentityDbContext<ApplicationUser>
+    {
+        // You can add custom code to this file. Changes will not be overwritten
+        // If you want Entity Framework to drop and regenerate your database automatically whenever you change your model schema, use data migrations.
+        // For more information refer to the documentation: http://msdn.microsoft.com/en-us/data/jj591621.aspx
+
+
+        public HospitalProjectContext() : base("name=HospitalProjectContext")
+        {
+        }
+        public static HospitalProjectContext Create()
+        {
+            return new HospitalProjectContext();
+        }
+
+        public System.Data.Entity.DbSet<HospitalProject.Models.Event> Events { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.HospitalCampus> HospitalCampuses { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.PatientEcard> PatientEcards { get; set; }
+
+    }
+}
