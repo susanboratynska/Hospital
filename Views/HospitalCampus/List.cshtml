@@ -7,7 +7,7 @@
 <h2>List of Hospital Campuses</h2>
 
 <div class="navbar">
-    <form action="/HospitalCampus/List" method="GET" class="float-top-right">
+    <form action="/HospitalCampus/List" method="GET">
         <input type="text" name="searchkey" id="searchkey" class="btn btn-default search-input" />
         <input type="submit" value="Search" class="btn btn-default" />
     </form>
@@ -23,6 +23,7 @@
             <th>Province</th>
             <th>Postal Code</th>
             <th>Phone</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +36,7 @@
                 <td>@hospitalcampus.CampusProvince</td>
                 <td>@hospitalcampus.CampusPC</td>
                 <td>@hospitalcampus.CampusPhone</td>
+                <td><a class="btn btn-default" href="/HospitalCampus/Update/?CampusID=@hospitalcampus.CampusID">Update</a></td>
             </tr>
         }
     </tbody>

@@ -250,6 +250,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\HospitalCampus\List.cshtml" />
     <Content Include="Views\HospitalCampus\Add.cshtml" />
+    <Content Include="Views\HospitalCampus\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

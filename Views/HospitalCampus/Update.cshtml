@@ -1,0 +1,69 @@
+﻿@model HospitalProject.Models.HospitalCampus
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Hospital Campus: @Model.CampusName</h2>
+
+
+<div class="navbar">
+    <a class="btn btn-default" href="/HospitalCampus/List" role="button">Back to List</a>
+</div>
+
+<form method="POST" action="/HospitalCampus/Update/@Model.CampusID" class="form-horizontal">
+    <div class="form-group">
+        <label for="campus__name" class="col-sm-2 control-label">Campus Name:</label>
+        <div class="col-sm-10">
+            <input id="campus__name" class="form-control" type="text" name="campus__name" value="@Model.CampusName"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="campus__address1" class="col-sm-2 control-label">Address Line 1:</label>
+        <div class="col-sm-10">
+            <input id="campus__address1" class="form-control" type="text" name="campus__address1"  value="@Model.CampusAddressLine1" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="campus__address2" class="col-sm-2 control-label">Address Line 2:</label>
+        <div class="col-sm-10">
+            <input id="campus__address2" class="form-control" type="text" name="campus__address2" value="@Model.CampusAddressLine2"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="campus__city" class="col-sm-2 control-label">City:</label>
+        <div class="col-sm-10">
+            <input id="campus__city" class="form-control" type="text" name="campus__city" value="@Model.CampusCity" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="campus__province" class="col-sm-2 control-label">Province:</label>
+        <div class="col-sm-10">
+            <input id="campus__province" class="form-control" type="text" name="campus__province" value="@Model.CampusProvince"/>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="campus__pc" class="col-sm-2 control-label">Postal Code:</label>
+        <div class="col-sm-10">
+            <input id="campus__pc" class="form-control" type="text" name="campus__pc" value="@Model.CampusPC"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="campus__phone" class="col-sm-2 control-label">Phone:</label>
+        <div class="col-sm-10">
+            <input id="campus__phone" class="form-control" type="text" name="campus__phone" value="@Model.CampusPhone" />
+        </div>
+    </div>
+    <div>
+        <input type="submit" class="btn btn-default" value="Update Hospital Campus" />
+    </div>
+    
+
+</form>
