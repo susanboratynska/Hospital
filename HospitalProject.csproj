@@ -251,11 +251,13 @@
     <Content Include="Views\HospitalCampus\List.cshtml" />
     <Content Include="Views\HospitalCampus\Add.cshtml" />
     <Content Include="Views\HospitalCampus\Update.cshtml" />
+    <Content Include="Views\Event\List.cshtml" />
+    <Content Include="Views\Event\Add.cshtml" />
+    <Content Include="Views\Event\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\ViewModels\" />
-    <Folder Include="Views\Event\" />
     <Folder Include="Views\PatientEcard\" />
   </ItemGroup>
   <ItemGroup>

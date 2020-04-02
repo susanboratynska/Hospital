@@ -1,0 +1,47 @@
+﻿@model List<HospitalProject.Models.Event>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Events</h2>
+
+<div class="navbar">
+    <form action="/Event/List" method="GET">
+        <input type="text" name="searchkey" id="searchkey" class="btn btn-default search-input" />
+        <input type="submit" value="Search" class="btn btn-default" />
+    </form>
+    <a class="btn btn-default" href="/Event/Add" role="button">Add New Event</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Department</th>
+            <th>Campus</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Event in @Model)
+        {
+            <tr>
+                <td><a href="/Event/Show/@Event.EventTitle">@Event.EventTitle</a></td>
+                <td>@Event.EventDescription</td>
+                <td>@Event.EventLocation</td>
+                <td>@Event.EventDateTime</td>
+                <td>@Event.EventDateTime</td>
+                <td>@Event.EventDateTime</td>
+                <td>@Event.EventHostingDepartment</td>
+                <td>@Event.CampusID</td>
+                <td><a class="btn btn-default" href="/Event/Update/?EventID=@Event.EventID">Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="~/.gitattributes">~/.gitattributes</a>

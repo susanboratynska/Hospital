@@ -30,7 +30,7 @@
         @foreach (var hospitalcampus in @Model)
         {
             <tr>
-                <td><a href="/HospitalCampus/Show/@hospitalcampus.CampusID">@hospitalcampus.CampusName</a></td>
+                <td>@hospitalcampus.CampusName</td>
                 <td>@hospitalcampus.CampusAddressLine1 @hospitalcampus.CampusAddressLine2</td>
                 <td>@hospitalcampus.CampusCity</td>
                 <td>@hospitalcampus.CampusProvince</td>

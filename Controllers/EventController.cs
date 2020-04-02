@@ -5,20 +5,50 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HospitalProject.Data;
 using HospitalProject.Models;
 using System.Diagnostics;
+using System.IO;
 
 namespace HospitalProject.Controllers
 {
     public class EventController : Controller
     {
+        private HospitalProjectContext db = new HospitalProjectContext();
+
         // GET: Event
         public ActionResult Index()
         {
             return View();
         }
+
+
+        // List Events:
+        public ActionResult List(string searchkey)
+        {
+            Debug.WriteLine("The searchkey is " + searchkey);
+
+            if (searchkey != null || searchkey != "")
+            {
+                List<Event> Events = db.Events
+                    .Where(Event =>
+                        Event.EventTitle.Contains(searchkey) ||
+                        Event.EventDescription.Contains(searchkey) ||
+                        Event.EventLocation.Contains(searchkey)
+                    ).ToList();
+                    return View(Events);
+            }
+            else
+            {
+              List<Event> Events = db.Events.ToList();
+              return View(Events);
+            }
+
+        }
+
+
     }
 }
