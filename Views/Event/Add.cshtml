@@ -1,4 +1,4 @@
-﻿@model List<HospitalProject.Models.HospitalCampus>
+﻿@model  List<HospitalProject.Models.HospitalCampus>
 
 @{
     ViewBag.Title = "Add";
@@ -40,16 +40,31 @@
     </div>
 
     <div class="form-group">
-        <label for="EventStart" class="col-sm-2 control-label">Start Time:</label>
+        <label for="EventStart" class="col-sm-2 control-label">Time:</label>
         <div class="col-sm-10">
-            <input id="EventStart" class="form-control" type="text" placeholder="hh:mm:ss" name="EventStart" />
-        </div>
-    </div>
+            @*
+            SRC: Christine Bittle PET MVC
+            PURPOSE: Format readable time options and hold it in one data set with date:
+            *@
 
-    <div class="form-group">
-        <label for="EventEnd" class="col-sm-2 control-label">End Time:</label>
-        <div class="col-sm-10">
-            <input id="EventEnd" class="form-control" type="text" placeholder="hh:mm:ss" name="EventEnd" />
+            <select id="CampusID" name="EventTime" class="form-control">
+                @{
+                    var i = 700; // Hospital Events can start at 7:00 AM
+                }
+
+                @while (i <= 2000)  // Last Event booking can start at 8:00 PM
+                { 
+                    // Use String and integer techniques to put them into a readable format:
+                    string meridian = "AM";
+                    if (i >= 1200) { meridian = "PM"; }
+                    string displaytime = (i % 1200).ToString("00:00") + meridian;
+                    if (displaytime.StartsWith("00")) { displaytime = "12" + displaytime.Substring(2); }
+                    <option value="@i">@displaytime</option>
+
+                    // Adds either 30 (i.e. 7:30) or 70 (i.e. 8:00) to i
+                    i = i + ((i % 100 == 30) ? 70 : 30);
+                }
+            </select>
         </div>
     </div>
 
@@ -63,11 +78,11 @@
     <div class="form-group">
         <label for="CampusID" class="col-sm-2 control-label">Hospital Campus:</label>
         <div class="col-sm-10">
-            <select id="CampusID" class="form-control">
+            <select id="CampusID" name="CampusID" class="form-control">
                 <option value="empty">Please select one</option>
                 @foreach (var hospitalcampus in Model)
                 {
-                    <option value="@hospitalcampus.CampusID">@hospitalcampus.CampusName</option>
+                    <option value="@hospitalcampus.CampusID" name="@hospitalcampus.CampusID">@hospitalcampus.CampusName</option>
                 }
             </select>
         </div>
@@ -75,6 +90,7 @@
         <div>
             <input type="submit" class="btn btn-default" value="Add Event" />
         </div>
+    </div>
 
 
 </form>

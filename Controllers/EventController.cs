@@ -12,6 +12,8 @@ using HospitalProject.Data;
 using HospitalProject.Models;
 using System.Diagnostics;
 using System.IO;
+// Require to use cultrueinfo.invariantculture to parse EventDate and EventTime:
+using System.Globalization;
 
 namespace HospitalProject.Controllers
 {
@@ -59,13 +61,45 @@ namespace HospitalProject.Controllers
 
         }
 
-        // Add New Event:
+        // List Hospital Campuses for Adding a new Event:
         public ActionResult Add()
         {
             List<HospitalCampus> hospitalcampus = db.HospitalCampuses.ToList();   
             return View(hospitalcampus);
         }
 
+        // Add New Event:
+        [HttpPost]
+        public ActionResult Add(string EventTitle, string EventDescription, string EventLocation, string EventHostingDepartment, string EventDate, string EventTime, int CampusID)
+        {
+            Event NewEvent = new Event();
+            NewEvent.EventTitle = EventTitle;
+            NewEvent.EventDescription = EventDescription;
+            NewEvent.EventLocation = EventLocation;
+            NewEvent.EventHostingDepartment = EventHostingDepartment;
+            // SRC: Crhstine Bittle: https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
+            // PURPOSE: Put both date and time values in one record
+            Debug.WriteLine(EventDate + " " + EventTime);
+            NewEvent.EventDate = DateTime.ParseExact(EventDate + " " + EventTime, "yyyy-MM-dd Hmm", CultureInfo.InvariantCulture);
+      
+            NewEvent.CampusID = CampusID;
 
+            // LINQ equivalent to Insert Statement and save to DB:
+            db.Events.Add(NewEvent);
+            db.SaveChanges();
+
+            return RedirectToAction("List");
+        }
+
+
+
+
+        // Display Existing Event Details:
+        public ActionResult Update(int EventID)
+        {
+            Event SelectedEvent = db.Events.Find(EventID);
+
+            return View(EventID);
+        }
     }
 }
