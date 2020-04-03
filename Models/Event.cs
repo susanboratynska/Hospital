@@ -13,7 +13,7 @@ namespace HospitalProject.Models
     public class Event
     {
         // Things that describe an Event:
-
+       
         [Key]
         public int EventID { get; set; }
         public string EventTitle { get; set; }

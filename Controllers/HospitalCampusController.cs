@@ -104,7 +104,17 @@ namespace HospitalProject.Controllers
 
         }
 
+        // Delete Hospital Campus:
+        [HttpPost]
+        public ActionResult Delete(int CampusID)
+        {
+            HospitalCampus SelectedCampus = db.HospitalCampuses.Find(CampusID);
+            // Equivalent to SQL delete statement:
+            db.HospitalCampuses.Remove(SelectedCampus);
+            db.SaveChanges();
 
+            return RedirectToAction("List");
+        }
 
 
     }
