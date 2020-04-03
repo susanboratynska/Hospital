@@ -1,0 +1,64 @@
+﻿@model HospitalProject.Models.Event
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>@Model.EventTitle</h2>
+
+<div class="navbar">
+    <a class="btn btn-default" href="/Event/List" role="button">Back to List</a>
+    <a class="btn btn-default" href="/Event/Update/@Model.EventID" role="button">Add New Event</a>
+    @*<a class="btn btn-default" href="/Event/DeleteConfirm/@Model.EventID" role="button">Delete</a>*@
+</div>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Name:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventTitle</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Description:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventDescription</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Host:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventHostingDepartment</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Date:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventDate</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Time:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventStart - @Model.EventEnd</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Location:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventLocation</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Hospital Campus:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.HospitalCampus.CampusName</p>
+            <p class="form-control-static">@Model.HospitalCampus.CampusAddressLine1</p>
+            <p class="form-control-static">@Model.HospitalCampus.CampusAddressLine2</p>
+            <p class="form-control-static">@Model.HospitalCampus.CampusCity, @Model.HospitalCampus.CampusProvince @Model.HospitalCampus.CampusPC</p>
+        </div>
+    </div>
+
+</div>
+

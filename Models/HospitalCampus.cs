@@ -22,5 +22,11 @@ namespace HospitalProject.Models
         public string CampusProvince { get; set; }
         public string CampusPC { get; set; }
         public string CampusPhone { get; set; }
+
+        // Representing the "Many" in (One HospitalCampus to many Events):
+        public ICollection<Event> Events { get; set; }
+
+        // Representing the "Many" in (One HospitalCampus to many PatientEcards):
+        public ICollection<PatientEcard> PatientEcards { get; set; }
     }
 }

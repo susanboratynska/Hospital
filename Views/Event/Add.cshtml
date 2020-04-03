@@ -1,7 +1,82 @@
-﻿
+﻿@model List<HospitalProject.Models.HospitalCampus>
+
 @{
     ViewBag.Title = "Add";
 }
 
-<h2>Add</h2>
+<h2>Add New Event</h2>
+
+<div class="navbar">
+    <a class="btn btn-default" href="/Event/List" role="button">Back to List</a>
+</div>
+
+<form method="POST" action="/Event/Add" class="form-horizontal">
+    <div class="form-group">
+        <label for="EventTitle" class="col-sm-2 control-label">Event Name:</label>
+        <div class="col-sm-10">
+            <input id="EventTitle" class="form-control" type="text" name="EventTitle" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="EventDescription" class="col-sm-2 control-label">Description:</label>
+        <div class="col-sm-10">
+            <textarea id="EventDescription" class="form-control" rows="3" name="EventDescription"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="EventHostingDepartment" class="col-sm-2 control-label">Host:</label>
+        <div class="col-sm-10">
+            <input id="EventHostingDepartment" class="form-control" type="text" name="EventHostingDepartment" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="EventDate" class="col-sm-2 control-label">Date:</label>
+        <div class="col-sm-10">
+            <input id="EventDate" class="form-control" type="text" placeholder="yyyy-mm-dd" name="EventDate" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="EventStart" class="col-sm-2 control-label">Start Time:</label>
+        <div class="col-sm-10">
+            <input id="EventStart" class="form-control" type="text" placeholder="hh:mm:ss" name="EventStart" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="EventEnd" class="col-sm-2 control-label">End Time:</label>
+        <div class="col-sm-10">
+            <input id="EventEnd" class="form-control" type="text" placeholder="hh:mm:ss" name="EventEnd" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="EventLocation" class="col-sm-2 control-label">Location:</label>
+        <div class="col-sm-10">
+            <input id="EventLocation" class="form-control" type="text" placeholder="Room number" name="EventLocation" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="CampusID" class="col-sm-2 control-label">Hospital Campus:</label>
+        <div class="col-sm-10">
+            <select id="CampusID" class="form-control">
+                <option value="empty">Please select one</option>
+                @foreach (var hospitalcampus in Model)
+                {
+                    <option value="@hospitalcampus.CampusID">@hospitalcampus.CampusName</option>
+                }
+            </select>
+        </div>
+
+        <div>
+            <input type="submit" class="btn btn-default" value="Add Event" />
+        </div>
+
+
+</form>
+
 

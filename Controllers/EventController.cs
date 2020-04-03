@@ -27,7 +27,7 @@ namespace HospitalProject.Controllers
 
 
         // List Events:
-        public ActionResult List(string searchkey)
+        public ActionResult List(string searchkey = "")
         {
             Debug.WriteLine("The searchkey is " + searchkey);
 
@@ -43,10 +43,27 @@ namespace HospitalProject.Controllers
             }
             else
             {
-              List<Event> Events = db.Events.ToList();
-              return View(Events);
+            List<Event> Events = db.Events.ToList();
+            return View(Events);
             }
 
+        }
+
+
+        // Display an Event:
+        public ActionResult Show(int EventID)
+        {
+            Event Event = db.Events.Include(c => c.HospitalCampus).FirstOrDefault(c => c.EventID == EventID);
+
+            return View(Event);
+
+        }
+
+        // Add New Event:
+        public ActionResult Add()
+        {
+            List<HospitalCampus> hospitalcampus = db.HospitalCampuses.ToList();   
+            return View(hospitalcampus);
         }
 
 

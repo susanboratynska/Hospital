@@ -19,7 +19,10 @@ namespace HospitalProject.Models
         public string EventTitle { get; set; }
         public string EventDescription { get; set; }
         public string EventLocation {get; set;}
-        public DateTime EventDateTime { get; set; }
+        public DateTime EventDate { get; set; }
+        public DateTime EventStart { get; set; }
+        public DateTime EventEnd { get; set; }
+       
         public string EventHostingDepartment { get; set; }
 
         public int CampusID { get; set; }

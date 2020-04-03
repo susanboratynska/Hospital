@@ -21,8 +21,6 @@
             <th>Description</th>
             <th>Location</th>
             <th>Date</th>
-            <th>Start Time</th>
-            <th>End Time</th>
             <th>Department</th>
             <th>Campus</th>
         </tr>
@@ -31,17 +29,14 @@
         @foreach (var Event in @Model)
         {
             <tr>
-                <td><a href="/Event/Show/@Event.EventTitle">@Event.EventTitle</a></td>
+                <td><a href="/Event/Show/?EventID=@Event.EventID">@Event.EventTitle</a></td>
                 <td>@Event.EventDescription</td>
                 <td>@Event.EventLocation</td>
-                <td>@Event.EventDateTime</td>
-                <td>@Event.EventDateTime</td>
-                <td>@Event.EventDateTime</td>
+                <td>@Event.EventDate</td>
                 <td>@Event.EventHostingDepartment</td>
-                <td>@Event.CampusID</td>
+                <td>@Event.HospitalCampus.CampusName</td>
                 <td><a class="btn btn-default" href="/Event/Update/?EventID=@Event.EventID">Update</a></td>
             </tr>
         }
     </tbody>
 </table>
-<a href="~/.gitattributes">~/.gitattributes</a>

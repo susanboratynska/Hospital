@@ -104,3 +104,4 @@ C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.dll
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.pdb
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.initial.resources
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.csproj.GenerateResource.cache
+C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations._event.resources
