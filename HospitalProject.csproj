@@ -259,11 +259,11 @@
     <Content Include="Views\Event\Add.cshtml" />
     <Content Include="Views\Event\Update.cshtml" />
     <Content Include="Views\Event\Show.cshtml" />
+    <Content Include="Views\PatientEcard\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\ViewModels\" />
-    <Folder Include="Views\PatientEcard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
