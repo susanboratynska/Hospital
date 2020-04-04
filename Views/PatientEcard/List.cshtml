@@ -1,4 +1,4 @@
-﻿@model List<HospitalProject.Models.PatientEcard>
+﻿@model HospitalProject.Models.ViewModels.ListPatientEcards
 @{
     ViewBag.Title = "List";
 }
@@ -6,7 +6,7 @@
 <h2>List of Patient Ecards</h2>
 
 <div class="navbar">
-    
+
     <form action="/PatientEcard/List" method="GET" style="display:inline-block; float: right;">
         <input type="text" name="searchkey" id="searchkey" class="btn btn-default search-input" />
         <input type="submit" value="Search" class="btn btn-default" />
@@ -17,44 +17,74 @@
     <thead>
         <tr>
             <th>Card ID</th>
-            <th>Delivery Status</th>
+            <th class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Delivery Status <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/PatientEcard/List/">All Cards</a></li>
+                    <li><a href="/PatientEcard/List/?delivered=true">Delivered</a></li>
+                    <li><a href="/PatientEcard/List/?delivered=false">Not Delivered</a></li>
+                </ul>
+            </th>
             <th>Sender</th>
             <th>Patient</th>
-            <th>Hospital Campus</th>
+            <th class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hospital Campus <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/PatientEcard/List/">All Campuses</a></li>
+                    @foreach (var hospital in Model.HospitalCampuses)
+                    {
+                        <li><a href="/PatientEcard/List/?campus=@hospital.CampusID">@hospital.CampusName</a></li>
+                    }
+                </ul>
+            </th>
             <th>Patient Room</th>
-            <th>Card Subject</th>
+            <th class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Card Subject <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/PatientEcard/List/">All Subjects</a></li>
+                    <li><a href="/PatientEcard/List/?subject=get">Get Well</a></li>
+                    <li><a href="/PatientEcard/List/?subject=congrat">Congratulations</a></li>
+                </ul>
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var PatientEcard in @Model)
+        @foreach (var patientcard in Model.PatientEcards)
         {
             <tr>
-                <td>@PatientEcard.PatientCardID</td>
+                <td>@patientcard.PatientCardID</td>
                 <td>
-                    @if(PatientEcard.CardDelivered == false)
+                    @if (patientcard.CardDelivered == false)
                     {
                         <p>No</p>
-                    } else
+                    }
+                    else
                     {
                         <p>Yes</p>
                     }
                 </td>
-                <td>@PatientEcard.SenderFirstname @PatientEcard.SenderLastname</td>
-                <td>@PatientEcard.PatientFirstname @PatientEcard.PatientLastname</td>
-                <td>@PatientEcard.HospitalCampus.CampusName</td>
-                <td>@PatientEcard.PatientRoom</td>
-                <td>@PatientEcard.CardSubject</td>
+                <td>@patientcard.SenderFirstname @patientcard.SenderLastname</td>
+                <td>@patientcard.PatientFirstname @patientcard.PatientLastname</td>
+                <td>@patientcard.HospitalCampus.CampusName</td>
+                <td>@patientcard.PatientRoom</td>
+                <td>@patientcard.CardSubject</td>
                 <td>
-                    <a class="btn btn-primary" href="/PatientEcard/Show/?PatientCardID=@PatientEcard.PatientCardID">View</a>
+                    <a class="btn btn-primary" href="/PatientEcard/Show/?PatientCardID=@patientcard.PatientCardID">View</a>
 
-                    @if (PatientEcard.CardDelivered == false)
+                    @if (patientcard.CardDelivered == false)
                     {
-                        <button class="btn btn-danger" role="button" data-toggle="modal" data-target="#Deliver_@PatientEcard.PatientCardID">Click to Deliver</button>
+                        <button class="btn btn-danger" role="button" data-toggle="modal" data-target="#Deliver_@patientcard.PatientCardID">Click to Deliver</button>
                     }
 
                     <!-- Modal -->
-                    <div class="modal fade" id="Deliver_@PatientEcard.PatientCardID" tabindex="-1" role="dialog" aria-labelledby="DeliverLabel" aria-hidden="true">
+                    <div class="modal fade" id="Deliver_@patientcard.PatientCardID" tabindex="-1" role="dialog" aria-labelledby="DeliverLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -67,7 +97,7 @@
                                     Please confirm card delivery.
                                 </div>
                                 <div class="modal-footer">
-                                    <form method="post" action="/PatientEcard/Deliver/?PatientCardID=@PatientEcard.PatientCardID">
+                                    <form method="post" action="/PatientEcard/Deliver/?PatientCardID=@patientcard.PatientCardID">
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                                         <input type="submit" class="btn btn-danger" name="Deliver" value="Deliver" />
                                     </form>
@@ -80,3 +110,4 @@
         }
     </tbody>
 </table>
+

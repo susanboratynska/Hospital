@@ -1,14 +1,12 @@
 ﻿using HospitalProject.Data;
 using HospitalProject.Models;
 using HospitalProject.Models.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Data;
 // Required for SqlParameter class
 using System.Data.Entity;
 using System.Diagnostics;
 // Require to use cultrueinfo.invariantculture to parse Date:
-using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -27,11 +25,16 @@ namespace HospitalProject.Controllers
         }
 
         // List Patient Ecards:
-        public ActionResult List(string searchkey = "")
+        public ActionResult List(string searchkey = "", string delivered = "",  string campus = "", string subject = "")
         {
+            ListPatientEcards viewmodel = new ListPatientEcards();
+
+            viewmodel.HospitalCampuses = db.HospitalCampuses.ToList(); 
+
+
             Debug.WriteLine("The searchkey is " + searchkey);
 
-            if (searchkey != null || searchkey != "")
+            if (searchkey != "")
             {
                 List<PatientEcard> PatientEcards = db.PatientEcards
                     .Where(patientecard =>
@@ -43,14 +46,29 @@ namespace HospitalProject.Controllers
                         patientecard.CardMessage.Contains(searchkey) ||
                         patientecard.PatientRoom.Contains(searchkey)
                     ).ToList();
-                return View(PatientEcards);
+                viewmodel.PatientEcards = PatientEcards;
+            } else if (delivered != "")
+            {
+                bool deliveredbool = bool.Parse(delivered);
+                List<PatientEcard> PatientEcards = db.PatientEcards.Where(patientcard => patientcard.CardDelivered == deliveredbool).ToList();
+                viewmodel.PatientEcards = PatientEcards;
+            } else if (campus != "")
+            {
+                int campusid = int.Parse(campus);
+                List<PatientEcard> PatientEcards = db.PatientEcards.Where(patientcard => patientcard.CampusID == campusid).ToList();
+                viewmodel.PatientEcards = PatientEcards;
+            } else if (subject != "")
+            {
+                List<PatientEcard> PatientEcards = db.PatientEcards.Where(patientcard => patientcard.CardSubject.Contains(subject)).ToList();
+                viewmodel.PatientEcards = PatientEcards;
             }
             else
             {
                 List<PatientEcard> PatientEcards = db.PatientEcards.ToList();
-                return View(PatientEcards);
+                viewmodel.PatientEcards = PatientEcards;
             }
 
+            return View(viewmodel);
         }
 
         public ActionResult Show(int PatientCardID)
@@ -120,17 +138,30 @@ namespace HospitalProject.Controllers
         }
 
 
+        //[HttpPost]
+        //public ActionResult Delete(int PatientCardID)
+        //{
+        //    PatientEcard SelectedCard = db.PatientEcards.Find(PatientCardID);
+        //    // Equivalent to SQL delete statement:
+        //    db.PatientEcards.Remove(SelectedCard);
+        //    db.SaveChanges();
+
+        //    return RedirectToAction("List");
+        //}
+
+
+
+        // Change Delivery Status
         [HttpPost]
-        public ActionResult Delete(int PatientCardID)
+        public ActionResult Deliver(int PatientCardID)
         {
-            PatientEcard SelectedCard = db.PatientEcards.Find(PatientCardID);
-            // Equivalent to SQL delete statement:
-            db.PatientEcards.Remove(SelectedCard);
+            PatientEcard UpdateDelivery = db.PatientEcards.Find(PatientCardID);
+            UpdateDelivery.CardDelivered = true;
             db.SaveChanges();
 
             return RedirectToAction("List");
+            
         }
-
 
 
 
