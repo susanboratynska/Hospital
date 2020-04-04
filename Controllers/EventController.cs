@@ -49,7 +49,7 @@ namespace HospitalProject.Controllers
         }
 
 
-        // Display an Event:
+        // Show a single Event:
         public ActionResult Show(int EventID)
         {
             Event Event = db.Events.Include(c => c.HospitalCampus).FirstOrDefault(c => c.EventID == EventID);
@@ -122,8 +122,7 @@ namespace HospitalProject.Controllers
 
             UpdateEvent.CampusID = CampusID;
 
-            // LINQ equivalent to Insert Statement and save to DB:
-            db.Events.Add(UpdateEvent);
+
             db.SaveChanges();
 
             return RedirectToAction("Show");

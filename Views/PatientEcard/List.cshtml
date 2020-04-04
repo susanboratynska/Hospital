@@ -1,7 +1,82 @@
-﻿
+﻿@model List<HospitalProject.Models.PatientEcard>
 @{
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
+<h2>List of Patient Ecards</h2>
 
+<div class="navbar">
+    
+    <form action="/PatientEcard/List" method="GET" style="display:inline-block; float: right;">
+        <input type="text" name="searchkey" id="searchkey" class="btn btn-default search-input" />
+        <input type="submit" value="Search" class="btn btn-default" />
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Card ID</th>
+            <th>Delivery Status</th>
+            <th>Sender</th>
+            <th>Patient</th>
+            <th>Hospital Campus</th>
+            <th>Patient Room</th>
+            <th>Card Subject</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var PatientEcard in @Model)
+        {
+            <tr>
+                <td>@PatientEcard.PatientCardID</td>
+                <td>
+                    @if(PatientEcard.CardDelivered == false)
+                    {
+                        <p>No</p>
+                    } else
+                    {
+                        <p>Yes</p>
+                    }
+                </td>
+                <td>@PatientEcard.SenderFirstname @PatientEcard.SenderLastname</td>
+                <td>@PatientEcard.PatientFirstname @PatientEcard.PatientLastname</td>
+                <td>@PatientEcard.HospitalCampus.CampusName</td>
+                <td>@PatientEcard.PatientRoom</td>
+                <td>@PatientEcard.CardSubject</td>
+                <td>
+                    <a class="btn btn-primary" href="/PatientEcard/Show/?PatientCardID=@PatientEcard.PatientCardID">View</a>
+
+                    @if (PatientEcard.CardDelivered == false)
+                    {
+                        <button class="btn btn-danger" role="button" data-toggle="modal" data-target="#Deliver_@PatientEcard.PatientCardID">Click to Deliver</button>
+                    }
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="Deliver_@PatientEcard.PatientCardID" tabindex="-1" role="dialog" aria-labelledby="DeliverLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="DeliverLabel">Deliver Confirmation</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Please confirm card delivery.
+                                </div>
+                                <div class="modal-footer">
+                                    <form method="post" action="/PatientEcard/Deliver/?PatientCardID=@PatientEcard.PatientCardID">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                        <input type="submit" class="btn btn-danger" name="Deliver" value="Deliver" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

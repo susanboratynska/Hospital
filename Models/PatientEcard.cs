@@ -26,6 +26,13 @@ namespace HospitalProject.Models
         public DateTime Date { get; set; }
         public string PatientRoom { get; set; }
 
+        // Set default value to FALSE:
+        public bool CardDelivered { get; set; }
+        public PatientEcard()
+        {
+            CardDelivered = false;
+        }
+
         // Representing the Many in (One HospitalCampus to Many PatientEcards)
         public int CampusID { get; set; }
         [ForeignKey("CampusID")]

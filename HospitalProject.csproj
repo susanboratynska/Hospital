@@ -190,9 +190,13 @@
     <Compile Include="Migrations\202004031518332_events3.designer.cs">
       <DependentUpon>202004031518332_events3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004031644381_events4.cs" />
-    <Compile Include="Migrations\202004031644381_events4.designer.cs">
-      <DependentUpon>202004031644381_events4.cs</DependentUpon>
+    <Compile Include="Migrations\202004032243036_patientcard.cs" />
+    <Compile Include="Migrations\202004032243036_patientcard.designer.cs">
+      <DependentUpon>202004032243036_patientcard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004032256059_patientcard2.cs" />
+    <Compile Include="Migrations\202004032256059_patientcard2.designer.cs">
+      <DependentUpon>202004032256059_patientcard2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -269,6 +273,7 @@
     <Content Include="Views\Event\Update.cshtml" />
     <Content Include="Views\Event\Show.cshtml" />
     <Content Include="Views\PatientEcard\List.cshtml" />
+    <Content Include="Views\PatientEcard\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -296,8 +301,11 @@
     <EmbeddedResource Include="Migrations\202004031518332_events3.resx">
       <DependentUpon>202004031518332_events3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004031644381_events4.resx">
-      <DependentUpon>202004031644381_events4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004032243036_patientcard.resx">
+      <DependentUpon>202004032243036_patientcard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004032256059_patientcard2.resx">
+      <DependentUpon>202004032256059_patientcard2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
