@@ -45,24 +45,25 @@ namespace HospitalProject.Controllers
                         patientecard.PatientLastname.Contains(searchkey) ||
                         patientecard.CardMessage.Contains(searchkey) ||
                         patientecard.PatientRoom.Contains(searchkey)
-                    ).ToList();
+                    ).OrderByDescending(p => p.DateSubmitted).ToList();
                 viewmodel.PatientEcards = PatientEcards;
             } else if (delivered != "")
             {
                 bool deliveredbool = bool.Parse(delivered);
-                List<PatientEcard> PatientEcards = db.PatientEcards.Where(patientcard => patientcard.CardDelivered == deliveredbool).ToList();
+                List<PatientEcard> PatientEcards = db.PatientEcards.Where(patientcard => patientcard.CardDelivered == deliveredbool).OrderByDescending(p => p.DateSubmitted).ToList();
                 viewmodel.PatientEcards = PatientEcards;
             } else if (campus != "")
             {
                 int campusid = int.Parse(campus);
-                List<PatientEcard> PatientEcards = db.PatientEcards.Where(patientcard => patientcard.CampusID == campusid).ToList();
+                List<PatientEcard> PatientEcards = db.PatientEcards.Where(patientcard => patientcard.CampusID == campusid).OrderByDescending(p => p.DateSubmitted).ToList();
                 viewmodel.PatientEcards = PatientEcards;
             } 
             else
             {
-                List<PatientEcard> PatientEcards = db.PatientEcards.ToList();
+                List<PatientEcard> PatientEcards = db.PatientEcards.OrderByDescending(p => p.DateSubmitted).ToList();
                 viewmodel.PatientEcards = PatientEcards;
             }
+
 
             return View(viewmodel);
         }

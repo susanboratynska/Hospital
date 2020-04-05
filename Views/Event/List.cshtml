@@ -1,4 +1,4 @@
-﻿@model List<HospitalProject.Models.Event>
+﻿@model HospitalProject.Models.ViewModels.ListEvents
 
 @{
     ViewBag.Title = "List";
@@ -8,7 +8,7 @@
 
 <div class="navbar">
     <a class="btn btn-default" href="/Event/Add" role="button">Add New Event</a>
-    <form action="/Event/List" method="GET" style="display:inline-block; float: right;" >
+    <form action="/Event/List" method="GET" style="display:inline-block; float: right;">
         <input type="text" name="searchkey" id="searchkey" class="btn btn-default search-input" />
         <input type="submit" value="Search" class="btn btn-default" />
     </form>
@@ -21,17 +21,28 @@
             <th>Location</th>
             <th>Date</th>
             <th>Department</th>
-            <th>Campus</th>
+            <th class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hospital Campus <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/PatientEcard/List/">All Campuses</a></li>
+                    @foreach (var hospital in Model.HospitalCampuses)
+                    {
+                        <li><a href="/Event/List/?campus=@hospital.CampusID">@hospital.CampusName</a></li>
+                    }
+                </ul>
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var Event in @Model)
+        @foreach (var Event in Model.Events)
         {
             <tr>
                 <td><a href="/Event/Show/?EventID=@Event.EventID">@Event.EventTitle</a></td>
                 <td>@Event.EventLocation</td>
-                <td>@Event.EventDate</td>
+                <td>@Event.EventDate.ToString("yyyy-MM-dd")</td>
                 <td>@Event.EventHostingDepartment</td>
                 <td>@Event.HospitalCampus.CampusName</td>
                 <td>

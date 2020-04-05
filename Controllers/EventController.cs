@@ -26,11 +26,15 @@ namespace HospitalProject.Controllers
 
 
         // List Events:
-        public ActionResult List(string searchkey = "")
+        public ActionResult List(string searchkey = "", string campus = "")
         {
+            ListEvents viewmodel = new ListEvents();
+            viewmodel.HospitalCampuses = db.HospitalCampuses.ToList();
+
+
             Debug.WriteLine("The searchkey is " + searchkey);
 
-            if (searchkey != null || searchkey != "")
+            if (searchkey != "")
             {
                 List<Event> Events = db.Events
                     .Where(Event =>
@@ -38,13 +42,22 @@ namespace HospitalProject.Controllers
                         Event.EventDescription.Contains(searchkey) ||
                         Event.EventLocation.Contains(searchkey)
                     ).ToList();
-                    return View(Events);
+                viewmodel.Events = Events;
+
+            } else if (campus != ""){
+
+                int campusid = int.Parse(campus);
+                List<Event> Events = db.Events.Where(h => h.CampusID == campusid).ToList();
+                viewmodel.Events = Events;
+
             }
             else
             {
-            List<Event> Events = db.Events.ToList();
-            return View(Events);
+                List<Event> Events = db.Events.ToList();
+                viewmodel.Events = Events;
             }
+
+            return View(viewmodel);
 
         }
 
