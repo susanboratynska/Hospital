@@ -1,4 +1,4 @@
-﻿@model HospitalProject.Models.PatientEcards
+﻿@model HospitalProject.Models.PatientEcard
 
 @{
     ViewBag.Title = "Show";
@@ -39,63 +39,73 @@
 </div>
 
 
-    <div class="form-horizontal">
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Delivery Status:</label>
-            <div class="col-sm-10">
-                @if (@Model.CardDelivered == false)
-                {
-                    <p class="form-control-static">No</p>
-                }
-                else
-                {
-                    <p class="form-control-static">Yes</p>
-                }
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Patient:</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">@Model.PatientFirstname @Model.PatientLastname</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Sender:</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">@Model.SenderFirstname @Model.SenderLastname</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Host:</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">@Model.CardSubject</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Date:</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">@Model.CardMessage</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Location:</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">@Model.HospitalCampus.CampusName</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Patient Room:</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">@Model.PatientRoom</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Time:</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">@Model.Date</p>
-            </div>
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Delivery Status:</label>
+        <div class="col-sm-10">
+            @if (@Model.CardDelivered == false)
+            {
+                <p class="form-control-static">No</p>
+            }
+            else
+            {
+                <p class="form-control-static">Yes</p>
+            }
         </div>
     </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Patient:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.PatientFirstname @Model.PatientLastname</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Sender:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.SenderFirstname @Model.SenderLastname</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Date:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.CardMessage</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Location:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.HospitalCampus.CampusName</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Patient Room:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.PatientRoom</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Date Submitted:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.DateSubmitted</p>
+        </div>
+    </div>
+    @if (Model.DateDelivered != null)
+    {
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Date Delivered:</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">@Model.DateDelivered</p>
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Selected Card:</label>
+        <div class="col-sm-10">
+            <img src="~/Content/eCards/@Model.CardImage" style="max-width:50%;">
+        </div>
+    </div>
+
+</div>
 
 
 

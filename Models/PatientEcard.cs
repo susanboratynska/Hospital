@@ -19,11 +19,11 @@ namespace HospitalProject.Models
         public int PatientCardID { get; set; }
         public string SenderFirstname { get; set; }
         public string SenderLastname { get; set; }
+        public string SenderEmail { get; set; }
         public string PatientFirstname { get; set; }
         public string PatientLastname { get; set; }
-        public string CardSubject { get; set; }
         public string CardMessage { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime DateSubmitted { get; set; }
         public string PatientRoom { get; set; }
 
         // Set default value to FALSE:
@@ -31,7 +31,13 @@ namespace HospitalProject.Models
         public PatientEcard()
         {
             CardDelivered = false;
+            DateDelivered = null;
         }
+
+        public DateTime ? DateDelivered { get; set; }
+
+
+        public string CardImage { get; set; }
 
         // Representing the Many in (One HospitalCampus to Many PatientEcards)
         public int CampusID { get; set; }

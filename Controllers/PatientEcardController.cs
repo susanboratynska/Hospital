@@ -1,6 +1,7 @@
 ﻿using HospitalProject.Data;
 using HospitalProject.Models;
 using HospitalProject.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 // Required for SqlParameter class
@@ -25,7 +26,7 @@ namespace HospitalProject.Controllers
         }
 
         // List Patient Ecards:
-        public ActionResult List(string searchkey = "", string delivered = "",  string campus = "", string subject = "")
+        public ActionResult List(string searchkey = "", string delivered = "",  string campus = "")
         {
             ListPatientEcards viewmodel = new ListPatientEcards();
 
@@ -42,7 +43,6 @@ namespace HospitalProject.Controllers
                         patientecard.SenderLastname.Contains(searchkey) ||
                         patientecard.PatientFirstname.Contains(searchkey) ||
                         patientecard.PatientLastname.Contains(searchkey) ||
-                        patientecard.CardSubject.Contains(searchkey) ||
                         patientecard.CardMessage.Contains(searchkey) ||
                         patientecard.PatientRoom.Contains(searchkey)
                     ).ToList();
@@ -57,11 +57,7 @@ namespace HospitalProject.Controllers
                 int campusid = int.Parse(campus);
                 List<PatientEcard> PatientEcards = db.PatientEcards.Where(patientcard => patientcard.CampusID == campusid).ToList();
                 viewmodel.PatientEcards = PatientEcards;
-            } else if (subject != "")
-            {
-                List<PatientEcard> PatientEcards = db.PatientEcards.Where(patientcard => patientcard.CardSubject.Contains(subject)).ToList();
-                viewmodel.PatientEcards = PatientEcards;
-            }
+            } 
             else
             {
                 List<PatientEcard> PatientEcards = db.PatientEcards.ToList();
@@ -82,29 +78,45 @@ namespace HospitalProject.Controllers
         // List Hospital Campuses for Adding a new PatientEcard:
         public ActionResult Add()
         {
-            List<PatientEcard> PatientEcard= db.PatientEcards.ToList();
-            return View(PatientEcard);
+            ListPatientEcards viewmodel = new ListPatientEcards();
+            viewmodel.HospitalCampuses = db.HospitalCampuses.ToList();
+            return View(viewmodel);
         }
 
         [HttpPost]
-        public ActionResult Add(string SenderFirstname, string SenderLastname, string PatientFirstname, string PatientLastname, string CardSubject, string CardMessage, string PatientRoom, int CampusID)
+        public ActionResult Add(string SenderFirstname, string SenderLastname, string SenderEmail, string PatientFirstname, string PatientLastname, string CardMessage, string PatientRoom, int CampusID, string CardImage)
         {
-            PatientEcard AddCard = new PatientEcard();
-            AddCard.SenderFirstname = SenderFirstname;
-            AddCard.SenderLastname = SenderLastname;
-            AddCard.PatientFirstname = PatientFirstname;
-            AddCard.PatientLastname = PatientLastname;
-            AddCard.CardSubject = CardSubject;
-            AddCard.CardMessage = CardMessage;
-            AddCard.PatientRoom = PatientRoom;
-            AddCard.CampusID = CampusID;
+
+            PatientEcard patientecard = new PatientEcard();
+            patientecard.SenderFirstname = SenderFirstname;
+            patientecard.SenderLastname = SenderLastname;
+            patientecard.SenderEmail = SenderEmail;
+            patientecard.PatientFirstname = PatientFirstname;
+            patientecard.PatientLastname = PatientLastname;
+            patientecard.CardMessage = CardMessage;
+            patientecard.PatientRoom = PatientRoom;
+            patientecard.CampusID = CampusID;
+            patientecard.CardImage = CardImage;
+            patientecard.DateSubmitted = DateTime.Now;
+            patientecard.DateDelivered = null;
+
 
             // Equivalent to SQL insert statement:
-            db.PatientEcards.Add(AddCard);
+            db.PatientEcards.Add(patientecard);
 
             db.SaveChanges();
 
-            return RedirectToAction("List");
+            //string redirectstring = "?PatientCardID=" + patientecard.PatientCardID;
+
+            return RedirectToAction("Confirm/", new { id = patientecard.PatientCardID });
+        }
+
+        public ActionResult Confirm(int id)
+        {
+            PatientEcard confirmsubmission = db.PatientEcards.Find(id);
+
+            return View(confirmsubmission);
+
         }
 
 
@@ -120,14 +132,13 @@ namespace HospitalProject.Controllers
 
         // Update Patient Card: 
         [HttpPost]
-        public ActionResult Update(int PatientCardID, string SenderFirstname, string SenderLastname, string PatientFirstname, string PatientLastname, string CardSubject, string CardMessage, string PatientRoom, int CampusID)
+        public ActionResult Update(int PatientCardID, string SenderFirstname, string SenderLastname, string PatientFirstname, string PatientLastname, string CardMessage, string PatientRoom, int CampusID)
         {
             PatientEcard UpdateCard = db.PatientEcards.Find(PatientCardID);
             UpdateCard.SenderFirstname = SenderFirstname;
             UpdateCard.SenderLastname = SenderLastname;
             UpdateCard.PatientFirstname = PatientFirstname;
             UpdateCard.PatientLastname = PatientLastname;
-            UpdateCard.CardSubject = CardSubject;
             UpdateCard.CardMessage = CardMessage;
             UpdateCard.PatientRoom = PatientRoom;
             UpdateCard.CampusID = CampusID;
@@ -157,6 +168,8 @@ namespace HospitalProject.Controllers
         {
             PatientEcard UpdateDelivery = db.PatientEcards.Find(PatientCardID);
             UpdateDelivery.CardDelivered = true;
+            UpdateDelivery.DateDelivered = DateTime.Now;
+        
             db.SaveChanges();
 
             return RedirectToAction("List");

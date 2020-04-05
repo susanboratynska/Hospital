@@ -108,3 +108,5 @@ C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.events3.resources
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.patientcard.resources
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.patientcard2.resources
+C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.patientecard.resources
+C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.patientecard2.resources

@@ -42,17 +42,6 @@
                 </ul>
             </th>
             <th>Patient Room</th>
-            <th class="dropdown">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Card Subject <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="/PatientEcard/List/">All Subjects</a></li>
-                    <li><a href="/PatientEcard/List/?subject=get">Get Well</a></li>
-                    <li><a href="/PatientEcard/List/?subject=congrat">Congratulations</a></li>
-                </ul>
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -74,7 +63,6 @@
                 <td>@patientcard.PatientFirstname @patientcard.PatientLastname</td>
                 <td>@patientcard.HospitalCampus.CampusName</td>
                 <td>@patientcard.PatientRoom</td>
-                <td>@patientcard.CardSubject</td>
                 <td>
                     <a class="btn btn-primary" href="/PatientEcard/Show/?PatientCardID=@patientcard.PatientCardID">View</a>
 
