@@ -182,6 +182,30 @@
     <Compile Include="Migrations\202004012320162_initial.designer.cs">
       <DependentUpon>202004012320162_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004030251537_event.cs" />
+    <Compile Include="Migrations\202004030251537_event.designer.cs">
+      <DependentUpon>202004030251537_event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004031518332_events3.cs" />
+    <Compile Include="Migrations\202004031518332_events3.designer.cs">
+      <DependentUpon>202004031518332_events3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004032243036_patientcard.cs" />
+    <Compile Include="Migrations\202004032243036_patientcard.designer.cs">
+      <DependentUpon>202004032243036_patientcard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004032256059_patientcard2.cs" />
+    <Compile Include="Migrations\202004032256059_patientcard2.designer.cs">
+      <DependentUpon>202004032256059_patientcard2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004042240301_patientecard.cs" />
+    <Compile Include="Migrations\202004042240301_patientecard.designer.cs">
+      <DependentUpon>202004042240301_patientecard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004050452585_patientecard2.cs" />
+    <Compile Include="Migrations\202004050452585_patientecard2.designer.cs">
+      <DependentUpon>202004050452585_patientecard2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -189,6 +213,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PatientEcard.cs" />
+    <Compile Include="Models\ViewModels\AddEvent.cs" />
+    <Compile Include="Models\ViewModels\ListEvents.cs" />
+    <Compile Include="Models\ViewModels\ListPatientEcards.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -197,6 +224,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\eCards\congratulationsbaby.jpg" />
+    <Content Include="Content\eCards\getwellsoon.jpg" />
+    <Content Include="Content\eCards\thinkingofyou.jpg" />
+    <Content Include="Content\styles-susan.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -250,12 +281,18 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\HospitalCampus\List.cshtml" />
     <Content Include="Views\HospitalCampus\Add.cshtml" />
+    <Content Include="Views\HospitalCampus\Update.cshtml" />
+    <Content Include="Views\Event\List.cshtml" />
+    <Content Include="Views\Event\Add.cshtml" />
+    <Content Include="Views\Event\Update.cshtml" />
+    <Content Include="Views\Event\Show.cshtml" />
+    <Content Include="Views\PatientEcard\List.cshtml" />
+    <Content Include="Views\PatientEcard\Show.cshtml" />
+    <Content Include="Views\PatientEcard\Add.cshtml" />
+    <Content Include="Views\PatientEcard\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\ViewModels\" />
-    <Folder Include="Views\Event\" />
-    <Folder Include="Views\PatientEcard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -273,6 +310,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004012320162_initial.resx">
       <DependentUpon>202004012320162_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004030251537_event.resx">
+      <DependentUpon>202004030251537_event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004031518332_events3.resx">
+      <DependentUpon>202004031518332_events3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004032243036_patientcard.resx">
+      <DependentUpon>202004032243036_patientcard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004032256059_patientcard2.resx">
+      <DependentUpon>202004032256059_patientcard2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004042240301_patientecard.resx">
+      <DependentUpon>202004042240301_patientecard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004050452585_patientecard2.resx">
+      <DependentUpon>202004050452585_patientecard2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

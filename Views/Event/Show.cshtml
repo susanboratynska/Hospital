@@ -1,0 +1,93 @@
+﻿@model HospitalProject.Models.Event
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>@Model.EventTitle</h2>
+
+<div class="navbar">
+    <a class="btn btn-default" href="/Event/List" role="button">Back to List</a>
+    <a class="btn btn-default" href="/Event/Update/@Model.EventID" role="button">Add New Event</a>
+    <button class="btn btn-danger" role="button" data-toggle="modal" data-target="#Delete_@Model.EventID">Delete</button>
+    <!-- Modal -->
+    <div class="modal fade" id="Delete_@Model.EventID" tabindex="-1" role="dialog" aria-labelledby="DeleteLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="DeleteLabel">Delete Confirmation</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Would you like to permanently delete <strong>@Model.EventTitle</strong>?
+                </div>
+                <div class="modal-footer">
+               
+                    <form method="post" action="/Event/Delete/?EventID=@Model.EventID">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-danger" name="Delete" value="Delete" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Name:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventTitle</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Description:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventDescription</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Host:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventHostingDepartment</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Date:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventDate</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Time:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventDate</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Location:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.EventLocation</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Hospital Campus:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">@Model.HospitalCampus.CampusName</p>
+            <p class="form-control-static">@Model.HospitalCampus.CampusAddressLine1</p>
+            @if(Model.HospitalCampus.CampusAddressLine2 != null)
+             { 
+                <p class="form-control-static">@Model.HospitalCampus.CampusAddressLine2</p>
+             }
+            <p class="form-control-static">@Model.HospitalCampus.CampusCity, @Model.HospitalCampus.CampusProvince @Model.HospitalCampus.CampusPC</p>
+        </div>
+    </div>
+
+</div>
+

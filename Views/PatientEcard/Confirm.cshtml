@@ -1,0 +1,64 @@
+﻿@model HospitalProject.Models.PatientEcard
+@{
+    ViewBag.Title = "Confirm";
+}
+
+<h2>Your eCard is on its way!</h2>
+
+<h4>Your Patient eCard will be printed and delivered to the patient by one of our volunteer staff as soon as possible.</h4>
+
+<style>
+    .card__outline {
+        outline: solid 1px gray;
+        margin-top: 15px 10px 15px 0;
+        margin-right: 10px;
+        margin-bottom: 25px;
+        display: inline-block;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        max-width: 40%;
+    }
+
+    .card__outline_selected {
+        box-shadow: 0 4px 8px 0 rgba(243, 9, 9, 0.2), 0 6px 20px 0 rgb(150, 8, 8);
+    }
+
+    .card__img {
+        max-width: 100%;
+    }
+
+    .card__container {
+        height: 200px;
+        padding: 10px 15px;
+    }
+
+    #card__message {
+        height: 105px;
+    }
+
+    .radio-inline {
+        width: 30%;
+    }
+
+</style>
+
+<div class="image__container">
+    @{
+
+        @* IMG SRC:https://www.crosscards.com/ *@
+        @* NOTE: Img used without permission. For educational purposes only.*@
+
+        <div class="card__outline">
+            <img class="card__img" src="/Content/ecards/@Model.CardImage" />
+            <div class="card__container">
+                <p><strong>To:</strong>@Model.PatientFirstname @Model.PatientLastname</p>
+                <p id="card__message">
+                    <strong>Message:</strong><br />
+                    @Model.CardMessage
+                </p>
+                <p><strong>From:</strong>@Model.SenderFirstname @Model.SenderLastname</p>
+
+            </div>
+        </div>
+
+    }
+</div>

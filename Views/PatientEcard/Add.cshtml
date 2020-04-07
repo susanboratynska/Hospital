@@ -1,0 +1,174 @@
+﻿@model HospitalProject.Models.ViewModels.ListPatientEcards
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Welcome to Patient eCard</h2>
+
+<p>This is free service that allows you to send well wishes to a friend a loved one who is a patient at the <strong>North Bay Regional Health Centre</strong>.</p>
+
+<style>
+    .card__outline {
+        outline: solid 1px gray;
+        margin-top: 15px 10px 15px 0;
+        margin-right: 10px;
+        margin-bottom: 25px;
+        display: inline-block;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        
+    }
+
+    .card__outline_selected {
+        box-shadow: 0 4px 8px 0 rgba(243, 9, 9, 0.2), 0 6px 20px 0 rgb(150, 8, 8);
+    }
+
+    
+
+    .card__img {
+        max-width: 100%;
+    }
+
+    .card__container {
+        height: 200px;
+        padding: 10px 15px;
+    }
+
+    #card__message {
+        height: 105px;
+    }
+
+    .radio-inline{
+        width: 30%;
+    }
+
+    .img-selected {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+</style>
+
+
+
+<form method="POST" action="/PatientEcard/Add" class="form-horizontal">
+    <div class="form-group">
+        <label for="PatientName" class="col-sm-2 control-label">Patient Name:</label>
+        <div class="row">
+            <div class="col-xs-3"><input id="PatientFirstname" class="form-control" type="text" name="PatientFirstname" placeholder="Firstname" /></div>
+            <div class="col-xs-3"><input id="PatientLastname" class="form-control" type="text" name="PatientLastname" placeholder="Lastname" /></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="SenderName" class="col-sm-2 control-label">Your Name:</label>
+        <div class="row">
+            <div class="col-xs-3"><input id="SenderFirstname" class="form-control" type="text" name="SenderFirstname" placeholder="Firstname" /></div>
+            <div class="col-xs-3"><input id="SenderLastname" class="form-control" type="text" name="SenderLastname" placeholder="Lastname" /></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="SenderEmail" class="col-sm-2 control-label">Your Email:</label>
+        <div class="col-sm-10">
+            <input id="SenderEmail" class="form-control" type="text" name="SenderEmail" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="CardMessage" class="col-sm-2 control-label">Message:</label>
+        <div class="col-sm-10">
+            <textarea id="CardMessage" class="form-control" rows="3" name="CardMessage"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="CampusID" class="col-sm-2 control-label">Hospital Campus:</label>
+        <div class="col-sm-10">
+            <select id="CampusID" name="CampusID" class="form-control">
+                <option value="empty">Please select one</option>
+                @foreach (var hospitalcampus in Model.HospitalCampuses)
+                {
+                    <option value="@hospitalcampus.CampusID" name="@hospitalcampus.CampusID">@hospitalcampus.CampusName</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="PatientRoom" class="col-sm-2 control-label">Patient Room:</label>
+        <div class="col-sm-10">
+            <input id="PatientRoom" class="form-control" type="text" name="PatientRoom" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="CardImage" class="col-sm-2 control-label">Select Card Image:</label>
+    </div>
+        
+        <div class="image__container">
+            @{
+                var imagePath = Server.MapPath("~/Content/ecards");
+                var cardimages = Directory.GetFiles(imagePath);
+
+                @* IMG SRC:https://www.crosscards.com/ *@
+                @* NOTE: Img used without permission. For educational purposes only.*@
+
+                foreach (var image in cardimages)
+                {   
+                    <input type="radio" class="hidden" id="@Path.GetFileName(image)" name="CardImage" value="@Path.GetFileName(image)" />
+                    <label for="@Path.GetFileName(image)" style="cursor:pointer;" class="radio-inline">
+                        <div class="card__outline">
+                            <img class="card__img" src="/Content/ecards/@Path.GetFileName(image)" />
+                            <div class="card__container">
+                                <p><strong>To:</strong><span class="card__patientfirstname"></span> <span class="card__patientlastname"></span></p>
+                                <p id="card__message">
+                                    <strong>Message:</strong><br />
+                                    <span class="card__message"></span>
+                                </p>
+                                <p><strong>From:</strong><span class="card__senderfirstname"></span> <span class="card__senderlastname"></span></p>
+
+                            </div>
+                        </div>
+                    </label>               
+                }
+
+            }
+        </div>
+
+    <div>
+        <input type="submit" class="btn btn-primary" value="Send eCard" />
+    </div>
+
+</form>
+
+
+
+
+
+
+    
+<script>
+    // Function to populate text simultaneously using keyup method:
+    function populatetext(input, output) {
+        $(document).ready(function(){
+            $(input).keyup(function(){
+                // Get current value from form input:
+                var currentText = $(this).val();
+
+                // Set the value in the card template:
+                $(output).text(currentText);
+            });
+        });
+    }
+
+    populatetext("#PatientFirstname", ".card__patientfirstname");
+    populatetext("#PatientLastname", ".card__patientlastname");
+    populatetext("#CardMessage", ".card__message");
+    populatetext("#SenderFirstname", ".card__senderfirstname");
+    populatetext("#SenderLastname", ".card__senderlastname");
+
+
+    // Outlined selected card image:
+    $(document).ready(function() {
+    $('.card__outline').click(function() {
+        $('.card__outline').removeClass('card__outline_selected');
+        $(this).addClass('card__outline_selected');
+    });
+});
+
+        
+</script>
+

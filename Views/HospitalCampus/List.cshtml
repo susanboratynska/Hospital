@@ -7,11 +7,11 @@
 <h2>List of Hospital Campuses</h2>
 
 <div class="navbar">
-    <form action="/HospitalCampus/List" method="GET" class="float-top-right">
+    <a class="btn btn-default" href="/HospitalCampus/Add" role="button">Add New</a>
+    <form action="/HospitalCampus/List" method="GET" style="display:inline-block; float: right;">
         <input type="text" name="searchkey" id="searchkey" class="btn btn-default search-input" />
         <input type="submit" value="Search" class="btn btn-default" />
     </form>
-    <a class="btn btn-default" href="/HospitalCampus/Add" role="button">Add New</a>
 </div>
 
 <table class="table">
@@ -23,32 +23,50 @@
             <th>Province</th>
             <th>Postal Code</th>
             <th>Phone</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var hospitalcampus in @Model)
         {
             <tr>
-                <td><a href="/HospitalCampus/Show/@hospitalcampus.CampusID">@hospitalcampus.CampusName</a></td>
+                <td><strong>@hospitalcampus.CampusName</strong></td>
                 <td>@hospitalcampus.CampusAddressLine1 @hospitalcampus.CampusAddressLine2</td>
                 <td>@hospitalcampus.CampusCity</td>
                 <td>@hospitalcampus.CampusProvince</td>
                 <td>@hospitalcampus.CampusPC</td>
                 <td>@hospitalcampus.CampusPhone</td>
+                <td>
+                    <a class="btn btn-primary" href="/HospitalCampus/Update/?CampusID=@hospitalcampus.CampusID">Update</a>
+                    <button class="btn btn-danger" role="button" data-toggle="modal" data-target="#Delete_@hospitalcampus.CampusID">Delete</button>
+                    <!-- Modal -->
+                  
+                    <div class="modal fade" id="Delete_@hospitalcampus.CampusID" tabindex="-1" role="dialog" aria-labelledby="DeleteLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="DeleteLabel">Delete Confirmation</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Would you like to permanently delete <strong>@hospitalcampus.CampusName</strong>?
+                                </div>
+                                <div class="modal-footer"> 
+                                    <form method="post" action="/HospitalCampus/Delete/?CampusID=@hospitalcampus.CampusID">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                        <input type="submit" class="btn btn-danger" name="Delete" value="Delete" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </td>
             </tr>
         }
     </tbody>
 </table>
-
-
-@*<div class="tilecontainer">
-    @{
-        foreach (var hospitalcampus in @Model)
-        {
-            <div class="listitem">
-                <a href="/HospitalCampus/Show/@hospitalcampus.CampusID">@hospitalcampus.CampusName</a>
-                <a class="btn btn-default" href="/HospitalCampus/Update/@hospitalcampus.CampusID">Update</a>
-            </div>
-        }
-    }
-</div>*@

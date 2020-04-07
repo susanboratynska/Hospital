@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using HospitalProject.Data;
 using HospitalProject.Models;
 using System.Diagnostics;
+using System.IO; 
 
 namespace HospitalProject.Controllers
 {
@@ -47,7 +48,6 @@ namespace HospitalProject.Controllers
                 return View(HospitalCampuses);
             }
 
-            
         }
 
         // Add New Hospital Campus:
@@ -77,6 +77,44 @@ namespace HospitalProject.Controllers
         }
 
 
+        // Display existing Hospital Campus in form:
+        public ActionResult Update(int CampusID)
+        {
+            HospitalCampus SelectedCampus = db.HospitalCampuses.Find(CampusID);
+
+            return View(SelectedCampus);
+        }
+
+        // Update existing Hospital Campus:
+        [HttpPost]
+        public ActionResult Update(int CampusID, string CampusName, string CampusAddressLine1, string CampusAddressLine2, string CampusCity, string CampusProvince, string CampusPC, string CampusPhone)
+        {
+            HospitalCampus SelectedCampus = db.HospitalCampuses.Find(CampusID);
+            SelectedCampus.CampusName = CampusName;
+            SelectedCampus.CampusAddressLine1 = CampusAddressLine1;
+            SelectedCampus.CampusAddressLine2 = CampusAddressLine2;
+            SelectedCampus.CampusCity = CampusCity;
+            SelectedCampus.CampusProvince = CampusProvince;
+            SelectedCampus.CampusPC = CampusPC;
+            SelectedCampus.CampusPhone = CampusPhone;
+
+            db.SaveChanges();
+
+            return RedirectToAction("List");
+
+        }
+
+        // Delete Hospital Campus:
+        [HttpPost]
+        public ActionResult Delete(int CampusID)
+        {
+            HospitalCampus SelectedCampus = db.HospitalCampuses.Find(CampusID);
+            // Equivalent to SQL delete statement:
+            db.HospitalCampuses.Remove(SelectedCampus);
+            db.SaveChanges();
+
+            return RedirectToAction("List");
+        }
 
 
     }

@@ -1,0 +1,77 @@
+﻿@model HospitalProject.Models.ViewModels.ListEvents
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Events</h2>
+
+<div class="navbar">
+    <a class="btn btn-default" href="/Event/Add" role="button">Add New Event</a>
+    <form action="/Event/List" method="GET" style="display:inline-block; float: right;">
+        <input type="text" name="searchkey" id="searchkey" class="btn btn-default search-input" />
+        <input type="submit" value="Search" class="btn btn-default" />
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Department</th>
+            <th class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hospital Campus <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/PatientEcard/List/">All Campuses</a></li>
+                    @foreach (var hospital in Model.HospitalCampuses)
+                    {
+                        <li><a href="/Event/List/?campus=@hospital.CampusID">@hospital.CampusName</a></li>
+                    }
+                </ul>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Event in Model.Events)
+        {
+            <tr>
+                <td><a href="/Event/Show/?EventID=@Event.EventID">@Event.EventTitle</a></td>
+                <td>@Event.EventLocation</td>
+                <td>@Event.EventDate.ToString("yyyy-MM-dd")</td>
+                <td>@Event.EventHostingDepartment</td>
+                <td>@Event.HospitalCampus.CampusName</td>
+                <td>
+                    <a class="btn btn-primary" href="/Event/Update/?EventID=@Event.EventID">Update</a>
+                    <button class="btn btn-danger" role="button" data-toggle="modal" data-target="#Delete_@Event.EventID">Delete</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="Delete_@Event.EventID" tabindex="-1" role="dialog" aria-labelledby="DeleteLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="DeleteLabel">Delete Confirmation</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Would you like to permanently delete <strong>@Event.EventTitle</strong>?
+                                </div>
+                                <div class="modal-footer">
+                                    <form method="post" action="/Event/Delete/?EventID=@Event.EventID">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                        <input type="submit" class="btn btn-danger" name="Delete" value="Delete" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
