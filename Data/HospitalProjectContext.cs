@@ -30,6 +30,9 @@ namespace HospitalProject.Data
         // A logged in user could be a Doctor:
         // public virtual Doctor Doctor { get; set; }
 
+        // A logged in user can be a Patient:
+           public virtual Patient Patient { get; set; }
+
         // A logged in user could be Volunteer:
         // public virtual Volunteer Volunteer { get; set; }
 
@@ -55,6 +58,9 @@ namespace HospitalProject.Data
         public System.Data.Entity.DbSet<HospitalProject.Models.Event> Events { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.HospitalCampus> HospitalCampuses { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.PatientEcard> PatientEcards { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.Patient> Patients { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.Service> Services { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.Invoice> Invoices{ get; set; }
 
     }
 }
