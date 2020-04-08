@@ -15,7 +15,8 @@ namespace HospitalProject.Models
     {
         // Things that describes a Patient:
         [Key]
-        public int PatientID { get; set; } 
+        public int PatientID { get; set; }
+        public string UserId { get; set; }
         public string EmergencyContactFname { get; set; }
         public string EmergencyContactLname{ get; set; }
         public string EmergencyContactPhone { get; set; }
@@ -24,6 +25,9 @@ namespace HospitalProject.Models
         public BloodGroups BloodGroup{ get; set; }
         public string MedicalHistory{ get; set; }
         public string HealthCardNumber{ get; set; }
+
+       [ForeignKey("UserId")]
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
     }
 
