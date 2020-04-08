@@ -10,11 +10,18 @@ using HospitalProject.Data;
 
 namespace HospitalProject.Models
 {
-    public class Service
+    public class Application
     {
         [Key]
-        public int ServiceID { get; set; } 
-        public string ServiceName { get; set; }
-        public ICollection<Invoice> Invoices { get; set; }
+        public int ApplicationID { get; set; }
+
+        public int VolunteerID { get; set; }
+        [ForeignKey("VolunteerID")]
+        public virtual Volunteer Volunteer { get; set; }
+        public string Education { get; set; }
+        public string CurrentEducation { get; set; }
+        public int Experience { get; set; }
+        public string Position { get; set; }
+
     }
 }

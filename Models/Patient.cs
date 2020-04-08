@@ -15,7 +15,7 @@ namespace HospitalProject.Models
     {
         // Things that describes a Patient:
         [Key]
-        public int PatientID { get; set; }
+        public int PatientID { get; set; } 
         public string EmergencyContactFname { get; set; }
         public string EmergencyContactLname{ get; set; }
         public string EmergencyContactPhone { get; set; }

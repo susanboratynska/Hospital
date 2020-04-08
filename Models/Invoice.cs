@@ -15,9 +15,9 @@ namespace HospitalProject.Models
         /*
             In one invoice there can be one or more services
             In invoice, there must a reference of list of services
-        */
+        */ 
         [Key]
-        public int InvoiceID { get; set; }
+        public int InvoiceID { get; set; }  
         public double Amount { get; set; }
         public DateTime DateOfService { get; set; }
 
