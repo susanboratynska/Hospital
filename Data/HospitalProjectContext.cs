@@ -61,6 +61,8 @@ namespace HospitalProject.Data
         public System.Data.Entity.DbSet<HospitalProject.Models.Patient> Patients { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.Service> Services { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.Invoice> Invoices{ get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.Parking> Parkings { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.ParkingBooking> ParkingBookings { get; set; }
 
     }
 }
