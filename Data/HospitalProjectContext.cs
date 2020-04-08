@@ -25,16 +25,37 @@ namespace HospitalProject.Data
             // Add custom user claims here
             return userIdentity;
         }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        
+        public Gender UserGender { get; set; }
+        public enum Gender
+        {
+            Male,
+            Female
+        }
 
+        public string Address { get; set; }
+        public string Province { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
+        public Type UserType { get; set; }
 
+        public enum Type
+        {
+            Admin,
+            Doctor,
+            Patient,
+            Volunteer
+        }
         // A logged in user could be a Doctor:
         // public virtual Doctor Doctor { get; set; }
 
         // A logged in user can be a Patient:
-           public virtual Patient Patient { get; set; }
+        //public virtual Patient Patient { get; set; }
 
         // A logged in user could be Volunteer:
-        // public virtual Volunteer Volunteer { get; set; }
+        //public virtual Volunteer Volunteer { get; set; }
 
         //A logged in user could be an Admin
     }
@@ -63,6 +84,10 @@ namespace HospitalProject.Data
         public System.Data.Entity.DbSet<HospitalProject.Models.Invoice> Invoices{ get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.Parking> Parkings { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.ParkingBooking> ParkingBookings { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.Volunteer> Volunteers { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.Application> Applications{ get; set; }
+        
+
 
     }
 }
