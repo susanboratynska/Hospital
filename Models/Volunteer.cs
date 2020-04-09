@@ -17,5 +17,10 @@ namespace HospitalProject.Models
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
+        //hasFile can be 0 or 1 indicating (1) => has file (0)=> no file
+        //Content/Pets/{id}.{FileExtension}
+        public int HasFile { get; set; }
+        //.pdf, .doc. 
+        public string FileExtension { get; set; }
     }
 }
