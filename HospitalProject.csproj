@@ -179,9 +179,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004082047097_Users.cs" />
-    <Compile Include="Migrations\202004082047097_Users.designer.cs">
-      <DependentUpon>202004082047097_Users.cs</DependentUpon>
+    <Compile Include="Migrations\202004082102354_initial.cs" />
+    <Compile Include="Migrations\202004082102354_initial.designer.cs">
+      <DependentUpon>202004082102354_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -199,6 +199,7 @@
     <Compile Include="Models\ViewModels\AddEvent.cs" />
     <Compile Include="Models\ViewModels\ListEvents.cs" />
     <Compile Include="Models\ViewModels\ListPatientEcards.cs" />
+    <Compile Include="Models\ViewModels\ParkingUpdate.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -276,6 +277,8 @@
     <Content Include="Views\PatientEcard\Confirm.cshtml" />
     <Content Include="Views\Parking\Book.cshtml" />
     <Content Include="Views\Parking\Bookings.cshtml" />
+    <Content Include="Views\Parking\UpdateBooking.cshtml" />
+    <Content Include="Views\Parking\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -294,8 +297,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004082047097_Users.resx">
-      <DependentUpon>202004082047097_Users.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004082102354_initial.resx">
+      <DependentUpon>202004082102354_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

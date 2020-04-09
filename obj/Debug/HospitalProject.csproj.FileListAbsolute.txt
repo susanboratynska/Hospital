@@ -214,8 +214,6 @@ E:\Study\Mobile Development\Hospital\bin\Microsoft.Owin.Security.MicrosoftAccoun
 E:\Study\Mobile Development\Hospital\bin\Microsoft.Owin.Security.OAuth.xml
 E:\Study\Mobile Development\Hospital\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.csproj.CopyComplete
-E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.Migrations.initial.resources
-E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.csproj.GenerateResource.cache
 C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.csprojAssemblyReference.cache
 C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\bin\HospitalProject.dll.config
 C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\bin\HospitalProject.dll
@@ -323,3 +321,5 @@ C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine
 C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.pdb
 C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.Migrations.Users.resources
 C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.csproj.GenerateResource.cache
+E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.Migrations.initial.resources
+E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.csproj.GenerateResource.cache
