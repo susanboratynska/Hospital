@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a new Volunteer</h2>
+<div class="navbar">
+    <a class="navlink" href="/Volunteer/List">Back to List</a>
+</div>
+<form method="post" action="/Volunteer/Add" enctype="multipart/form-data">
+    <div class="sectionheader">
+        Account Details
+    </div>
+    <div class="form-group">
+        <span>First Name:</span>
+        <input type="text" name="VolunteerFname" id="VolunteerFname" />
+    </div>
+    <div class="form-group">
+        <span>Last Name:</span>
+        <input type="text" name="VolunteerLname" id="VolunteerLname" />
+    </div>
+    <div class="form-group">
+        <span>Email:</span>
+        <input type="email" name="VolunteerEmail" id="VolunteerEmail" />
+    </div>
+    <div class="form-group">
+        <span>Phone Number:</span>
+        <input type="tel" name="VolunteerPhone" id="VolunteerPhone" />
+    </div>
+    <div class="form-group">
+        <span>Gender:</span>
+        <input type="radio" name="VolunteerGender" id="male" value="male" />
+        <label for="male">Male</label><br />
+        <input type="radio" name="VolunteerGender" id="female" value="female" />
+        <label for="female">Female</label><br />
+    </div>
+    <div class="form-group">
+        <span>Address:</span>
+        <input type="text" name="VolunteerAddress" id="VolunteerAddress" />
+    </div>
+    <div class="form-group">
+        <span>Province:</span>
+        <input type="text" name="VolunteerProvince" id="VolunteerProvince" />
+    </div>
+    <div class="form-group">
+        <span>City:</span>
+        <input type="text" name="VolunteerCity" id="VolunteerCity" />
+    </div>
+    <div class="form-group">
+        <span>Postal Code:</span>
+        <input type="text" name="PostalCode" id="PostalCode" />
+    </div>
+    <div class="form-group">
+        <span>Password:</span>
+        <input type="password" name="UserPassword" id="UserPassword" />
+    </div>
+    <div class="form-group">
+        <span>Confirm Password:</span>
+        <input type="password" name="UserConfirmPass" id="USerConfirmPass" />
+    </div>
+    <div class="form-group">
+        Select image to upload:
+        <input type="file" name="Resume" id="Resume">
+        <input type="submit" value="Upload Image" name="submit">
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary" value="Add Volunteer" />
+    </div>
+</form>
+
