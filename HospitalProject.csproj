@@ -169,23 +169,27 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DoctorAppointmentController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalCampusController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ParkingController.cs" />
     <Compile Include="Controllers\PatientEcardController.cs" />
+    <Compile Include="Controllers\VolunteerController.cs" />
     <Compile Include="Data\HospitalProjectContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004082102354_initial.cs" />
-    <Compile Include="Migrations\202004082102354_initial.designer.cs">
-      <DependentUpon>202004082102354_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202004101738465_initial.cs" />
+    <Compile Include="Migrations\202004101738465_initial.designer.cs">
+      <DependentUpon>202004101738465_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Application.cs" />
+    <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\DoctorAppointment.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\HospitalCampus.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -201,6 +205,7 @@
     <Compile Include="Models\ViewModels\ListPatientEcards.cs" />
     <Compile Include="Models\ViewModels\ParkingUpdate.cs" />
     <Compile Include="Models\Volunteer.cs" />
+    <Compile Include="Models\VolunteerPosting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -279,9 +284,14 @@
     <Content Include="Views\Parking\Bookings.cshtml" />
     <Content Include="Views\Parking\UpdateBooking.cshtml" />
     <Content Include="Views\Parking\Delete.cshtml" />
+    <Content Include="Views\Volunteer\Add.cshtml" />
+    <Content Include="Views\Volunteer\List.cshtml" />
+    <Content Include="Views\DoctorAppointment\Add.cshtml" />
+    <Content Include="Views\DoctorAppointment\Bookings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Doctor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -297,8 +307,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004082102354_initial.resx">
-      <DependentUpon>202004082102354_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004101738465_initial.resx">
+      <DependentUpon>202004101738465_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

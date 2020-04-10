@@ -9,7 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using HospitalProject.Models;
+using System.Diagnostics;
 using HospitalProject.Data;
+using System.Threading;
 
 namespace HospitalProject.Controllers
 {
@@ -156,8 +158,23 @@ namespace HospitalProject.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     
+                    HospitalProjectContext db = new HospitalProjectContext();
+                    if (model.UserType == ApplicationUser.Type.Patient)
+                    {
+                        Patient patient = new Patient();
+                        patient.UserId = user.Id;
+                        db.Patients.Add(patient);
+                        db.SaveChanges();
+                    }
+                    else if (model.UserType == ApplicationUser.Type.Doctor)
+                    {
+                        Doctor doctor = new Doctor();
+                        doctor.UserId = user.Id;
+                        db.Doctors.Add(doctor);
+                        db.SaveChanges();
+                    } 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

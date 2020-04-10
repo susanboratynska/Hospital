@@ -28,6 +28,8 @@
                     {
                         VolunteerID = c.Int(nullable: false, identity: true),
                         UserId = c.String(maxLength: 128),
+                        HasFile = c.Int(nullable: false),
+                        FileExtension = c.String(),
                     })
                 .PrimaryKey(t => t.VolunteerID)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
@@ -100,6 +102,56 @@
                 .Index(t => t.RoleId);
             
             CreateTable(
+                "dbo.DoctorAppointments",
+                c => new
+                    {
+                        BookingID = c.Int(nullable: false, identity: true),
+                        BookingDateTime = c.DateTime(nullable: false),
+                        PatientComments = c.String(),
+                        Confirmed = c.Boolean(nullable: false),
+                        PatientID = c.Int(nullable: false),
+                        DoctorID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.BookingID)
+                .ForeignKey("dbo.Doctors", t => t.DoctorID, cascadeDelete: true)
+                .ForeignKey("dbo.Patients", t => t.PatientID, cascadeDelete: true)
+                .Index(t => t.PatientID)
+                .Index(t => t.DoctorID);
+            
+            CreateTable(
+                "dbo.Doctors",
+                c => new
+                    {
+                        DoctorID = c.Int(nullable: false, identity: true),
+                        Specialization = c.String(),
+                        Qualification = c.String(),
+                        Contact = c.String(),
+                        UserId = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.DoctorID)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.Patients",
+                c => new
+                    {
+                        PatientID = c.Int(nullable: false, identity: true),
+                        UserId = c.String(maxLength: 128),
+                        EmergencyContactFname = c.String(),
+                        EmergencyContactLname = c.String(),
+                        EmergencyContactPhone = c.String(),
+                        EmergencyContactRelation = c.String(),
+                        Allergy = c.Int(nullable: false),
+                        BloodGroup = c.Int(nullable: false),
+                        MedicalHistory = c.String(),
+                        HealthCardNumber = c.String(),
+                    })
+                .PrimaryKey(t => t.PatientID)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
+            
+            CreateTable(
                 "dbo.Events",
                 c => new
                     {
@@ -167,25 +219,6 @@
                 .Index(t => t.PatientID);
             
             CreateTable(
-                "dbo.Patients",
-                c => new
-                    {
-                        PatientID = c.Int(nullable: false, identity: true),
-                        UserId = c.String(maxLength: 128),
-                        EmergencyContactFname = c.String(),
-                        EmergencyContactLname = c.String(),
-                        EmergencyContactPhone = c.String(),
-                        EmergencyContactRelation = c.String(),
-                        Allergy = c.Int(nullable: false),
-                        BloodGroup = c.Int(nullable: false),
-                        MedicalHistory = c.String(),
-                        HealthCardNumber = c.String(),
-                    })
-                .PrimaryKey(t => t.PatientID)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
-                .Index(t => t.UserId);
-            
-            CreateTable(
                 "dbo.Services",
                 c => new
                     {
@@ -232,6 +265,17 @@
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
             CreateTable(
+                "dbo.VolunteerPostings",
+                c => new
+                    {
+                        VolunteerPostingID = c.Int(nullable: false, identity: true),
+                        VolunteerPostingTitle = c.String(),
+                        VolunteerPostingDescription = c.String(),
+                        VolunteerPostingDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.VolunteerPostingID);
+            
+            CreateTable(
                 "dbo.ServiceInvoices",
                 c => new
                     {
@@ -254,9 +298,12 @@
             DropForeignKey("dbo.ServiceInvoices", "Invoice_InvoiceID", "dbo.Invoices");
             DropForeignKey("dbo.ServiceInvoices", "Service_ServiceID", "dbo.Services");
             DropForeignKey("dbo.Invoices", "PatientID", "dbo.Patients");
-            DropForeignKey("dbo.Patients", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.PatientEcards", "CampusID", "dbo.HospitalCampus");
             DropForeignKey("dbo.Events", "CampusID", "dbo.HospitalCampus");
+            DropForeignKey("dbo.DoctorAppointments", "PatientID", "dbo.Patients");
+            DropForeignKey("dbo.Patients", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.DoctorAppointments", "DoctorID", "dbo.Doctors");
+            DropForeignKey("dbo.Doctors", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Applications", "VolunteerID", "dbo.Volunteers");
             DropForeignKey("dbo.Volunteers", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
@@ -267,10 +314,13 @@
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.ParkingBookings", new[] { "UserId" });
             DropIndex("dbo.ParkingBookings", new[] { "ParkingID" });
-            DropIndex("dbo.Patients", new[] { "UserId" });
             DropIndex("dbo.Invoices", new[] { "PatientID" });
             DropIndex("dbo.PatientEcards", new[] { "CampusID" });
             DropIndex("dbo.Events", new[] { "CampusID" });
+            DropIndex("dbo.Patients", new[] { "UserId" });
+            DropIndex("dbo.Doctors", new[] { "UserId" });
+            DropIndex("dbo.DoctorAppointments", new[] { "DoctorID" });
+            DropIndex("dbo.DoctorAppointments", new[] { "PatientID" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
@@ -279,15 +329,18 @@
             DropIndex("dbo.Volunteers", new[] { "UserId" });
             DropIndex("dbo.Applications", new[] { "VolunteerID" });
             DropTable("dbo.ServiceInvoices");
+            DropTable("dbo.VolunteerPostings");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Parkings");
             DropTable("dbo.ParkingBookings");
             DropTable("dbo.Services");
-            DropTable("dbo.Patients");
             DropTable("dbo.Invoices");
             DropTable("dbo.PatientEcards");
             DropTable("dbo.HospitalCampus");
             DropTable("dbo.Events");
+            DropTable("dbo.Patients");
+            DropTable("dbo.Doctors");
+            DropTable("dbo.DoctorAppointments");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
