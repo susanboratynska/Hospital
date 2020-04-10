@@ -1,0 +1,30 @@
+﻿@model List<HospitalProject.Models.HealthLibrary>
+
+
+@{
+    ViewBag.Title = "Public";
+}
+
+<div class="navbar">
+    <h2>Library of Health Information</h2>
+    <form action="/Faq/Public" method="GET">
+        <input type="text" name="searchkey" id="searchkey" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </form>
+</div>
+<div>
+    <div class="list-group">
+        @foreach (var h in @Model)
+        {
+            if (h.Published == true)
+            {
+                <a href="/HealthLibrary/PublicShow/?HealthLibraryID=@h.HealthLibraryID" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h3 class="mb-1 h5">@h.Title</h3>
+                        <small>@h.Date.ToString("yyyy-MM-dd")</small>
+                    </div>
+                </a>
+            }
+        }
+    </div>
+</div>

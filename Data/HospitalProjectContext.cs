@@ -87,7 +87,8 @@ namespace HospitalProject.Data
         public System.Data.Entity.DbSet<HospitalProject.Models.Volunteer> Volunteers { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.Application> Applications{ get; set; }
         // public System.Data.Entity.DbSet<HospitalProject.Models.VolunteerPosting> VolunteerPostings{ get; set; }
-
+        public System.Data.Entity.DbSet<HospitalProject.Models.Faq> Faqs { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.HealthLibrary> HealthLibraries { get; set; }
 
     }
 }

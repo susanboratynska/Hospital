@@ -1,0 +1,30 @@
+﻿@model List<HospitalProject.Models.Faq>
+
+
+@{
+    ViewBag.Title = "Public";
+}
+
+<div class="navbar">
+    <h2>Frequent Asked Questions</h2>
+    <form action="/Faq/Public" method="GET">
+        <input type="text" name="searchkey" id="searchkey" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </form>
+</div>
+<div>
+    <div class="list-group">
+        @foreach (var Faq in @Model)
+        {
+            if (Faq.Published == true)
+            {
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h3 class="mb-1 h5">Q: @Faq.Question</h3>
+                    </div>
+                    <p class="mb-1">A: @Faq.Answer</p>
+                </a>
+            }
+        }
+    </div>
+</div>
