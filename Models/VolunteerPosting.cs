@@ -18,5 +18,6 @@ namespace HospitalProject.Models
         public string VolunteerPostingTitle { get; set; }
         public string VolunteerPostingDescription { get; set; }
         public DateTime VolunteerPostingDate { get; set; }
+        public ICollection<Application>Applications{ get; set; }
     }
 }

@@ -25,6 +25,9 @@ namespace HospitalProject.Data
             // Add custom user claims here
             return userIdentity;
         }
+        public virtual Volunteer Volunteer { get; set; }
+        public virtual Patient Patient { get; set; }
+        public bool IsAdmin { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         

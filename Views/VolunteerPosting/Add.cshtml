@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a new Posting</h2>
+<div class="navbar">
+    <a class="navlink" href="/VolunteerPosting/List">Back to List</a>
+</div>
+<form method="post" action="/VolunteerPosting/Add">
+    <div class="sectionheader">
+        Posting Details
+    </div>
+    <div class="form-group">
+        <span>Date of Posting:</span>
+        <input type="datetime" name="VolunteerPostingDate" id="VolunteerPostingDate" />
+    </div>
+    <div class="form-group">
+        <span>Title:</span>
+        <input type="text" name="VolunteerPostingTitle" id="VolunteerPostingTitle" />
+    </div>
+    <div class="form-group">
+        <span>Description:</span>
+        <input type="text" name="VolunteerPostingDescription" id="VolunteerPostingDescription" />
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary" value="Add Volunteer Posting"/>
+    </div>
+</form>
+

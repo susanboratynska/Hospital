@@ -14,14 +14,18 @@ namespace HospitalProject.Models
     {
         [Key]
         public int ApplicationID { get; set; }
-
         public int VolunteerID { get; set; }
         [ForeignKey("VolunteerID")]
         public virtual Volunteer Volunteer { get; set; }
+        public int VolunteerPostingID { get; set; }
+        [ForeignKey("VolunteerPostingID")]
+        public virtual VolunteerPosting VolunteerPosting { get; set; }
+        
         public string Education { get; set; }
-        public string CurrentEducation { get; set; }
+        public string CurrentOccupation { get; set; }
         public int Experience { get; set; }
-        public string Position { get; set; }
 
+     
+        
     }
 }

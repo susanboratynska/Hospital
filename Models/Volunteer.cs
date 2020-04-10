@@ -22,5 +22,7 @@ namespace HospitalProject.Models
         public int HasFile { get; set; }
         //.pdf, .doc. 
         public string FileExtension { get; set; }
+        public ICollection<Application>Applications{ get; set; }
+
     }
 }

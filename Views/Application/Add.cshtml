@@ -1,0 +1,48 @@
+﻿@model HospitalProject.Models.ViewModels.ListApplications
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add an Application for Volunteer</h2>
+<div class="navbar">
+    <a class="navlink" href="/Application/List">Back to List</a>
+</div>
+<form method="post" action="/Aplication/Add">
+    <div class="sectionheader">
+        Application Details
+    </div>
+    <div class="form-group">
+        <span>Volunteer:</span>
+        <select name="VolunteerID">
+            @foreach (var volunteer in Model.Volunteers)
+            {
+                <option value="@volunteer.VolunteerID">@volunteer.ApplicationUser.FirstName</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <span>Posting:</span>
+        <select name="VolunteerPostingID">
+            @foreach (var posting in Model.VolunteerPostings)
+            {
+                <option value="@posting.VolunteerPostingID">@posting.VolunteerPostingTitle</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <span>Education:</span>
+        <input type="text" id="VolunteerEducation" name="VolunteerEducation" />
+    </div>
+    <div class="form-group">
+        <span>Current Occupation:</span>
+        <input type="text" id="VolunteerOccupation" name="VolunteerOccupation" />
+    </div>
+    <div class="form-group">
+        <span>Experience (In years)</span>
+        <input type="number" id="VolunteerExperience" name="VolunteerExperience" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add Application" />
+    </div>
+</form>
+
