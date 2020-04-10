@@ -212,6 +212,8 @@
     <Content Include="Content\eCards\congratulationsbaby.jpg" />
     <Content Include="Content\eCards\getwellsoon.jpg" />
     <Content Include="Content\eCards\thinkingofyou.jpg" />
+    <Content Include="Content\images\nbrhc-home.jpg" />
+    <Content Include="Content\images\nbrhc-logo.jpg" />
     <Content Include="Content\styles-susan.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -279,6 +281,7 @@
     <Content Include="Views\Parking\Bookings.cshtml" />
     <Content Include="Views\Parking\UpdateBooking.cshtml" />
     <Content Include="Views\Parking\Delete.cshtml" />
+    <Content Include="Views\HospitalCampus\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,7 +7,7 @@
 <h2>Add New Event</h2>
 
 <div class="navbar">
-    <a class="btn btn-default" href="/Event/List" role="button">Back to List</a>
+    <a class="btn btn-info" href="/Event/List" role="button"><span class="glyphicon glyphicon-chevron-left" style="padding-right: 2px;"></span> Back to List</a>
 </div>
 
 <form method="POST" action="/Event/Add" class="form-horizontal">
@@ -88,8 +88,9 @@
             </select>
         </div>
     </div>
-    <div>
-        <input type="submit" class="btn btn-primary" value="Add Event" />
+    <div class="btn btn-primary">
+        <span class="glyphicon glyphicon-save"></span>
+        <input type="submit" style="text-decoration: none; border: none; background: none; padding: 0 0 0 2px;" value="Add Event" />
     </div>
 
 

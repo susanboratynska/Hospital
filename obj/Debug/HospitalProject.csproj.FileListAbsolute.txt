@@ -98,18 +98,11 @@ C:\Users\Susan\source\repos\HospitalProject\bin\Microsoft.Owin.Security.Twitter.
 C:\Users\Susan\source\repos\HospitalProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Susan\source\repos\HospitalProject\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Susan\source\repos\HospitalProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.csprojAssemblyReference.cache
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.csproj.CopyComplete
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.dll
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.pdb
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.initial.resources
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.csproj.GenerateResource.cache
-C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations._event.resources
-C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.events3.resources
-C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.patientcard.resources
-C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.patientcard2.resources
-C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.patientecard.resources
-C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.patientecard2.resources
 E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.csprojAssemblyReference.cache
 E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.dll
 E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.pdb
@@ -323,3 +316,5 @@ C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine
 C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.csproj.GenerateResource.cache
 E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.Migrations.initial.resources
 E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.csproj.GenerateResource.cache
+C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.csprojAssemblyReference.cache
+C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.Migrations.susan.resources

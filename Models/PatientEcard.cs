@@ -34,7 +34,7 @@ namespace HospitalProject.Models
             DateDelivered = null;
         }
 
-        public DateTime ? DateDelivered { get; set; }
+        public DateTime? DateDelivered { get; set; }
 
 
         public string CardImage { get; set; }

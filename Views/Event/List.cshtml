@@ -7,7 +7,7 @@
 <h2>List of Events</h2>
 
 <div class="navbar">
-    <a class="btn btn-default" href="/Event/Add" role="button">Add New Event</a>
+    <a class="btn btn-success btn-info" href="/Event/Add" role="button"><span class="glyphicon glyphicon-plus"></span> Add New Event</a>
     <form action="/Event/List" method="GET" style="display:inline-block; float: right;">
         <input type="text" name="searchkey" id="searchkey" class="btn btn-default search-input" />
         <input type="submit" value="Search" class="btn btn-default" />
@@ -34,6 +34,7 @@
                 </ul>
             </th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -46,8 +47,10 @@
                 <td>@Event.EventHostingDepartment</td>
                 <td>@Event.HospitalCampus.CampusName</td>
                 <td>
-                    <a class="btn btn-primary" href="/Event/Update/?EventID=@Event.EventID">Update</a>
-                    <button class="btn btn-danger" role="button" data-toggle="modal" data-target="#Delete_@Event.EventID">Delete</button>
+                    <a class="btn btn-primary btn-sm" href="/Event/Update/?EventID=@Event.EventID"><span class="glyphicon glyphicon-edit"></span></a>
+                </td>
+                <td>
+                    <button class="btn btn-danger btn-sm" role="button" data-toggle="modal" data-target="#Delete_@Event.EventID"><span class="glyphicon glyphicon-remove"></button>
                     <!-- Modal -->
                     <div class="modal fade" id="Delete_@Event.EventID" tabindex="-1" role="dialog" aria-labelledby="DeleteLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -75,3 +78,21 @@
         }
     </tbody>
 </table>
+
+
+@*Only display pagination of there are more than 1 pages:*@
+@{ if ((int)ViewData["maxpage"] > 1)
+    {
+        <div style="display: block; padding-bottom: 25px;">
+            <ul class="pagination" style=" width:300px; display:block; margin-left: auto; margin-right: auto;">
+                @{
+                    <li class="page-item"><a href="/Event/List?pagenum=@((int)ViewData["pagenum"]-1)&searchkey=@ViewData["searchkey"]" class="page-link">Previous</a></li>
+                    <li class="page-item"><a class="page-link">@ViewData["pagesummary"]</a></li>
+                    <li class="page-item"><a href="/Event/List?pagenum=@((int)ViewData["pagenum"]+1)&searchkey=@ViewData["searchkey"]" class="page-link">Next</a></li>
+                }
+            </ul>
+        </div>
+    }
+}
+
+
