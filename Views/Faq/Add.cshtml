@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a new FAQ</h2>
+
+<form action="/Faq/Add" method="post">
+    <div class="form-group">
+        <label for="Question" class="col-sm-2 control-label">Question:</label>
+        <textarea id="Question" name="Question" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Answer" class="col-sm-2 control-label">Answer:</label>
+        <textarea id="Answer" name="Answer" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Published:</label>
+        <label for="PublishedYes">Yes</label>
+        <input type="radio" id="PublishedYes" name="Published" value="true" />
+        <label for="PublishedNo">No</label>
+        <input type="radio" id="PublishedNo" name="Published" value="false" />
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-success">Add</button>
+        <a class="btn btn-default" href="/Faq/List" role="button">Cancel</a>
+    </div>
+</form>

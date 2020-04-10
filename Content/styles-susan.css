@@ -1,1 +1,47 @@
 ﻿
+/* ---------- Index page styling ---------- */
+
+#index__nav_bluebg {
+    background-color: #0a5386;
+}
+
+    #index__nav_bluebg a {
+        color: white;
+    }
+
+.jumbotron {
+    border-radius: 0;
+}
+
+.jumbotronHeader {
+    background-image: url('http://www.nbrhc.on.ca/wp-content/uploads/2020/02/CoronaVirus_WebsiteSlider_Final_ENG-scaled.jpg');
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-bottom: 25%;
+    color: white;
+    border-radius: 0 !important;
+}
+
+.index__icon_container {
+    padding: 15px 100px 0 100px;
+}
+
+#index__icon_parking, #index__icon_donate {
+    margin: 10px;
+}
+
+.index__quicklinks {
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    padding-bottom: 20px;
+}
+
+.index__col_bg {
+    background-color: lightgray;
+    margin: 5px;
+}

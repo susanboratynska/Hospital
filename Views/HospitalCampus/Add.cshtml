@@ -4,10 +4,10 @@
     ViewBag.Title = "Add";
 }
 
-<h2>Add Hospital Campus</h2>
+<h2>Add New Hospital Campus</h2>
 
 <div class="navbar">
-    <a class="btn btn-default" href="/HospitalCampus/List" role="button">Back to List</a>
+    <a class="btn btn-info" href="/HospitalCampus/List" role="button"><span class="glyphicon glyphicon-chevron-left" style="padding-right: 2px;"></span> Back to List</a>
 </div>
 
 <form method="POST" action="/HospitalCampus/Add" class="form-horizontal">
@@ -21,6 +21,7 @@
     <div class="form-group">
         <label for="CampusAddressLine1" class="col-sm-2 control-label">Address Line 1:</label>
         <div class="col-sm-10">
+
             <input id="CampusAddressLine1" class="form-control" type="text" name="CampusAddressLine1" />
         </div>
     </div>
@@ -62,8 +63,10 @@
     </div>
 
     <div>
-        <input type="submit" class="btn btn-primary" value="Add Hospital Campus" />
-    </div>
-    
+        <div class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>
+            <input type="submit" class="btn btn-primary" style="text-decoration: none; border: none; background: none; padding: 0 0 0 2px;" value="Add Hospital Campus" />
+        </div>
+
 
 </form>

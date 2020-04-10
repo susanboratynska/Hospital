@@ -13,6 +13,5 @@ namespace HospitalProject.Models.ViewModels
         // Provide a list of Patient Ecards:
         public virtual List<PatientEcard> PatientEcards { get; set; }
 
-
     }
 }

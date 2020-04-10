@@ -33,6 +33,7 @@
                 </ul>
             </th>
             <th>Patient Room</th>
+            <th>View</th>
             <th class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Delivery Status <span class="caret"></span>
@@ -40,7 +41,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="/PatientEcard/List/">All Cards</a></li>
                     <li><a href="/PatientEcard/List/?delivered=false">Not Delivered</a></li>
-                    <li><a href="/PatientEcard/List/?delivered=true">Delivered</a></li>
+                    <li><a href="/PatientEcard/List/?delivered=true">Complete</a></li>
                 </ul>
             </th>
         </tr>
@@ -48,51 +49,79 @@
     <tbody>
         @foreach (var patientcard in Model.PatientEcards)
         {
-        <tr>
-            <td>@patientcard.PatientCardID</td>
-            <td>@patientcard.DateSubmitted.ToString("yyyy-MM-dd")</td>
-            <td>@patientcard.SenderFirstname @patientcard.SenderLastname</td>
-            <td>@patientcard.PatientFirstname @patientcard.PatientLastname</td>
-            <td>@patientcard.HospitalCampus.CampusName</td>
-            <td>@patientcard.PatientRoom</td>
-            <td>
-                <a class="btn btn-primary" href="/PatientEcard/Show/?PatientCardID=@patientcard.PatientCardID"><i class="fa fa-eye"></i></a>
+            <tr>
+                <td>@patientcard.PatientCardID</td>
+                <td>@patientcard.DateSubmitted.ToString("yyyy-MM-dd")</td>
+                <td>@patientcard.SenderFirstname @patientcard.SenderLastname</td>
+                <td>@patientcard.PatientFirstname @patientcard.PatientLastname</td>
+                <td>@patientcard.HospitalCampus.CampusName</td>
+                <td>@patientcard.PatientRoom</td>
+                <td>
+                    <a class="btn btn-primary" href="/PatientEcard/Show/?PatientCardID=@patientcard.PatientCardID" style="max-height: 29.76px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                             width="14" height="14"
+                             viewBox="0 0 172 172"
+                             style=" fill:#000000;">
+                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M26.46154,0c-14.54868,0 -26.46154,11.91286 -26.46154,26.46154v112.46154c0,14.54868 11.91286,26.46154 26.46154,26.46154h72.76923c2.63582,0 4.6256,-0.62019 6.61538,-0.62019c-9.2512,-1.98978 -17.15865,-6.66706 -23.77404,-12.61058h-55.61058c-7.28726,0 -13.23077,-5.94351 -13.23077,-13.23077v-112.46154c0,-7.28726 5.94351,-13.23077 13.23077,-13.23077h41.75962c4.6256,1.31791 4.54808,7.28726 4.54808,13.23077v19.84615c0,3.97957 2.63582,6.61538 6.61538,6.61538h19.84615c6.61538,0 13.23077,0 13.23077,6.61538v6.61538h3.30769c3.30769,0 6.61538,0.56851 9.92308,1.24038v-14.47115c0,-7.28726 -6.53786,-13.98017 -17.77885,-25.22115c-1.98978,-1.31791 -3.38522,-3.23017 -5.375,-4.54808c-1.31791,-1.98978 -3.23017,-3.38522 -4.54808,-5.375c-11.24099,-11.24099 -17.93389,-17.77885 -25.22115,-17.77885zM115.76923,79.38462c-19.84615,0 -36.38462,16.53846 -36.38462,36.38462c0,19.84615 16.53846,36.38462 36.38462,36.38462c8.42428,0 16.09916,-3.1268 22.32692,-8.0625l2.06731,2.06731c-1.62801,2.55829 -1.44712,5.78846 0.82692,8.0625l16.53846,16.53846c2.63582,2.63582 6.46034,2.63582 9.09615,0l3.30769,-3.30769c2.63582,-2.63581 2.63582,-6.66706 0,-9.30288l-16.53846,-16.53846c-2.17067,-2.17067 -5.14243,-2.45493 -7.64904,-1.03365l-1.86058,-2.06731c5.11659,-6.27945 8.26923,-14.16106 8.26923,-22.74038c0,-19.84615 -16.53846,-36.38462 -36.38462,-36.38462zM115.76923,89.30769c14.54868,0 26.46154,11.91286 26.46154,26.46154c0,14.54868 -11.91286,26.46154 -26.46154,26.46154c-14.54868,0 -26.46154,-11.91286 -26.46154,-26.46154c0,-14.54868 11.91286,-26.46154 26.46154,-26.46154z"></path></g></g>
+                        </svg>
 
-                @if (patientcard.CardDelivered == false)
-                {
-                    <button class="btn btn-danger" role="button" data-toggle="modal" data-target="#Deliver_@patientcard.PatientCardID">Click to Deliver</button>
-                }
-                else
-                {
-                    <button class="btn btn-default">Card Delivered</button>
-                }
+                    </a>
+                </td>
+                <td>
+
+                    @if (patientcard.CardDelivered == false)
+                    {
+                        <button class="btn btn-danger btn-sm" role="button" data-toggle="modal" data-target="#Deliver_@patientcard.PatientCardID" style="width:90px;"><span class="glyphicon glyphicon-envelope"></span> Deliver</button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-success btn-sm" style="width:90px;"><span class="glyphicon glyphicon-ok"></span> Complete</button>
+                    }
 
 
-                <!-- Modal -->
-                <div class="modal fade" id="Deliver_@patientcard.PatientCardID" tabindex="-1" role="dialog" aria-labelledby="DeliverLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="modal-title" id="DeliverLabel">Deliver Confirmation</h3>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Please confirm card delivery.
-                            </div>
-                            <div class="modal-footer">
-                                <form method="post" action="/PatientEcard/Deliver/?PatientCardID=@patientcard.PatientCardID">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                    <input type="submit" class="btn btn-danger" name="Deliver" value="Deliver" />
-                                </form>
+                    <!-- Modal -->
+                    <div class="modal fade" id="Deliver_@patientcard.PatientCardID" tabindex="-1" role="dialog" aria-labelledby="DeliverLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="DeliverLabel">Deliver Confirmation</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Please confirm delivery for Card ID: @patientcard.PatientCardID
+                                </div>
+                                <div class="modal-footer">
+                                    <form method="post" action="/PatientEcard/Deliver/?PatientCardID=@patientcard.PatientCardID">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                        <input type="submit" class="btn btn-danger" name="Deliver" value="Deliver" />
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </td>
-        </tr>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+
+@*Only display pagination of there are more than 1 pages:*@
+@{ if ((int)ViewData["maxpage"] > 1)
+    {
+        <div style="display: block; padding-bottom: 25px;">
+            <ul class="pagination" style=" width:300px; display:block; margin-left: auto; margin-right: auto;">
+                @{
+                    <li class="page-item"><a href="/PatientEcard/List?pagenum=@((int)ViewData["pagenum"]-1)&searchkey=@ViewData["searchkey"]" class="page-link">Previous</a></li>
+                    <li class="page-item"><a class="page-link">@ViewData["pagesummary"]</a></li>
+                    <li class="page-item"><a href="/PatientEcard/List?pagenum=@((int)ViewData["pagenum"]+1)&searchkey=@ViewData["searchkey"]" class="page-link">Next</a></li>
+                }
+            </ul>
+        </div>
+
+    }
+}
+
 

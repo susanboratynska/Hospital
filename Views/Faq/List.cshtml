@@ -1,0 +1,44 @@
+﻿@model List<HospitalProject.Models.Faq>
+
+
+@{
+    ViewBag.Title = "List";
+}
+
+<!-- TODO: check if logged in user is an admin and link to admin side -->
+<div class="navbar">
+    <h2>Faqs</h2>
+    <form action="/Faq/List" method="GET">
+        <input type="text" name="searchkey" id="searchkey" />
+        <input type="submit" value="Search" class="btn btn-primary"/>
+    </form>
+</div>
+<a class="navlink btn btn-success" href="/Faq/Add">Add</a>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Published</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Faq in @Model)
+        {
+            <tr>
+                <td><a href="/Faq/Show/?FaqID=@Faq.FaqID">@Faq.Question</a></td>
+                <td>@Faq.Published</td>
+                <td><a class="btn btn-primary" href="/Faq/Update/?FaqID=@Faq.FaqID">Update</a></td>
+                <td><form action="/Faq/Delete/?FaqID=@Faq.FaqID" method="post"><button type="submit" onclick="if (!confirm('Are you sure you want to delete this record?')) return false;" class="btn btn-danger">Delete</button></form></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="paginate">
+    @{
+        <a href="/Faq/List?pagenum=@((int)ViewData["pagenum"]-1)&searchkey=@ViewData["searchkey"]">Prev</a>
+        @ViewData["pagesummary"]
+        <a href="/Faq/List?pagenum=@((int)ViewData["pagenum"]+1)&searchkey=@ViewData["searchkey"]">Next</a>
+    }
+</div>

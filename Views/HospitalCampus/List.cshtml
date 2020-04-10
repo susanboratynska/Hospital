@@ -7,7 +7,7 @@
 <h2>List of Hospital Campuses</h2>
 
 <div class="navbar">
-    <a class="btn btn-default" href="/HospitalCampus/Add" role="button">Add New</a>
+    <a class="btn btn-success btn-info" href="/HospitalCampus/Add" role="button"><span class="glyphicon glyphicon-plus"></span> Add New Campus</a>
     <form action="/HospitalCampus/List" method="GET" style="display:inline-block; float: right;">
         <input type="text" name="searchkey" id="searchkey" class="btn btn-default search-input" />
         <input type="submit" value="Search" class="btn btn-default" />
@@ -24,23 +24,24 @@
             <th>Postal Code</th>
             <th>Phone</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var hospitalcampus in @Model)
         {
             <tr>
-                <td><strong>@hospitalcampus.CampusName</strong></td>
+                <td><a href="Show/?CampusID=@hospitalcampus.CampusID">@hospitalcampus.CampusName</a></td>
                 <td>@hospitalcampus.CampusAddressLine1 @hospitalcampus.CampusAddressLine2</td>
                 <td>@hospitalcampus.CampusCity</td>
                 <td>@hospitalcampus.CampusProvince</td>
                 <td>@hospitalcampus.CampusPC</td>
                 <td>@hospitalcampus.CampusPhone</td>
+                <td><a class="btn btn-primary btn-sm" href="/HospitalCampus/Update/?CampusID=@hospitalcampus.CampusID"><span class="glyphicon glyphicon-edit"></span></a></td>
                 <td>
-                    <a class="btn btn-primary" href="/HospitalCampus/Update/?CampusID=@hospitalcampus.CampusID">Update</a>
-                    <button class="btn btn-danger" role="button" data-toggle="modal" data-target="#Delete_@hospitalcampus.CampusID">Delete</button>
+                    <button class="btn btn-danger btn-sm" role="button" data-toggle="modal" data-target="#Delete_@hospitalcampus.CampusID"><span class="glyphicon glyphicon-remove"></button>
                     <!-- Modal -->
-                  
+
                     <div class="modal fade" id="Delete_@hospitalcampus.CampusID" tabindex="-1" role="dialog" aria-labelledby="DeleteLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -53,7 +54,7 @@
                                 <div class="modal-body">
                                     Would you like to permanently delete <strong>@hospitalcampus.CampusName</strong>?
                                 </div>
-                                <div class="modal-footer"> 
+                                <div class="modal-footer">
                                     <form method="post" action="/HospitalCampus/Delete/?CampusID=@hospitalcampus.CampusID">
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                                         <input type="submit" class="btn btn-danger" name="Delete" value="Delete" />

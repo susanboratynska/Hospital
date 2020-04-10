@@ -171,6 +171,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DoctorAppointmentController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\FaqController.cs" />
+    <Compile Include="Controllers\HealthLibraryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalCampusController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -185,12 +187,18 @@
     <Compile Include="Migrations\202004101738465_initial.designer.cs">
       <DependentUpon>202004101738465_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004100141561_healthlibrary.cs" />
+    <Compile Include="Migrations\202004100141561_healthlibrary.designer.cs">
+      <DependentUpon>202004100141561_healthlibrary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\DoctorAppointment.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Faq.cs" />
+    <Compile Include="Models\HealthLibrary.cs" />
     <Compile Include="Models\HospitalCampus.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Invoice.cs" />
@@ -217,6 +225,8 @@
     <Content Include="Content\eCards\congratulationsbaby.jpg" />
     <Content Include="Content\eCards\getwellsoon.jpg" />
     <Content Include="Content\eCards\thinkingofyou.jpg" />
+    <Content Include="Content\images\nbrhc-home.jpg" />
+    <Content Include="Content\images\nbrhc-logo.jpg" />
     <Content Include="Content\styles-susan.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -288,6 +298,18 @@
     <Content Include="Views\Volunteer\List.cshtml" />
     <Content Include="Views\DoctorAppointment\Add.cshtml" />
     <Content Include="Views\DoctorAppointment\Bookings.cshtml" />
+    <Content Include="Views\HospitalCampus\Show.cshtml" />
+    <Content Include="Views\Faq\List.cshtml" />
+    <Content Include="Views\Faq\Add.cshtml" />
+    <Content Include="Views\Faq\Public.cshtml" />
+    <Content Include="Views\Faq\Show.cshtml" />
+    <Content Include="Views\Faq\Update.cshtml" />
+    <Content Include="Views\HealthLibrary\Add.cshtml" />
+    <Content Include="Views\HealthLibrary\List.cshtml" />
+    <Content Include="Views\HealthLibrary\Show.cshtml" />
+    <Content Include="Views\HealthLibrary\Update.cshtml" />
+    <Content Include="Views\HealthLibrary\Public.cshtml" />
+    <Content Include="Views\HealthLibrary\PublicShow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -309,6 +331,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004101738465_initial.resx">
       <DependentUpon>202004101738465_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004100141561_healthlibrary.resx">
+      <DependentUpon>202004100141561_healthlibrary.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
