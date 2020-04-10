@@ -186,9 +186,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004101946570_initial.cs" />
-    <Compile Include="Migrations\202004101946570_initial.designer.cs">
-      <DependentUpon>202004101946570_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202004102013330_initial.cs" />
+    <Compile Include="Migrations\202004102013330_initial.designer.cs">
+      <DependentUpon>202004102013330_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -208,6 +208,7 @@
     <Compile Include="Models\PatientEcard.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\ViewModels\AddEvent.cs" />
+    <Compile Include="Models\ViewModels\DoctorsAppointmentUpdate.cs" />
     <Compile Include="Models\ViewModels\ListEvents.cs" />
     <Compile Include="Models\ViewModels\ListPatientEcards.cs" />
     <Compile Include="Models\ViewModels\ParkingUpdate.cs" />
@@ -322,6 +323,10 @@
     <Content Include="Views\Volunteer\ConfirmDelete.cshtml" />
     <Content Include="Views\Volunteer\Show.cshtml" />
     <Content Include="Views\Volunteer\Update.cshtml" />
+    <Content Include="Views\DoctorAppointment\InvalidUser.cshtml" />
+    <Content Include="Views\DoctorAppointment\MyBookings.cshtml" />
+    <Content Include="Views\DoctorAppointment\Update.cshtml" />
+    <Content Include="Views\DoctorAppointment\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -341,8 +346,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004101946570_initial.resx">
-      <DependentUpon>202004101946570_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004102013330_initial.resx">
+      <DependentUpon>202004102013330_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

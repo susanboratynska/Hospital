@@ -72,6 +72,15 @@ namespace HospitalProject.Controllers
             }
         }
 
+        public ActionResult Update(int parkingID, int bookingID, string bookingDateTime, int hours) {
+            ParkingBooking ParkingBooking = db.ParkingBookings.Find(bookingID);
+            ParkingBooking.ParkingID = parkingID;
+            ParkingBooking.BookingTime = Convert.ToDateTime(bookingDateTime);
+            ParkingBooking.Hours = hours;
+            db.SaveChanges();
+            return RedirectToAction("Bookings");
+        }
+
         public ActionResult Delete(int? id)
         {
             string userID = User.Identity.GetUserId();
