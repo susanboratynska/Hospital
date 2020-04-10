@@ -25,8 +25,8 @@ namespace HospitalProject.Data
             // Add custom user claims here
             return userIdentity;
         }
-        public virtual Volunteer Volunteer { get; set; }
-        public virtual Patient Patient { get; set; }
+        //public virtual Volunteer Volunteer { get; set; }
+ 
         public bool IsAdmin { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -92,7 +92,6 @@ namespace HospitalProject.Data
         public System.Data.Entity.DbSet<HospitalProject.Models.VolunteerPosting> VolunteerPostings{ get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.DoctorAppointment> DoctorApointments { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.Doctor> Doctors { get; set; }
-        // public System.Data.Entity.DbSet<HospitalProject.Models.VolunteerPosting> VolunteerPostings{ get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.Faq> Faqs { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.HealthLibrary> HealthLibraries { get; set; }
 

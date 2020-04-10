@@ -49,21 +49,6 @@ namespace HospitalProject
             return false;
         }
 
-        public bool IsUserVolunteer()
-        {
-            ApplicationUser user = GetUser();
-            if (user == null) return false;
-            if (user.Volunteer != null) return true;
-            return false;
-        }
-
-        public bool IsUserPatient()
-        {
-            ApplicationUser user = GetUser();
-            if (user == null) return false;
-            if (user.Patient != null) return true;
-            return false;
-        }
     }
         
     public class HospitalAuthentication

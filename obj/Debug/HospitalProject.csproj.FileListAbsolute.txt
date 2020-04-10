@@ -312,8 +312,6 @@ C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine
 C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.csproj.CopyComplete
 C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.dll
 C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.pdb
-C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.Migrations.Users.resources
-C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.csproj.GenerateResource.cache
 E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.Migrations.initial.resources
 E:\Study\Mobile Development\Hospital\obj\Debug\HospitalProject.csproj.GenerateResource.cache
 C:\Users\Susan\source\repos\HospitalProject\obj\Debug\HospitalProject.csprojAssemblyReference.cache
@@ -426,3 +424,5 @@ C:\Users\Michael\Desktop\Hospital\Hospital\obj\Debug\HospitalProject.csproj.Copy
 C:\Users\Michael\Desktop\Hospital\Hospital\obj\Debug\HospitalProject.dll
 C:\Users\Michael\Desktop\Hospital\Hospital\obj\Debug\HospitalProject.pdb
 C:\Users\Michael\Desktop\Hospital\Hospital\obj\Debug\HospitalProject.Migrations.healthlibrary.resources
+C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.Migrations.initial.resources
+C:\Users\datta\Google Drive\study\sem-2\Mobile_Application_Development_Christine\Hospital\obj\Debug\HospitalProject.csproj.GenerateResource.cache

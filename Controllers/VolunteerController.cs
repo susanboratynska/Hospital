@@ -1,24 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-//required for SqlParameter class
+// Required for SqlParameter class
 using System.Data.SqlClient;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using PetGrooming.Data;
-using PetGrooming.Models;
-using PetGrooming.Models.ViewModels;
-using System.Diagnostics;
-using System.IO;
-//needed for other sign in feature classes
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 using HospitalProject.Data;
 using HospitalProject.Models;
+using HospitalProject.Models.ViewModels;
+using System.Diagnostics;
+using System.IO;
+using Microsoft.AspNet.Identity;
 
 namespace HospitalProject.Controllers
 {
@@ -52,6 +47,7 @@ namespace HospitalProject.Controllers
             int start = (int)(perpage * pagenum);
             ViewData["pagenum"] = pagenum;
             ViewData["pagesummary"] = "";
+            return View();
         }
         public ActionResult Index()
         {

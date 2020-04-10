@@ -165,10 +165,12 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\HospitalAuthentication.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\DoctorAppointmentController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
@@ -179,17 +181,14 @@
     <Compile Include="Controllers\ParkingController.cs" />
     <Compile Include="Controllers\PatientEcardController.cs" />
     <Compile Include="Controllers\VolunteerController.cs" />
+    <Compile Include="Controllers\VolunteerPostingController.cs" />
     <Compile Include="Data\HospitalProjectContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004101738465_initial.cs" />
-    <Compile Include="Migrations\202004101738465_initial.designer.cs">
-      <DependentUpon>202004101738465_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004100141561_healthlibrary.cs" />
-    <Compile Include="Migrations\202004100141561_healthlibrary.designer.cs">
-      <DependentUpon>202004100141561_healthlibrary.cs</DependentUpon>
+    <Compile Include="Migrations\202004101946570_initial.cs" />
+    <Compile Include="Migrations\202004101946570_initial.designer.cs">
+      <DependentUpon>202004101946570_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -310,6 +309,19 @@
     <Content Include="Views\HealthLibrary\Update.cshtml" />
     <Content Include="Views\HealthLibrary\Public.cshtml" />
     <Content Include="Views\HealthLibrary\PublicShow.cshtml" />
+    <Content Include="Views\Application\Add.cshtml" />
+    <Content Include="Views\Application\ConfirmDelete.cshtml" />
+    <Content Include="Views\Application\List.cshtml" />
+    <Content Include="Views\Application\Show.cshtml" />
+    <Content Include="Views\Application\Update.cshtml" />
+    <Content Include="Views\VolunteerPosting\Add.cshtml" />
+    <Content Include="Views\VolunteerPosting\ConfirmDelete.cshtml" />
+    <Content Include="Views\VolunteerPosting\List.cshtml" />
+    <Content Include="Views\VolunteerPosting\Show.cshtml" />
+    <Content Include="Views\VolunteerPosting\Update.cshtml" />
+    <Content Include="Views\Volunteer\ConfirmDelete.cshtml" />
+    <Content Include="Views\Volunteer\Show.cshtml" />
+    <Content Include="Views\Volunteer\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -329,11 +341,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004101738465_initial.resx">
-      <DependentUpon>202004101738465_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004100141561_healthlibrary.resx">
-      <DependentUpon>202004100141561_healthlibrary.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004101946570_initial.resx">
+      <DependentUpon>202004101946570_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
