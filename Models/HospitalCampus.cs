@@ -16,7 +16,7 @@ namespace HospitalProject.Models
         [Key]
         public int CampusID { get; set; }
         public string CampusName { get; set; }
-        public string CampusAddressLine1 {get; set;}
+        public string CampusAddressLine1 { get; set; }
         public string CampusAddressLine2 { get; set; }
         public string CampusCity { get; set; }
         public string CampusProvince { get; set; }

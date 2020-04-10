@@ -4,14 +4,13 @@
     ViewBag.Title = "Show";
 }
 
-<h2>Patient Ecard Details</h2>
-<h4>Card ID: @Model.PatientCardID</h4>
+<h2>Patient eCard Details (Card ID: @Model.PatientCardID)</h2>
 
 <div class="navbar">
-    <a class="btn btn-default" href="/PatientEcard/List" role="button">Back to List</a>
+    <a class="btn btn-info" href="/PatientEcard/List" role="button"><span class="glyphicon glyphicon-chevron-left" style="padding-right: 2px;"></span> Back to List</a>
     @if (Model.CardDelivered == false)
     {
-        <button class="btn btn-danger" role="button" data-toggle="modal" data-target="#Deliver_@Model.PatientCardID">Click to Deliver</button>
+        <button class="btn btn-danger" role="button" data-toggle="modal" data-target="#Deliver_@Model.PatientCardID"><span class="glyphicon glyphicon-envelope"></span> Click to Deliver</button>
     }
 
     <!-- Modal -->
@@ -25,7 +24,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Please confirm card delivery.
+                    Please confirm delivery for Card ID: @Model.PatientCardID
                 </div>
                 <div class="modal-footer">
                     <form method="post" action="/PatientEcard/Deliver/?PatientCardID=@Model.PatientCardID">
@@ -45,11 +44,11 @@
         <div class="col-sm-10">
             @if (@Model.CardDelivered == false)
             {
-                <p class="form-control-static">No</p>
+                <p class="form-control-static">Not delivered</p>
             }
             else
             {
-                <p class="form-control-static">Yes</p>
+                <p class="form-control-static">Delivered</p>
             }
         </div>
     </div>

@@ -1,0 +1,45 @@
+﻿@model HospitalProject.Models.HealthLibrary
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Updating @Model.Title</h2>
+
+<form action="/HealthLibrary/Update/?HealthLibraryID=@Model.HealthLibraryID" method="post">
+    <div class="form-group">
+        <label for="Title" class="col-sm-2 control-label">Title:</label>
+        <input type="text" id="Title" name="Title" value="@Model.Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Date" class="col-sm-2 control-label">Date:</label>
+        <input type="text" id="Date" name="Date" value="@Model.Date.ToString("yyyy-MM-dd")" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Body" class="col-sm-2 control-label">Body:</label>
+        <textarea id="Body" name="Body" class="form-control">@Model.Body</textarea>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Published:</label>
+        @{
+            if (Model.Published == true)
+            {
+                <label for="PublishedYes">Yes</label>
+                <input type="radio" id="PublishedYes" name="Published" value="true" checked />
+                <label for="PublishedNo">No</label>
+                <input type="radio" id="PublishedNo" name="Published" value="false" />
+            }
+            else
+            {
+                <label for="PublishedYes">Yes</label>
+                <input type="radio" id="PublishedYes" name="Published" value="true" />
+                <label for="PublishedNo">No</label>
+                <input type="radio" id="PublishedNo" name="Published" value="false" checked />
+            }
+        }
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a class="btn btn-default" href="/HealthLibrary/List" role="button">Cancel</a>
+    </div>
+</form>

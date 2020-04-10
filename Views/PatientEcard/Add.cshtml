@@ -15,14 +15,11 @@
         margin-bottom: 25px;
         display: inline-block;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        
     }
 
     .card__outline_selected {
         box-shadow: 0 4px 8px 0 rgba(243, 9, 9, 0.2), 0 6px 20px 0 rgb(150, 8, 8);
     }
-
-    
 
     .card__img {
         max-width: 100%;
@@ -37,14 +34,13 @@
         height: 105px;
     }
 
-    .radio-inline{
+    .radio-inline {
         width: 30%;
     }
 
     .img-selected {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-
 </style>
 
 
@@ -91,45 +87,46 @@
     <div class="form-group">
         <label for="PatientRoom" class="col-sm-2 control-label">Patient Room:</label>
         <div class="col-sm-10">
-            <input id="PatientRoom" class="form-control" type="text" name="PatientRoom" />
+            <input id="PatientRoom" class="form-control" type="text" name="PatientRoom" placeholder="Room Number" />
         </div>
     </div>
     <div class="form-group">
         <label for="CardImage" class="col-sm-2 control-label">Select Card Image:</label>
     </div>
-        
-        <div class="image__container">
-            @{
-                var imagePath = Server.MapPath("~/Content/ecards");
-                var cardimages = Directory.GetFiles(imagePath);
 
-                @* IMG SRC:https://www.crosscards.com/ *@
-                @* NOTE: Img used without permission. For educational purposes only.*@
+    <div class="image__container">
+        @{
+            var imagePath = Server.MapPath("~/Content/ecards");
+            var cardimages = Directory.GetFiles(imagePath);
 
-                foreach (var image in cardimages)
-                {   
-                    <input type="radio" class="hidden" id="@Path.GetFileName(image)" name="CardImage" value="@Path.GetFileName(image)" />
-                    <label for="@Path.GetFileName(image)" style="cursor:pointer;" class="radio-inline">
-                        <div class="card__outline">
-                            <img class="card__img" src="/Content/ecards/@Path.GetFileName(image)" />
-                            <div class="card__container">
-                                <p><strong>To:</strong><span class="card__patientfirstname"></span> <span class="card__patientlastname"></span></p>
-                                <p id="card__message">
-                                    <strong>Message:</strong><br />
-                                    <span class="card__message"></span>
-                                </p>
-                                <p><strong>From:</strong><span class="card__senderfirstname"></span> <span class="card__senderlastname"></span></p>
+            @* IMG SRC:https://www.crosscards.com/ *@
+            @* NOTE: Img used without permission. For educational purposes only.*@
 
-                            </div>
+            foreach (var image in cardimages)
+            {
+                <input type="radio" class="hidden" id="@Path.GetFileName(image)" name="CardImage" value="@Path.GetFileName(image)" />
+                <label for="@Path.GetFileName(image)" style="cursor:pointer;" class="radio-inline">
+                    <div class="card__outline">
+                        <img class="card__img" src="/Content/ecards/@Path.GetFileName(image)" />
+                        <div class="card__container">
+                            <p><strong>To: </strong><span class="card__patientfirstname"></span> <span class="card__patientlastname"></span></p>
+                            <p id="card__message">
+                                <strong>Message: </strong><br />
+                                <span class="card__message"></span>
+                            </p>
+                            <p><strong>From: </strong><span class="card__senderfirstname"></span> <span class="card__senderlastname"></span></p>
+
                         </div>
-                    </label>               
-                }
-
+                    </div>
+                </label>
             }
-        </div>
 
-    <div>
-        <input type="submit" class="btn btn-primary" value="Send eCard" />
+        }
+    </div>
+
+    <div class="btn btn-primary">
+        <span class="glyphicon glyphicon-envelope"></span>
+        <input type="submit" style="text-decoration: none; border: none; background: none; padding: 0 0 0 2px;" value="Send eCard" />
     </div>
 
 </form>
@@ -139,12 +136,12 @@
 
 
 
-    
+
 <script>
-    // Function to populate text simultaneously using keyup method:
+    // Function to populate text simultaneously in the options for Patient eCards using keyup method:
     function populatetext(input, output) {
-        $(document).ready(function(){
-            $(input).keyup(function(){
+        $(document).ready(function () {
+            $(input).keyup(function () {
                 // Get current value from form input:
                 var currentText = $(this).val();
 
@@ -162,13 +159,13 @@
 
 
     // Outlined selected card image:
-    $(document).ready(function() {
-    $('.card__outline').click(function() {
-        $('.card__outline').removeClass('card__outline_selected');
-        $(this).addClass('card__outline_selected');
+    $(document).ready(function () {
+        $('.card__outline').click(function () {
+            $('.card__outline').removeClass('card__outline_selected');
+            $(this).addClass('card__outline_selected');
+        });
     });
-});
 
-        
+
 </script>
 

@@ -3,11 +3,23 @@
     ViewBag.Title = "Bookings";
 }
 
-<h2>Bookings</h2>
-
-<table>
+<h2>Parking Bookings</h2>
+<a href="Book">Add Booking</a>
+<table class="table">
     <tr>
-        <th>Name</th>
+        <th>Booking Time</th>
+        <th>Parking</th>
+        <th>Hours</th>
+        <th>Actions</th>
     </tr>
+    @foreach (var booking in Model)
+    {
+    <tr>
+        <td>@booking.BookingTime</td>
+        <td>@booking.Parking.ParkingTitle - @booking.Parking.Location</td>
+        <td>@booking.Hours</td>
+        <td><a href="UpdateBooking/@booking.BookingID">Edit</a> | <a href="Delete/@booking.BookingID">Delete</a></td>
+    </tr>
+    }
 </table>
 

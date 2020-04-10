@@ -1,0 +1,11 @@
+﻿@model HospitalProject.Models.ParkingBooking
+@{
+    ViewBag.Title = "Delete Parking Booking";
+}
+
+<h2>Delete Parking Booking</h2>
+
+<a href="/Parking/Bookings">Back to Bookings</a>
+<p>Are you sure you want to delete booking of @Model.Parking.ParkingTitle - @Model.Parking.Location for @Model.BookingTime?</p>
+<a href="/Parking/ConfirmDelete/@Model.BookingID">Yes</a> |
+<a href="/Parking/Bookings">No</a>

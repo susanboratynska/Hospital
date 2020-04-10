@@ -8,28 +8,28 @@
 
 
 <div class="navbar">
-    <a class="btn btn-default" href="/HospitalCampus/List" role="button">Back to List</a>
+    <a class="btn btn-info" href="/HospitalCampus/List" role="button"><span class="glyphicon glyphicon-chevron-left" style="padding-right: 2px;"></span>Back to List</a>
 </div>
 
 <form method="POST" action="/HospitalCampus/Update/?CampusID=@Model.CampusID" class="form-horizontal">
     <div class="form-group">
         <label for="CampusName" class="col-sm-2 control-label">Campus Name:</label>
         <div class="col-sm-10">
-            <input id="CampusName" class="form-control" type="text" name="CampusName" value="@Model.CampusName"/>
+            <input id="CampusName" class="form-control" type="text" name="CampusName" value="@Model.CampusName" />
         </div>
     </div>
 
     <div class="form-group">
         <label for="CampusAddressLine1" class="col-sm-2 control-label">Address Line 1:</label>
         <div class="col-sm-10">
-            <input id="CampusAddressLine1" class="form-control" type="text" name="CampusAddressLine1"  value="@Model.CampusAddressLine1" />
+            <input id="CampusAddressLine1" class="form-control" type="text" name="CampusAddressLine1" value="@Model.CampusAddressLine1" />
         </div>
     </div>
 
     <div class="form-group">
         <label for="CampusAddressLine2" class="col-sm-2 control-label">Address Line 2:</label>
         <div class="col-sm-10">
-            <input id="CampusAddressLine2" class="form-control" type="text" name="CampusAddressLine2" value="@Model.CampusAddressLine2"/>
+            <input id="CampusAddressLine2" class="form-control" type="text" name="CampusAddressLine2" value="@Model.CampusAddressLine2" />
         </div>
     </div>
 
@@ -43,7 +43,7 @@
     <div class="form-group">
         <label for="CampusProvince" class="col-sm-2 control-label">Province:</label>
         <div class="col-sm-10">
-            <input id="CampusProvince" class="form-control" type="text" name="CampusProvince" value="@Model.CampusProvince"/>
+            <input id="CampusProvince" class="form-control" type="text" name="CampusProvince" value="@Model.CampusProvince" />
         </div>
     </div>
 
@@ -51,7 +51,7 @@
     <div class="form-group">
         <label for="CampusPC" class="col-sm-2 control-label">Postal Code:</label>
         <div class="col-sm-10">
-            <input id="CampusPC" class="form-control" type="text" name="CampusPC" value="@Model.CampusPC"/>
+            <input id="CampusPC" class="form-control" type="text" name="CampusPC" value="@Model.CampusPC" />
         </div>
     </div>
 
@@ -61,9 +61,10 @@
             <input id="CampusPhone" class="form-control" type="text" name="CampusPhone" value="@Model.CampusPhone" />
         </div>
     </div>
-    <div>
-        <input type="submit" class="btn btn-default" value="Update Hospital Campus" />
+    <div class="btn btn-primary">
+        <span class="glyphicon glyphicon-save"></span>
+        <input type="submit" style="text-decoration: none; border: none; background: none; padding: 0 0 0 2px;" value="Update Hospital Campus" />
     </div>
-   
+
 
 </form>

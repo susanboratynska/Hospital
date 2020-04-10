@@ -11,7 +11,7 @@ using System.Web.Mvc;
 using HospitalProject.Data;
 using HospitalProject.Models;
 using System.Diagnostics;
-using System.IO; 
+using System.IO;
 
 namespace HospitalProject.Controllers
 {
@@ -47,6 +47,15 @@ namespace HospitalProject.Controllers
                 List<HospitalCampus> HospitalCampuses = db.HospitalCampuses.ToList();
                 return View(HospitalCampuses);
             }
+
+        }
+
+
+        // Show a single Hospital Campus:
+        public ActionResult Show(int CampusID)
+        {
+            HospitalCampus hospitalcampus = db.HospitalCampuses.Find(CampusID);
+            return View(hospitalcampus);
 
         }
 

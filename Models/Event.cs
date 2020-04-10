@@ -13,14 +13,14 @@ namespace HospitalProject.Models
     public class Event
     {
         // Things that describe an Event:
-       
+
         [Key]
         public int EventID { get; set; }
         public string EventTitle { get; set; }
         public string EventDescription { get; set; }
-        public string EventLocation {get; set;}
+        public string EventLocation { get; set; }
         public DateTime EventDate { get; set; }
-       
+
         public string EventHostingDepartment { get; set; }
 
         public int CampusID { get; set; }
