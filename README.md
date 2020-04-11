@@ -3,7 +3,7 @@
 ## Team 2 Members:
 - Susan Boratynska
 - Het Kansara
-- Hilmi Yilidrim
+- Hilmi Yildirim
 - Maitri Modi
 - Michael Pavlovic
 - Mounica Sykam

@@ -228,12 +228,24 @@
     <Content Include="Content\images\nbrhc-home.jpg" />
     <Content Include="Content\images\nbrhc-logo.jpg" />
     <Content Include="Content\styles-susan.css" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-EventCalendar-Add.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-EventCalendar-ConfirmDelete.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-EventCalendar-List.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-EventCalendar-Update.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-PatientEcard-ConfirmDelete.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-PatientEcard-ListAdd.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-PatientEcard-ListofSubmitted.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-PatientEcard-PublicView.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-PatientEcard-Update.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Documentation\SusanBoratynska\AdminFunctionalityUserStories_SusanBoratynska.pdf" />
+    <Content Include="Documentation\SusanBoratynska\ERD_SusanBoratynska.pdf" />
+    <Content Include="Documentation\SusanBoratynska\HomepageDesign_CreatedByHetKansara.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -330,6 +342,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Documentation\HetKansara\Wireframes\" />
+    <Folder Include="Documentation\HilmiYildirim\Wireframes\" />
+    <Folder Include="Documentation\MaitriModi\Wireframes\" />
+    <Folder Include="Documentation\MichaelPavlovic\Wireframes\" />
+    <Folder Include="Documentation\MounicaSykam\Wireframes\" />
     <Folder Include="Views\Doctor\" />
   </ItemGroup>
   <ItemGroup>
