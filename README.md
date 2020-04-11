@@ -1,24 +1,65 @@
-# Hospital Project - Team 2 - North Bay Regional Health Centre
+# Hospital Redesign Project  
+  
+**_Team 2 / North Bay Regional Health Centre_**  
+  
+## :zap: Project Description  
+  
+The purpose is to design and build a hospital website in order both for the visitors and the admins to take advantage of it most effectively and efficiently. Building a user-friendly and accessible website using a customized CMS will make the admins' tasks much easier and the visitors' experience beneficial.  
+  
+The software is developed with Visual Studio in .NET (HTML, CSS, C#, MySQL).The instructions to run the project are as follows:  
+  
+### How to run the project  
+  
+1. Clone or download the repository  
+2. Create a folder named "App_Data"  
+3. Open the project in Visual Studio  
+4. Build the project: `Build -> Build Solution`  
+5. Command "Enable-Migrations" in package manager console  
+6. Command "Add-Migration initial" in package manager console  
+7. Command "Update-Database" in package manager console    
+8. Run the home page view  
+  
+## :bookmark_tabs: Documentation  
+  
+Please refer to "Documentation" folder to see the following reports:  
+- **Wireframes**: The blueprints of the pages grouped by the website components/features.  
+- **Narratives**: Explanations of the features by use case stories. 
+- **Entity Relationship Diagrams**: All database structure (tables & relations) can be seen as visualized.  
+- **Code Content**: MVC structure of the project: Models, Views & Controllers.  
+  
+### Teamwork Report
+  
+The team members and their contributions are below.  
+Individual works can be seen in the sub-folders in "Documentation".  
+  
+##### N01371157: Susan Boratynska  
+- Patient E-cards - (Patient & Visitors)  
+- Events Calendar - Home Page (Main Nav)  
+- MVP (Nav, Pages, Master Page)  
 
-## Team 2 Members:
-- Susan Boratynska
-- Het Kansara
-- Hilmi Yildirim
-- Maitri Modi
-- Michael Pavlovic
-- Mounica Sykam
+##### Het Kansara  
+- Parking Registration  
+- Appointment Booking Form  
+- Articles and News Manager  
+    
+##### Maitri Modi  
+- Media Publications  
+- Volunteers’s application/Postings  
+- Online Bill Payment   
 
+##### Michael Pavlovic 
+- Doctor’s Directory  
+- A Library of Health Information  
+- FAQ  
 
-## Updating an existing repo steps
-- Run git stash to avoid conflicts between remote and local repository
-- Use git cmd to run git pull origin master
-- Tools > Nuget Package Manager > Package Manager Console
-- Run command "Update-Database"
+##### Mounica Sykam  
+- Donation  
+- Job Portals  
+- Contact Us  
 
-## Cloning a new repo steps
-- Use git cmd to clone repository
-- Create "App_Data" Folder
-- Right click project "Build" -> 1 successful
-- Run "Enable-Migrations" in package manager console
-- Run "Add-Migration initial" in package manager console
-- Run "Update-Database"
+##### N01375163: Hilmi Yildirim  
+- List of Programs & Services  
+- Testimonials (About Us)  
+- Emergency page (Separate button / Patients & Visitors)  
+
+  
