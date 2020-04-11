@@ -95,5 +95,8 @@ namespace HospitalProject.Data
         public System.Data.Entity.DbSet<HospitalProject.Models.Faq> Faqs { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.HealthLibrary> HealthLibraries { get; set; }
 
+        public System.Data.Entity.DbSet<HospitalProject.Models.Job> Jobs { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.JobType> JobTypes { get; set; }
+
     }
 }

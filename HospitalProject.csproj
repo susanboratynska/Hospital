@@ -177,6 +177,7 @@
     <Compile Include="Controllers\HealthLibraryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalCampusController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ParkingController.cs" />
     <Compile Include="Controllers\PatientEcardController.cs" />
@@ -186,9 +187,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004102013330_initial.cs" />
-    <Compile Include="Migrations\202004102013330_initial.designer.cs">
-      <DependentUpon>202004102013330_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202004110252307_initial.cs" />
+    <Compile Include="Migrations\202004110252307_initial.designer.cs">
+      <DependentUpon>202004110252307_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -201,6 +202,9 @@
     <Compile Include="Models\HospitalCampus.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\JobApplication.cs" />
+    <Compile Include="Models\JobType.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Parking.cs" />
     <Compile Include="Models\ParkingBooking.cs" />
@@ -212,6 +216,7 @@
     <Compile Include="Models\ViewModels\ListEvents.cs" />
     <Compile Include="Models\ViewModels\ListPatientEcards.cs" />
     <Compile Include="Models\ViewModels\ParkingUpdate.cs" />
+    <Compile Include="Models\ViewModels\UpdateJob.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Models\VolunteerPosting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -327,6 +332,12 @@
     <Content Include="Views\DoctorAppointment\MyBookings.cshtml" />
     <Content Include="Views\DoctorAppointment\Update.cshtml" />
     <Content Include="Views\DoctorAppointment\Delete.cshtml" />
+    <Content Include="Views\Job\Add.cshtml" />
+    <Content Include="Views\Job\Update.cshtml" />
+    <Content Include="Views\Job\JobsListing.cshtml" />
+    <Content Include="Views\Job\Delete.cshtml" />
+    <Content Include="Views\Job\JobPosts.cshtml" />
+    <Content Include="Views\Job\Apply.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -346,8 +357,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004102013330_initial.resx">
-      <DependentUpon>202004102013330_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004110252307_initial.resx">
+      <DependentUpon>202004110252307_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

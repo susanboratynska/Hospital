@@ -1,0 +1,52 @@
+﻿@model HospitalProject.Models.ViewModels.UpdateJob
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Job Post</h2>
+<a href="JobsListing">Back to Jobs Listing</a>
+<form method="POST" action="/Job/UpdateJob" class="form-horizontal">
+    <div class="form-group">
+        <label for="Position" class="col-sm-2 control-label">Position:</label>
+        <div class="col-sm-10">
+            <input type="hidden" name="jobID" value="@Model.Job.JobID"/>
+            <input id="Position" class="form-control" type="text" value="@Model.Job.Position" name="Position" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="jobTypeSelect" class="col-sm-2 control-label">Job Type:</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="jobTypeID" id="jobTypeSelect">
+                @foreach (var job in Model.JobTypes)
+                {
+                     var selected = "";
+                    if (Model.Job.JobTypeID == job.JobTypeID)
+                    {
+                        selected = "selected";
+                    }
+                    <option value="@job.JobTypeID" @selected>@job.JobTypeTitle</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Qualification" class="col-sm-2 control-label">Qualification:</label>
+        <div class="col-sm-10">
+            <input id="Qualification" class="form-control" type="text" value="@Model.Job.Qualification" name="Qualification" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Experience" class="col-sm-2 control-label">Experience (In Months):</label>
+        <div class="col-sm-10">
+            <input id="Experience" class="form-control" type="text" value="@Model.Job.Experience" name="Experience" required />
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" class="btn btn-primary" value="Update Job" />
+    </div>
+</form>
