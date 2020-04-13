@@ -32,7 +32,7 @@ namespace HospitalProject.Controllers
             return View();
         }
 
-        public ActionResult DonationSucces()
+        public ActionResult DonationSuccess()
         {
             return View();
         }
