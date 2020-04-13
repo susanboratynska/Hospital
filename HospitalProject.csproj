@@ -172,6 +172,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\DoctorAppointmentController.cs" />
+    <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\HealthLibraryController.cs" />
@@ -187,15 +188,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004110252307_initial.cs" />
-    <Compile Include="Migrations\202004110252307_initial.designer.cs">
-      <DependentUpon>202004110252307_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202004131836292_initial.cs" />
+    <Compile Include="Migrations\202004131836292_initial.designer.cs">
+      <DependentUpon>202004131836292_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\DoctorAppointment.cs" />
+    <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Faq.cs" />
     <Compile Include="Models\HealthLibrary.cs" />
@@ -350,6 +352,11 @@
     <Content Include="Views\Job\Delete.cshtml" />
     <Content Include="Views\Job\JobPosts.cshtml" />
     <Content Include="Views\Job\Apply.cshtml" />
+    <Content Include="Views\Job\careersListing.cshtml" />
+    <Content Include="Views\Donation\Add.cshtml" />
+    <Content Include="Views\Donation\DonationSuccess.cshtml" />
+    <Content Include="Views\Donation\List.cshtml" />
+    <Content Include="Views\Donation\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -374,8 +381,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004110252307_initial.resx">
-      <DependentUpon>202004110252307_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004131836292_initial.resx">
+      <DependentUpon>202004131836292_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

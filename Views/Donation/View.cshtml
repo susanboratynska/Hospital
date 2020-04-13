@@ -1,0 +1,14 @@
+﻿@model HospitalProject.Models.Donation
+@{
+    ViewBag.Title = "View";
+}
+<a href="/Donation/List">Back to Donations</a>
+<h2>Name: @Model.DonorFirstName @Model.DonorLastName</h2>
+<h3>Donation Amount: @Model.DonationAmount</h3>
+<p>Donation Date: @Model.DonationDate</p>
+<p>Donor Email: @Model.DonorEmail</p>
+<p>Donor Phone: @Model.DonorPhone</p>
+<p>Donor Address: @Model.DonorAddress</p>
+<p>Donor City: @Model.DonorCity</p>
+<p>Donor Province: @Model.DonorProvince</p>
+

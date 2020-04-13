@@ -42,6 +42,13 @@ namespace HospitalProject.Controllers
             }
         }
 
+        public ActionResult careersListing()
+        {
+            string query = "Select * from Jobs";
+            List<Job> jobs = db.Jobs.SqlQuery(query).ToList();
+            return View(jobs);
+        }
+
         public ActionResult Add()
         {
             string userID = User.Identity.GetUserId();

@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Donate Now</h2>
+<form method="POST" action="/Donation/AddDonation" class="form-horizontal">
+    <div class="form-group">
+        <label for="DonorFirstName" class="col-sm-2 control-label">Firstname:</label>
+        <div class="col-sm-10">
+            <input id="DonorFirstName" class="form-control" type="text" name="DonorFirstName" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="DonorLastName" class="col-sm-2 control-label">Lastname:</label>
+        <div class="col-sm-10">
+            <input id="DonorLastName" class="form-control" type="text" name="DonorLastName" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="DonorEmail" class="col-sm-2 control-label">Email:</label>
+        <div class="col-sm-10">
+            <input id="DonorEmail" class="form-control" type="text" name="DonorEmail" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="DonorPhone" class="col-sm-2 control-label">Phone:</label>
+        <div class="col-sm-10">
+            <input id="DonorPhone" class="form-control" type="text" name="DonorPhone" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="DonorAddress" class="col-sm-2 control-label">Address:</label>
+        <div class="col-sm-10">
+            <input id="DonorAddress" class="form-control" type="text" name="DonorAddress" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="DonorCity" class="col-sm-2 control-label">City:</label>
+        <div class="col-sm-10">
+            <input id="DonorCity" class="form-control" type="text" name="DonorCity" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="DonorProvince" class="col-sm-2 control-label">Province:</label>
+        <div class="col-sm-10">
+            <input id="DonorProvince" class="form-control" type="text" name="DonorProvince" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="DonationAmount" class="col-sm-2 control-label">Amount:</label>
+        <div class="col-sm-10">
+            <input id="DonationAmount" class="form-control" type="number" name="DonationAmount" min="1" required />
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" class="btn btn-primary" value="Make Donation" />
+    </div>
+
+
+</form>

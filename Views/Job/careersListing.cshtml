@@ -1,0 +1,26 @@
+﻿@model List<HospitalProject.Models.Job>
+@{
+    ViewBag.Title = "Careers";
+}
+
+<h2>NBRHSC Careers</h2>
+<table class="table">
+    <tr>
+        <th>Position</th>
+        <th>Job Type</th>
+        <th>Qualification</th>
+        <th>Experience</th>
+        <th>Apply</th>
+    </tr>
+    @foreach (var job in Model)
+    {
+        <tr>
+            <td>@job.Position</td>
+            <td>@job.JobType.JobTypeTitle</td>
+            <td>@job.Qualification</td>
+            <td>@job.Experience</td>
+            <td><a href="mailto:careers@nbrhsc.com">careers@nbrhsc.com</a></td>
+        </tr>
+    }
+</table>
+
