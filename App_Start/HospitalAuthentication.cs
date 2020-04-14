@@ -34,7 +34,7 @@ namespace HospitalProject
             get { return isLoggedIn; }
         }
 
-        public ApplicationUser GetUser()
+        private ApplicationUser GetUser()
         {
             ApplicationUserManager manager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));
             if (userid == "") return null;
@@ -49,6 +49,8 @@ namespace HospitalProject
             return false;
         }
 
+      
+      
     }
         
     public class HospitalAuthentication

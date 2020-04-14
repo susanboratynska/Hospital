@@ -1,7 +1,19 @@
-﻿
+﻿@model HospitalProject.Models.VolunteerPosting
 @{
     ViewBag.Title = "Show";
 }
 
 <h2>Show</h2>
+<div class="navbar">
+    <a class="navlink" href="/VolunteerPosting/List">Back to List</a>
+    <a class="navlink" href="/VolunteerPosting/Update/@Model.VolunteerPostingID">Update</a>
+    <a class="navlink" href="/VolunteerPosting/ConfirmDelete/@Model.VolunteerPostingID">Delete</a>
+</div>
+<div>
+    <div class="col2">
+        <div><span>Title: </span>@Model.VolunteerPostingTitle</div>
+        <div><span>Date of Posting: </span>@Model.VolunteerPostingDate</div>
+        <div><span>Description: </span>@Model.VolunteerPostingDescription</div>
+    </div>
+</div>
 

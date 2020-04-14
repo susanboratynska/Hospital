@@ -1,7 +1,27 @@
-﻿
+﻿@model HospitalProject.Models.ViewModels.ShowVolunteer
 @{
     ViewBag.Title = "Show";
 }
 
-<h2>Show</h2>
+<h2>@Model.volunteer.ApplicationUser.FirstName @Model.volunteer.ApplicationUser.LastName</h2>
+
+<div class="navbar">
+    <a class="navlink" href="/Volunteer/List">Back to List</a> 
+    <a class="navlink" href="/Volunteer/Update/@Model.volunteer.VolunteerID">Update</a>
+    <a class="navlink" href="/Volunteer/ConfirmDelete/@Model.volunteer.VolunteerID">Delete</a>
+</div>
+<div>
+    <div class="col2">
+        <div><span>First Name: </span> @Model.volunteer.ApplicationUser.FirstName</div>
+        <div><span>Last Name: </span>@Model.volunteer.ApplicationUser.LastName</div>
+        <div><span>Gender: </span>@Model.volunteer.ApplicationUser.UserGender</div>
+        <div><span>Address: </span>@Model.volunteer.ApplicationUser.Address</div>
+        <div><span>Province: </span>@Model.volunteer.ApplicationUser.Province</div>
+        <div><span>City: </span>@Model.volunteer.ApplicationUser.City</div>
+        <div><span>Postal Code: </span>@Model.volunteer.ApplicationUser.PostalCode</div>
+        <div><span>Email: </span>@Model.volunteer.ApplicationUser.Email</div>
+        <div><span>Phone Number: </span>@Model.volunteer.ApplicationUser.PhoneNumber</div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
 

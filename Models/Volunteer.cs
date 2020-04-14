@@ -11,6 +11,7 @@ using HospitalProject.Data;
 namespace HospitalProject.Models
 {
     public class Volunteer
+        //Volunteer must reference a list of postings
     {
         [Key]
         public int VolunteerID { get; set; }
@@ -21,8 +22,9 @@ namespace HospitalProject.Models
         //Content/Pets/{id}.{FileExtension}
         public int HasFile { get; set; }
         //.pdf, .doc. 
-        public string FileExtension { get; set; }
+      
         public ICollection<Application>Applications{ get; set; }
+        public ICollection<VolunteerPosting> VolunteerPostings { get; set; }
 
     }
 }

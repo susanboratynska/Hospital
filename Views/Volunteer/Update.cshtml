@@ -1,7 +1,72 @@
-﻿
+﻿@model HospitalProject.Models.ViewModels.UpdateVolunteer
 @{
-    ViewBag.Title = "Update";
+    ViewBag.Title = "New";
 }
 
-<h2>Update</h2>
+<h2>Update Volunteer</h2>
+<div class="navbar">
+    <a class="navlink" href="/Volunteer/List">Back to List</a>
+</div>
+<div>
+    <div class="col2">
+        <form method="post" action="/Volunteer/Update/?VolunteerID=@Model.Volunteer.VolunteerID" class="form-horizontal">
+            <div class="form-group">
+                <span>First Name:</span>
+                <input type="text" name="VolunteerFname" id="VolunteerFname" value="@Model.Volunteer.ApplicationUser.FirstName"/>
+            </div>
+            <div class="form-group">
+                <span>Last Name:</span>
+                <input type="text" name="VolunteerLname" id="VolunteerLname" value="@Model.Volunteer.ApplicationUser.LastName"/>
+            </div>
+            <div class="form-group">
+                <span>Email:</span>
+                <input type="email" name="VolunteerEmail" id="VolunteerEmail" value="@Model.Volunteer.ApplicationUser.Email"/>
+            </div>
+            <div class="form-group">
+                <span>Phone Number:</span>
+                <input type="tel" name="VolunteerPhone" id="VolunteerPhone" value="@Model.Volunteer.ApplicationUser.PhoneNumber"/>
+            </div>
+            <div class="form-group">
+                <span>Gender:</span>
+                @{
+                    if (Model.Volunteer.ApplicationUser.UserGender == Model.Male)
+                    {
+                        <label for="male">Male</label>
+                        <input type="radio" id="male" name="UserGender" value="@Model.Male" checked />
+                        <label for="female">Female</label>
+                        <input type="radio" id="female" name="UserGender" value="@Model.Female" />
+                    }
+                    else
+                    {
+                        <label for="male">Male</label>
+                        <input type="radio" id="male" name="UserGender" value="@Model.Male" />
+                        <label for="female">Female</label>
+                        <input type="radio" id="female" name="UserGender" value="@Model.Female" checked />
+                    }
+                }
+            </div>
+            <div class="form-group">
+                <span>Address:</span>
+                <input type="text" name="VolunteerAddress" id="VolunteerAddress" value="@Model.Volunteer.ApplicationUser.Address"/>
+            </div>
+            <div class="form-group">
+                <span>Province:</span>
+                <input type="text" name="VolunteerProvince" id="VolunteerProvince" value="@Model.Volunteer.ApplicationUser.Province"/>
+            </div>
+            <div class="form-group">
+                <span>City:</span>
+                <input type="text" name="VolunteerCity" id="VolunteerCity" value="@Model.Volunteer.ApplicationUser.City"/>
+            </div>
+            <div class="form-group">
+                <span>Postal Code:</span>
+                <input type="text" name="PostalCode" id="PostalCode" value="@Model.Volunteer.ApplicationUser.PostalCode"/>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value="Update Volunteer"/>
+            </div>
+        </form>
+    </div>
+    <div class="col2last"></div>
+    <div style="clear:both;"></div>
+</div>
 

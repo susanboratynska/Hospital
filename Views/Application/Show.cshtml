@@ -1,7 +1,21 @@
-﻿
+﻿@model HospitalProject.Models.Application
 @{
     ViewBag.Title = "Show";
 }
 
 <h2>Show</h2>
+<div class="navbar">
+    <a class="navlink" href="/Application/List">Back to List</a>
+    <a class="navlink" href="/Application/Update/@Model.ApplicationID">Update</a>
+    <a class="navlink" href="/Application/ConfirmDelete/@Model.ApplicationID">Delete</a>
+</div>
+<div>
+    <div class="col2">
+        <div><span>Volunteer: </span>@Model.Volunteer.ApplicationUser.FirstName @Model.Volunteer.ApplicationUser.LastName</div>
+        <div><span>Posting: </span>@Model.VolunteerPosting.VolunteerPostingTitle</div>
+        <div><span>Education: </span>@Model.Education</div>
+        <div><span>Current Occupation: </span>@Model.CurrentOccupation</div>
+        <div><span>Experience: </span>@Model.Experience</div>
+    </div>
+</div>
 

@@ -5,13 +5,12 @@ using System.Web;
 
 namespace HospitalProject.Models.ViewModels
 {
-    public class ListApplications
+    public class AddApplication
     {
-        //List of volunteers:
+        //list of volunteers
         public virtual List<Volunteer> Volunteers { get; set; }
-
-        //List of VolunteerPostings:
+        //list of postings
         public virtual List<VolunteerPosting> VolunteerPostings { get; set; }
-        public virtual List<Application> Applications { get; set; }
+
     }
 }

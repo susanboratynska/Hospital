@@ -1,7 +1,26 @@
-﻿
+﻿@model List<HospitalProject.Models.Application>
 @{
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
+<h2>List of Applications</h2>
+<a href="Add">Add Application</a>
+<table class="table">
+    <tr>
+        <th>Application ID</th>
+        <th>Volunteer</th>
+        <th>Posting</th>
+        <th>Experience</th>
+    </tr>
+    @foreach (var application in Model)
+    {
+        <tr>
+            <td>@application.ApplicationID</td>
+            <td><a href="Show/@application.ApplicationID">@application.Volunteer.ApplicationUser.FirstName @application.Volunteer.ApplicationUser.LastName</a></td>
+            <td><a href="Show/@application.ApplicationID">@application.VolunteerPosting.VolunteerPostingTitle</a></td>
+            <td><a href="Show/@application.ApplicationID">@application.Experience</a></td>
+            <td><a href="Update/@application.ApplicationID">Edit</a> | <a href="Delete/@application.ApplicationID">Delete</a></td>
+        </tr>
+     }
+</table>
 

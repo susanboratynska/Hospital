@@ -19,5 +19,7 @@ namespace HospitalProject.Models
         public string VolunteerPostingDescription { get; set; }
         public DateTime VolunteerPostingDate { get; set; }
         public ICollection<Application>Applications{ get; set; }
+        //Representing the "Many" in (Many Volunteers to Many Postings)
+        public ICollection<Volunteer> Volunteers { get; set; }
     }
 }

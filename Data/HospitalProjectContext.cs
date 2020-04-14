@@ -25,19 +25,21 @@ namespace HospitalProject.Data
             // Add custom user claims here
             return userIdentity;
         }
-        //public virtual Volunteer Volunteer { get; set; }
- 
+       // public virtual Volunteer Volunteer { get; set; }
+            
+       // public virtual Patient Patient { get; set; }
+
         public bool IsAdmin { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         
         public Gender UserGender { get; set; }
         public enum Gender
-        {
+        { 
             Male,
             Female
         }
-
+        
         public string Address { get; set; }
         public string Province { get; set; }
         public string City { get; set; }

@@ -1,33 +1,28 @@
-﻿
+﻿@model List<HospitalProject.Models.Volunteer>
 @{
     ViewBag.Title = "List";
 }
 
-<h2>List of Volunteers</h2>
-<div class="navbar">
-    <form action="/Volunteer/List" method="get" style="display:inline-block; float:right;">
-        <input type="text" name="searchkey" id="searchkey" class="btn btn-default search-input"/>
-        <input type="submit" value="Search" class="btn btn-default"/>
-    </form>
-</div>
-
+    <h2>List of Volunteers</h2>
+<a href="../Account/Register">Add Volunteer</a>
 <table class="table">
-    <thead>
+    <tr>
+        <th>Volunteer ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    @foreach (var volunteer in Model)
+    {
         <tr>
-            <th>Volunteer ID</th>
-            <th>Name</th>
-            <th>Email</th>
+            <td><a href="Show/@volunteer.VolunteerID">@volunteer.ApplicationUser.FirstName, @volunteer.ApplicationUser.LastName</a></td>
+            <td>@volunteer.ApplicationUser.Email</td>
+            <td><a href="Update/@volunteer.VolunteerID">Edit</a> | <a href="Delete/@volunteer.VolunteerID">Delete</a></td>
         </tr>
-    </thead>
-    <tbody>
-        @foreach (var volunteer in Model.Volunteers)
-        { 
-            <tr>
-                <td>@volunteer.VolunteerID</td>
-                <td>@volunteer.VolunteerName</td>
-                <td>@volunteer.VolunteerEmail</td>
-            </tr>
-        }
-    </tbody>
+    }
 </table>
+
+
+
+
+
 
