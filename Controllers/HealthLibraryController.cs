@@ -18,6 +18,11 @@ namespace HospitalProject.Controllers
         // GET: HealthLibrary
         public ActionResult List(string searchkey, int pagenum = 0)
         {
+            //check if the user is logged in and is an admin and direct to login if they are not an admin or logged in
+            //put the rest of the code in an else statement
+
+            Debug.WriteLine("Searching for " + searchkey);
+
             //get a list of all health library posts
             List<HealthLibrary> healthLibraries = db.HealthLibraries.Where(f => (searchkey != null) ? f.Title.Contains(searchkey) : true).ToList();
 
@@ -45,6 +50,8 @@ namespace HospitalProject.Controllers
         //method for public view
         public ActionResult Public(string searchkey)
         {
+            Debug.WriteLine("Searching for " + searchkey);
+
             //get a list of all health library posts and search for searchkey
             List<HealthLibrary> healthLibraries = db.HealthLibraries.Where(f => (searchkey != null) ? f.Title.Contains(searchkey) : true).ToList();
 
@@ -54,6 +61,8 @@ namespace HospitalProject.Controllers
         //method for public show view
         public ActionResult PublicShow(int HealthLibraryID)
         {
+            Debug.WriteLine("Showing details for post: " + HealthLibraryID);
+
             //get health library post based on id and return it
             HealthLibrary HealthLibrary = db.HealthLibraries.FirstOrDefault(f => f.HealthLibraryID == HealthLibraryID);
 
@@ -62,6 +71,11 @@ namespace HospitalProject.Controllers
 
         public ActionResult Show(int HealthLibraryID)
         {
+            //check if the user is logged in and is an admin and direct to login if they are not an admin or logged in
+            //put the rest of the code in an else statement
+
+            Debug.WriteLine("Showing details for post: " + HealthLibraryID);
+
             //get health library post based on id and return it
             HealthLibrary HealthLibrary = db.HealthLibraries.FirstOrDefault(f => f.HealthLibraryID == HealthLibraryID);
 
@@ -75,6 +89,10 @@ namespace HospitalProject.Controllers
         [HttpPost]
         public ActionResult Add(string Title, DateTime Date, string Body, bool Published)
         {
+            //check if the user is logged in and is an admin and direct to login if they are not an admin or logged in
+            //put the rest of the code in an else statement
+
+            Debug.WriteLine("Attemping to add a new post: " + Title);
             //create a new health library post
             HealthLibrary HealthLibrary = new HealthLibrary();
 
@@ -102,6 +120,11 @@ namespace HospitalProject.Controllers
         [HttpPost]
         public ActionResult Update(int HealthLibraryID, string Title, DateTime Date, string Body, bool Published)
         {
+            //check if the user is logged in and is an admin and direct to login if they are not an admin or logged in
+            //put the rest of the code in an else statement
+
+            Debug.WriteLine("Attemping to update post: " + HealthLibraryID);
+
             //search for the specific health library post info
             HealthLibrary HealthLibrary = db.HealthLibraries.Find(HealthLibraryID);
             //bind new params
@@ -120,6 +143,11 @@ namespace HospitalProject.Controllers
         [HttpPost]
         public ActionResult Delete(int HealthLibraryID)
         {
+            //check if the user is logged in and is an admin and direct to login if they are not an admin or logged in
+            //put the rest of the code in an else statement
+
+            Debug.WriteLine("Attemping to delete post: " + HealthLibraryID);
+
             //search for specific health library post based on passed in id
             HealthLibrary HealthLibrary = db.HealthLibraries.Find(HealthLibraryID);
 

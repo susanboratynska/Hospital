@@ -9,15 +9,15 @@
 <form action="/HealthLibrary/Update/?HealthLibraryID=@Model.HealthLibraryID" method="post">
     <div class="form-group">
         <label for="Title" class="col-sm-2 control-label">Title:</label>
-        <input type="text" id="Title" name="Title" value="@Model.Title" class="form-control" />
+        <input type="text" id="Title" name="Title" value="@Model.Title" class="form-control" placeholder="Enter a title..." required />
     </div>
     <div class="form-group">
         <label for="Date" class="col-sm-2 control-label">Date:</label>
-        <input type="text" id="Date" name="Date" value="@Model.Date.ToString("yyyy-MM-dd")" class="form-control" />
+        <input type="text" id="Date" name="Date" value="@Model.Date.ToString("yyyy-MM-dd")" class="form-control" placeholder="YYYY-MM-DD" required />
     </div>
     <div class="form-group">
         <label for="Body" class="col-sm-2 control-label">Body:</label>
-        <textarea id="Body" name="Body" class="form-control">@Model.Body</textarea>
+        <textarea id="Body" name="Body" class="form-control" placeholder="Enter some text..." required>@Model.Body</textarea>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">Published:</label>
