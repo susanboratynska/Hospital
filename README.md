@@ -33,9 +33,46 @@ The team members and their contributions are below.
 Individual works can be seen in the sub-folders in "Documentation".  
   
 ##### N01371157: Susan Boratynska  
-- Patient E-cards - (Patient & Visitors)  
-- Events Calendar - Home Page (Main Nav)  
-- MVP (Nav, Pages, Master Page)  
+- Please note: HospitalCampuses entries must be completed first before Patient eCard and Events features can be tested as they rely on campus data.
+
+- Hospital Campus (Admin)
+  - Models: Models/HospitalCampus.cs
+  - Controllers: Controllers/HospitalCampusController.cs 
+  - Views:
+    - Views/HospitalCampus/Add/.cshtml
+    - Views/HospitalCampus/List/.cshtml
+    - Views/HospitalCampus/Show/.cshtml
+    - Views/HospitalCampus/Update.cshtml
+
+- Patient eCards - (Public & Admin Views)
+  - Models: Models/PatientEcard.cs
+  - Controllers: Controllers/PatientEcardController.cs
+  - Views:
+    - Views/PatientEcard/Add.cshtml
+    - Views/PatientEcard/Confirm.cshtml
+    - Views/PatientEcard/List.cshtml
+    - Views/PatientEcard/Show.cshtml
+      - ViewModels:  
+        - Models/ViewModels/ListPatientEcards.cs
+
+- Events Calendar (Admin)
+  - Models/PatientEcard.cs
+    - Models/Event.cs
+    - Models/ViewModels/AddEvent.cs
+    - Models/ViewModels/ListEvents.cs
+   - Controllers: Controllers/EventController.cs
+   - Views:
+     - Views/Events/Add.cshtml
+     - Views/Events/List.cshtml
+     - Views/Events/Show.cshtml
+     - Views/Events/Update.cshtml
+   
+- Additional Contributions
+    - Views:
+      - Views/Home/Index
+      - Views/Home/About
+      - Views/Home/Contact
+
 
 ##### N01330009: Het Kansara  
 - Parking Registration  
