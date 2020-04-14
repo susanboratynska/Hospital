@@ -138,7 +138,31 @@ Individual works can be seen in the sub-folders in "Documentation".
 
 ##### Mounica Sykam  
 - Donation  
+  - Models
+    1. Donation.cs
+  - Controllers
+    1. DonationController.cs
+  - Views
+    1. Donation/Add.cshtml
+    2. Donation/DonationSuccess.cshtml
+    3. Donation/List.cshtml
+    4. Donation/View.cshtml
 - Job Portals  
+  - Models
+    - ViewModels
+      1. UpdateJob.cs
+    1. Job.cs
+    2. JobType.cs
+  - Controllers
+    1. JobController.cs
+  - Views
+    1. Job/Add.cshtml
+    2. Job/Apply.cshtml
+    3. Job/careersListing.cshtml
+    4. Job/Delete.cshtml
+    5. Job/JobPosts.cshtml
+    6. Job/JobsListing.cshtml
+    7. Job/Update.cshtml
 - Contact Us  
 
 ##### N01375163: Hilmi Yildirim  
