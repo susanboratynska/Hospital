@@ -46,7 +46,7 @@ namespace HospitalProject.Controllers
             }
             else if (campus != "")
             {
-
+                // Must parse to int value to check against DB values:
                 int campusid = int.Parse(campus);
                 List<Event> Events = db.Events.Where(h => h.CampusID == campusid).ToList();
                 viewmodel.Events = Events;

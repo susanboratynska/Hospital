@@ -3,8 +3,8 @@
 }
 <div class="navbar-collapse collapse" style="margin-top: 5px; min-height: 70px;">
     <div style="display:inline-block; ">
-        <a class="navbar-brand" href="Index" style="padding: 0">
-            <img alt="North Bay Regional Health Centre Logo" src="~/Content/images/nbrhc-logo.jpg" style="max-height: 100%; min-height:65px;">
+        <a class="navbar-brand" href="/" style="padding: 0">
+            <img alt="North Bay Regional Health Centre Logo" src="~/Content/images/nbrhc-logo.jpg" style="max-height: 100%; min-height:65px;" />
         </a>
     </div>
 
@@ -39,7 +39,7 @@
 
     <div class="col-md-4">
         <div class="col-md-12 index__col_bg">
-            <a href="">
+            <a href="/DoctorAppointment/Bookings">
                 <div class="index__icon_container" id="index__icon_parking">
                     <?xml version="1.0" encoding="utf-8" ?>
                     <!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
@@ -56,7 +56,7 @@
 
     <div class="col-md-4">
         <div class="col-md-12 index__col_bg">
-            <a href="">
+            <a href="/Parking/Bookings">
                 <div class="index__icon_container">
                     <?xml version="1.0" encoding="iso-8859-1" ?>
                     <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -76,36 +76,6 @@
 	                             M175.684,186.908c0,2.357-1.929,4.284-4.284,4.284h-30.352c-2.355,0-4.284-1.928-4.284-4.284v-14.566
 	                            c0-2.356,1.929-4.284,4.284-4.284h30.352c2.355,0,4.284,1.928,4.284,4.284V186.908z" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <g>
                     <path d="M259.125,37.486H208.39c-7.388,0-13.398,6.011-13.398,13.398v50.736c0,7.388,6.011,13.399,13.398,13.399h20.367v113.872
 		                            c0,2.762,2.238,5,5,5c2.762,0,5-2.238,5-5V115.02h20.368c7.388,0,13.398-6.011,13.398-13.399V50.885
@@ -113,34 +83,6 @@
 		                            c-0.882,0-1.6,0.719-1.6,1.601v12.389c0,1.346-1.095,2.44-2.441,2.44h-5.564c-1.347,0-2.441-1.095-2.441-2.44V55.007
 		                            c0-1.347,1.095-2.442,2.441-2.442h14.016c9.285,0,12.751,1.399,15.599,3.816c3.004,2.549,4.526,6.453,4.526,11.606
 		                            C252.048,73.022,250.564,76.912,247.634,79.553z" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -152,33 +94,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            </g>
+                    </g>
                     <g></g>
                     <g></g>
                     <g></g>
@@ -194,7 +110,7 @@
                     <g></g>
                     <g></g>
                     <g></g>
-                         </svg>
+                    </svg>
 
 
                 </div>
@@ -205,7 +121,7 @@
 
     <div class="col-md-4">
         <div class="col-md-12 index__col_bg">
-            <a href="">
+            <a href="/Donation/Add">
                 <div class="index__icon_container" id="index__icon_donate">
                     <?xml version="1.0" encoding="utf-8" ?>
                     <!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
@@ -225,24 +141,33 @@
 
 
 
-@*<div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="col-md-12" style="margin-left: 10px">
+            <h5><a href="/Account/Login">Account - Login &raquo;</a></h5>
+            <h5><a href="/Faq/List">FAQ &raquo;</a></h5>
+            <h5><a href="/HospitalCampus/List">Hospital Campuses &raquo;</a></h5>
+            <h5><a href="/PatientEcard/Add">Patient eCard - Public View &raquo;</a></h5>
+            <h5><a href="/PatientEcard/List">Patient eCard - Admin View &raquo;</a></h5>
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <div class="col-md-12" style="margin-left: 10px">
+            <h5><a href="/Application/Add">Volunteer Application Form &raquo;</a></h5>
+            <h5><a href="/DoctorAppointment/Bookings">Doctor Appointments &raquo;</a></h5>
+            <h5><a href="/Donation/List">List of Donations &raquo;</a></h5>
+            <h5><a href="/HealthLibrary/List">List of Health Library Posts &raquo;</a></h5>
+            <h5><a href="/HealthLibrary/Public">Library of Health Information - Public View &raquo;</a></h5>
         </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <div class="col-md-12" style="margin-left: 10px">
+            <h5><a href="/Job/careersListing">Job Postings - Public &raquo;</a></h5>
+            <h5><a href="/Job/JobsListing">Job Posting - Admin &raquo;</a></h5>
+            <h5><a href="/Parking/Bookings">Parking Registration &raquo;</a></h5>
+            <h5><a href="/Volunteer/List">List of Volunteers &raquo;</a></h5>
+            <h5><a href="/VolunteerPosting/Add">Add New Volunteer Opportunity &raquo;</a></h5>
+            <h5><a href="/Event/List">List of Upcoming Events &raquo;</a></h5>
         </div>
-    </div>*@
+    </div>

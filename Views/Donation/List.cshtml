@@ -1,0 +1,37 @@
+﻿@model List<HospitalProject.Models.Donation>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Donations</h2>
+<table class="table">
+    <tr>
+        <th>Donor Name</th>
+        <th>Donor Phone</th>
+        <th>Donor Email</th>
+        <th>Donation Date</th>
+        <th>
+            Total Amount (
+            @{
+                var totalDonation = 0;
+                foreach (var donation in Model)
+                {
+                    totalDonation = totalDonation + donation.DonationAmount;
+                }
+                @totalDonation;
+            }
+             CAD)
+        </th>
+    </tr>
+    @foreach (var donation in Model)
+    {
+    <tr>
+        <td><a href="/Donation/View/@donation.DonorID">@donation.DonorFirstName @donation.DonorLastName</a></td>
+        <td>@donation.DonorPhone</td>
+        <td>@donation.DonorEmail</td>
+        <td>@donation.DonationDate</td>
+        <td>@donation.DonationAmount CAD</td>
+    </tr>
+    }
+</table>
+

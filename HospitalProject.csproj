@@ -172,11 +172,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\DoctorAppointmentController.cs" />
+    <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\HealthLibraryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalCampusController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ParkingController.cs" />
     <Compile Include="Controllers\PatientEcardController.cs" />
@@ -186,21 +188,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004101946570_initial.cs" />
-    <Compile Include="Migrations\202004101946570_initial.designer.cs">
-      <DependentUpon>202004101946570_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202004140105118_initial.cs" />
+    <Compile Include="Migrations\202004140105118_initial.designer.cs">
+      <DependentUpon>202004140105118_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\DoctorAppointment.cs" />
+    <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Faq.cs" />
     <Compile Include="Models\HealthLibrary.cs" />
     <Compile Include="Models\HospitalCampus.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\JobApplication.cs" />
+    <Compile Include="Models\JobType.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Parking.cs" />
     <Compile Include="Models\ParkingBooking.cs" />
@@ -208,9 +214,11 @@
     <Compile Include="Models\PatientEcard.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\ViewModels\AddEvent.cs" />
+    <Compile Include="Models\ViewModels\DoctorsAppointmentUpdate.cs" />
     <Compile Include="Models\ViewModels\ListEvents.cs" />
     <Compile Include="Models\ViewModels\ListPatientEcards.cs" />
     <Compile Include="Models\ViewModels\ParkingUpdate.cs" />
+    <Compile Include="Models\ViewModels\UpdateJob.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Models\VolunteerPosting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -227,12 +235,24 @@
     <Content Include="Content\images\nbrhc-home.jpg" />
     <Content Include="Content\images\nbrhc-logo.jpg" />
     <Content Include="Content\styles-susan.css" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-EventCalendar-Add.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-EventCalendar-ConfirmDelete.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-EventCalendar-List.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-EventCalendar-Update.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-PatientEcard-ConfirmDelete.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-PatientEcard-ListAdd.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-PatientEcard-ListofSubmitted.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-PatientEcard-PublicView.jpg" />
+    <Content Include="Documentation\SusanBoratynska\Wireframes\Wireframe-PatientEcard-Update.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Documentation\SusanBoratynska\AdminFunctionalityUserStories_SusanBoratynska.pdf" />
+    <Content Include="Documentation\SusanBoratynska\ERD_SusanBoratynska.pdf" />
+    <Content Include="Documentation\SusanBoratynska\HomepageDesign_CreatedByHetKansara.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -322,9 +342,29 @@
     <Content Include="Views\Volunteer\ConfirmDelete.cshtml" />
     <Content Include="Views\Volunteer\Show.cshtml" />
     <Content Include="Views\Volunteer\Update.cshtml" />
+    <Content Include="Views\DoctorAppointment\InvalidUser.cshtml" />
+    <Content Include="Views\DoctorAppointment\MyBookings.cshtml" />
+    <Content Include="Views\DoctorAppointment\Update.cshtml" />
+    <Content Include="Views\DoctorAppointment\Delete.cshtml" />
+    <Content Include="Views\Job\Add.cshtml" />
+    <Content Include="Views\Job\Update.cshtml" />
+    <Content Include="Views\Job\JobsListing.cshtml" />
+    <Content Include="Views\Job\Delete.cshtml" />
+    <Content Include="Views\Job\JobPosts.cshtml" />
+    <Content Include="Views\Job\Apply.cshtml" />
+    <Content Include="Views\Job\careersListing.cshtml" />
+    <Content Include="Views\Donation\Add.cshtml" />
+    <Content Include="Views\Donation\DonationSuccess.cshtml" />
+    <Content Include="Views\Donation\List.cshtml" />
+    <Content Include="Views\Donation\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Documentation\HetKansara\Wireframes\" />
+    <Folder Include="Documentation\HilmiYildirim\Wireframes\" />
+    <Folder Include="Documentation\MaitriModi\Wireframes\" />
+    <Folder Include="Documentation\MichaelPavlovic\Wireframes\" />
+    <Folder Include="Documentation\MounicaSykam\Wireframes\" />
     <Folder Include="Views\Doctor\" />
   </ItemGroup>
   <ItemGroup>
@@ -341,8 +381,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004101946570_initial.resx">
-      <DependentUpon>202004101946570_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004140105118_initial.resx">
+      <DependentUpon>202004140105118_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

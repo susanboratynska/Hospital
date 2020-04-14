@@ -1,0 +1,11 @@
+﻿@model HospitalProject.Models.Job
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Job</h2>
+
+<a href="/Job/JobsListing">Back to Jobs Listing</a>
+<p>Are you sure you want to delete job - @Model.Position?</p>
+<a href="/Job/DeleteConfirm/@Model.JobID">Yes</a> |
+<a href="/Job/JobsListing">No</a>

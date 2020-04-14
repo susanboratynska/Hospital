@@ -9,28 +9,28 @@
 <form action="/Faq/Update/?FaqID=@Model.FaqID" method="post">
     <div class="form-group">
         <label for="Question" class="col-sm-2 control-label">Question:</label>
-        <textarea id="Question" name="Question" class="form-control">@Model.Question</textarea>
+        <textarea id="Question" name="Question" class="form-control" placeholder="Enter a question..." required>@Model.Question</textarea>
     </div>
     <div class="form-group">
         <label for="Answer" class="col-sm-2 control-label">Answer:</label>
-        <textarea id="Answer" name="Answer" class="form-control">@Model.Answer</textarea>
+        <textarea id="Answer" name="Answer" class="form-control" placeholder="Enter an answer..." required>@Model.Answer</textarea>
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2">Published:</label>
         @{
             if (Model.Published == true)
             {
-                    <label for="PublishedYes">Yes</label>
-                    <input type="radio" id="PublishedYes" name="Published" value="true" checked />
-                    <label for="PublishedNo">No</label>
-                    <input type="radio" id="PublishedNo" name="Published" value="false" />
+                <label for="PublishedYes">Yes</label>
+                <input type="radio" id="PublishedYes" name="Published" value="true" checked />
+                <label for="PublishedNo">No</label>
+                <input type="radio" id="PublishedNo" name="Published" value="false" />
             }
             else
             {
-                    <label for="PublishedYes">Yes</label>
-                    <input type="radio" id="PublishedYes" name="Published" value="true" />
-                    <label for="PublishedNo">No</label>
-                    <input type="radio" id="PublishedNo" name="Published" value="false" checked />
+                <label for="PublishedYes">Yes</label>
+                <input type="radio" id="PublishedYes" name="Published" value="true" />
+                <label for="PublishedNo">No</label>
+                <input type="radio" id="PublishedNo" name="Published" value="false" checked />
             }
         }
 

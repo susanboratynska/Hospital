@@ -1,0 +1,11 @@
+﻿@model HospitalProject.Models.DoctorAppointment
+@{
+    ViewBag.Title = "Delete Doctor's Appointment";
+}
+
+<h2>Delete Doctor's Appointment</h2>
+
+<a href="/DoctorAppointment/Bookings">Back to Bookings</a>
+<p>Are you sure you want to delete your appointment with Dr. @Model.Doctor.ApplicationUser.FirstName @Model.Doctor.ApplicationUser.LastName on @Model.BookingDateTime?</p>
+<a href="/DoctorAppointment/ConfirmDelete/@Model.BookingID">Yes</a> |
+<a href="/DoctorAppointment/Bookings">No</a>

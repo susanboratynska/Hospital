@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "MyBookings";
+}
+
+<h2>My Bookings</h2>
+<table class="table">
+    <tr>
+        <th>Doctor</th>
+        <th>Booking Time</th>
+        <th>Comments</th>
+        <th>Confirmed</th>
+    </tr>
+    @foreach (var booking in Model)
+    {
+        var confirmed = "Not-Confirmed";
+        var confirm = 1;
+        if (@booking.Confirmed)
+        {
+            confirm = 0;
+            confirmed = "Confirmed";
+        }
+        <tr>
+            <td>@booking.Patient.ApplicationUser.FirstName @booking.Patient.ApplicationUser.LastName</td>
+            <td>@booking.BookingDateTime</td>
+            <td>@booking.PatientComments</td>
+            <td>
+                @if(@confirm == 1) {
+                    <a href="ConfirmBooking/@booking.BookingID">Confirm Booking</a>
+                } else {
+                    <a href="CancelBooking/@booking.BookingID">Cancel Booking</a>    
+                }
+            </td>
+        </tr>
+    }
+</table>

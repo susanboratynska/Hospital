@@ -6,11 +6,11 @@
 <h2>Update Booking</h2>
 
 <a href="/Parking/Bookings">Back to Bookings</a>
-<form method="POST" action="/Parking/AddBooking" class="form-horizontal">
+<form method="POST" action="/Parking/Update" class="form-horizontal">
     <div class="form-group">
         <label for="CampusName" class="col-sm-2 control-label">Parking:</label>
         <div class="col-sm-10">
-            <select class="form-control" name="parkingID" id="parkingSelect">
+            <select class="form-control" name="parkingID" id="parkingSelect" disabled>
                 @foreach (var parking in Model.Parkings)
                 {
                     var selected = "";
@@ -25,6 +25,7 @@
     </div>
 
     <div class="form-group">
+        <input type="hidden" name="bookingID" value="@Model.ParkingBooking.BookingID" />
         <label for="CampusAddressLine1" class="col-sm-2 control-label">Date & Time:</label>
         <div class="col-sm-10">
             <input id="DateTime" class="form-control" value="@Convert.ToDateTime(Model.ParkingBooking.BookingTime).ToString("yyyy-MM-ddTHH:MM")" min="@Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-ddTHH:MM")" type="datetime-local" name="bookingDateTime" />
@@ -39,7 +40,7 @@
     </div>
 
     <div>
-        <input type="submit" class="btn btn-primary" value="Book Parking Space" />
+        <input type="submit" class="btn btn-primary" value="Update Booking" />
     </div>
 
 
