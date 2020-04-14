@@ -74,9 +74,30 @@ Individual works can be seen in the sub-folders in "Documentation".
 - Online Bill Payment   
 
 ##### Michael Pavlovic 
+- FAQ
+  - Models
+    1. Models/Faq.cs
+  - Controllers
+    1. Controllers/FaqController.cs
+  - Views
+    1. Views/Faq/Add.cshtml
+    2. Views/Faq/List.cshtml
+    3. Views/Faq/Public.cshtml
+    4. Views/Faq/Show.cshtml
+    5. Views/Faq/Update.cshtml
+- A Library of Health Information
+  - Models
+    1. Models/HealthLibrary.cs
+  - Controllers
+    1. Controllers/HealthLibraryController.cs
+  - Views
+    1. Views/HealthLibrary/Add.cshtml
+    2. Views/HealthLibrary/List.cshtml
+    3. Views/HealthLibrary/Public.cshtml
+    4. Views/HealthLibrary/PublicShow.cshtml
+    5. Views/HealthLibrary/Show.cshtml
+    6. Views/HealthLibrary/Update.cshtml
 - Doctor’s Directory  
-- A Library of Health Information  
-- FAQ  
 
 ##### Mounica Sykam  
 - Donation  
