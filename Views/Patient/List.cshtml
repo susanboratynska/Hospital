@@ -1,0 +1,28 @@
+﻿@model List<HospitalProject.Models.Patient>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of PAtients</h2>
+<a href="../Account/Register">Add Patient</a>
+<table class="table">
+    <tr>
+        <th>Patient ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    @foreach (var patient in Model)
+    {
+        <tr>
+            <td><a href="Show/@patient.PatientID">@patient.ApplicationUser.FirstName, @patient.ApplicationUser.LastName</a></td>
+            <td>@patient.ApplicationUser.Email</td>
+            <td><a href="Update/@patient.PatientID">Edit</a> | <a href="ConfirmDelete/@patient.PatientID">Delete</a></td>
+        </tr>
+    }
+</table>
+
+
+
+
+
+

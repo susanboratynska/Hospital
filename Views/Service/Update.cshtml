@@ -1,0 +1,27 @@
+﻿@model HospitalProject.Models.Service
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update @Model.ServiceName</h2>
+<div class="navbar">
+    <a class="navlink" href="/Service/List">Back to List</a>
+</div>
+<div>
+    <div class="col2">
+        <form method="post" action="/Service/Update/@Model.ServiceID">
+            <div class="form-group">
+                <span>Service Name:</span>
+                <input type="text" name="ServiceName" id="ServiceName" value="@Model.ServiceName" />
+            </div>
+            <div class="form-group">
+                <span>Service Details:</span>
+                <input type="text" name="ServiceDetails" id="ServiceDetails" value="@Model.ServiceDetails" />
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value="Update Service" />
+            </div>
+        </form>
+    </div>
+</div>
+

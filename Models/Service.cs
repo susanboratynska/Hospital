@@ -15,6 +15,7 @@ namespace HospitalProject.Models
         [Key]
         public int ServiceID { get; set; } 
         public string ServiceName { get; set; }
+        public string ServiceDetails { get; set; }
         public ICollection<Invoice> Invoices { get; set; }
     }
 }

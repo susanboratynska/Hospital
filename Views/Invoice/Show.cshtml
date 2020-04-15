@@ -1,0 +1,19 @@
+﻿@model HospitalProject.Models.Invoice
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<div class="navbar">
+    <a class="navlink" href="/Invoice/List">Back to List</a>
+</div>
+<div>
+    <div class="col2">
+        <div><span>Patient: </span>@Model.Patient.ApplicationUser.FirstName @Model.Patient.ApplicationUser.LastName</div>
+        <div><span>Service: </span>@Model.Service.ServiceName</div>
+        <div><span>Amount: </span>@Model.Amount</div>
+        <div><span>Date of Service: </span>@Model.DateOfService</div>
+        <div><span>Paid: </span>@Model.Status</div>
+    </div>
+</div>
+

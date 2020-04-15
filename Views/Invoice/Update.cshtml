@@ -1,0 +1,70 @@
+﻿@model HospitalProject.Models.ViewModels.UpdateInvoice
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update </h2>
+
+<div class="navbar">
+    <a class="navlink" href="/Invoice/List">Back to List</a>
+</div>
+<div class="col2">
+    <form method="post" action="/Invoice/Update/@Model.Invoice.InvoiceID">
+        <div class="form-group">
+            <span>Parient:</span>
+            <select name="PatientID">
+                @foreach (var patient in Model.Patients)
+                {
+                    string selected = "";
+                    if (Model.Invoice.PatientID== patient.PatientID) { selected = "selected"; }
+                    <option value="@patient.PatientID" @selected>@patient.ApplicationUser.FirstName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <span>Service:</span>
+            <select name="ServiceID">
+                @foreach (var service in Model.Services)
+                {
+                    string selected = "";
+                    if (Model.Invoice.ServiceID== service.ServiceID) { selected = "selected"; }
+                    <option value="@service.ServiceID" @selected>@service.ServiceName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <span>Amount:</span>
+            <input type="number" id="Amount" name="Amount" value="@Model.Invoice.Amount" />
+        </div>
+        <div class="form-group">
+            <span>Date of Service:</span>
+            <input type="date" id="DateOfService" name="DateOfService" value="@Model.Invoice.DateOfService" />
+        </div>
+        <div class="form-group">
+            <span>Status</span>
+                @{
+                    if (Model.Invoice.Status == true)
+                    {
+                        <label for="paid">Paid</label>
+                        <input type="radio" id="paid" name="Status" value="true" checked />
+                        <label for="unpaid">Unpaid</label>
+                        <input type="radio" id="unpaid" name="Status" value="false" />
+                    }
+                    else
+                    {
+                        <label for="paid">Paid</label>
+                        <input type="radio" id="paid" name="Status" value="true" />
+                        <label for="unpaid">Unpaid</label>
+                        <input type="radio" id="unpaid" name="Status" value="false" checked />
+                    }
+                }
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Update Invoice" />
+        </div>
+    </form>
+
+</div>
+
+
+

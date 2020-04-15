@@ -59,7 +59,7 @@ namespace HospitalProject.Controllers
 
         public ActionResult Show(string id)
         {
-            //find data about the individual volunteer
+            //find data about the individual volunteer posting
             string main_query = "Select * from VolunteerPostings where VolunteerPostingID = @id";
             var pk_parameter = new SqlParameter("@id", id);
             VolunteerPosting VolunteerPosting = db.VolunteerPostings.SqlQuery(main_query, pk_parameter).FirstOrDefault();

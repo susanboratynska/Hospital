@@ -1,0 +1,16 @@
+﻿@model HospitalProject.Models.Service
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<div class="navbar">
+    <a class="navlink" href="/Service/List">Back to List</a>
+</div>
+<div>
+    <div class="col2">
+        <div><span>Service Name: </span>@Model.ServiceName</div>
+        <div><span>Service Details: </span>@Model.ServiceDetails</div>
+    </div>
+</div>
+

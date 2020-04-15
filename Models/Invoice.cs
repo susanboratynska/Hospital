@@ -18,16 +18,21 @@ namespace HospitalProject.Models
         */ 
         [Key]
         public int InvoiceID { get; set; }  
-        public double Amount { get; set; }
+        public int Amount { get; set; }
         public DateTime DateOfService { get; set; }
 
-        public Boolean Status { get; set; }
+        public bool Status { get; set; }
+        
         //Representing Many in (One Patient to Many Invoices)
         public int PatientID { get; set; }
         [ForeignKey("PatientID")]
         public virtual Patient Patient { get; set; }
 
+        public int ServiceID { get; set; }
+        [ForeignKey("ServiceID")]
+        public virtual Service Service { get; set; }
+
         //Representing Many in (Many Invoices to Many Services)
-       public ICollection<Service> Services { get; set; }
+       
     }
 }

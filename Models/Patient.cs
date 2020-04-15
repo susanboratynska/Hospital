@@ -29,6 +29,7 @@ namespace HospitalProject.Models
        [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
 
+       
     }
 
     //"https://www.webmd.com/allergies/most-common-drugs-that-cause-allergies"

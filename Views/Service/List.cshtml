@@ -1,0 +1,22 @@
+﻿@model List<HospitalProject.Models.Service>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Services</h2>
+<a href="Add">Add Service</a>
+<table class="table">
+    <tr>
+        <th>Service ID</th>
+        <th>Service Name</th>
+    </tr>
+    @foreach (var service in Model)
+    {
+        <tr>
+            <td>@service.ServiceID.</td>
+            <td><a href="Show/@service.ServiceID">@service.ServiceName</a></td>
+            <td><a href="Update/@service.ServiceID">Edit</a> | <a href="ConfirmDelete/@service.ServiceID">Delete</a></td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,25 @@
+﻿@model HospitalProject.Models.ViewModels.ShowPatient
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>@Model.patient.ApplicationUser.FirstName @Model.patient.ApplicationUser.LastName</h2>
+
+<div class="navbar">
+    <a class="navlink" href="/Patient/List">Back to List</a>
+</div>
+<div>
+    <div class="col2">
+        <div><span>First Name: </span> @Model.patient.ApplicationUser.FirstName</div>
+        <div><span>Last Name: </span>@Model.patient.ApplicationUser.LastName</div>
+        <div><span>Gender: </span>@Model.patient.ApplicationUser.UserGender</div>
+        <div><span>Address: </span>@Model.patient.ApplicationUser.Address</div>
+        <div><span>Province: </span>@Model.patient.ApplicationUser.Province</div>
+        <div><span>City: </span>@Model.patient.ApplicationUser.City</div>
+        <div><span>Postal Code: </span>@Model.patient.ApplicationUser.PostalCode</div>
+        <div><span>Email: </span>@Model.patient.ApplicationUser.Email</div>
+        <div><span>Phone Number: </span>@Model.patient.ApplicationUser.PhoneNumber</div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+

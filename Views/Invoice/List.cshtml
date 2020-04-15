@@ -1,0 +1,26 @@
+﻿@model List<HospitalProject.Models.Invoice>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Invoices</h2>
+<a href="Add">Add Invoice</a>
+<table class="table">
+    <tr>
+        <th>Invoice ID</th>
+        <th>Patient</th>
+        <th>Service</th>
+        <th>Paid</th>
+    </tr>
+    @foreach (var invoice in Model)
+    {
+        <tr>
+            <td>@invoice.InvoiceID</td>
+            <td><a href="Show/@invoice.InvoiceID">@invoice.Patient.ApplicationUser.FirstName @invoice.Patient.ApplicationUser.LastName</a></td>
+            <td><a href="Show/@invoice.InvoiceID">@invoice.Service.ServiceName</a></td>
+            <td><a href="Show/@invoice.InvoiceID">@invoice.Status</a></td>
+            <td><a href="/Invoice/Update/@invoice.InvoiceID">Edit</a> | <a href="ConfirmDelete/@invoice.InvoiceID">Delete</a></td>
+        </tr>
+    }
+</table>
+
