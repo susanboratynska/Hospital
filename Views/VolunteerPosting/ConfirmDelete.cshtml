@@ -1,7 +1,14 @@
-﻿
+﻿@model HospitalProject.Models.VolunteerPosting
 @{
     ViewBag.Title = "ConfirmDelete";
 }
 
-<h2>ConfirmDelete</h2>
+<h2>Are you sure you want to delete?</h2>
+<div class="navbar">
+    <a href="/VolunteerPosting/Show/@Model.VolunteerPostingID">Cancel</a>
+</div>
+<form method="POST" action="/VolunteerPosting/Delete/@Model.VolunteerPostingID">
+    <div class="inpfield"><input type="submit" value="Confirm" /></div>
+</form>
+
 

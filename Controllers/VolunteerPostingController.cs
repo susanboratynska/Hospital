@@ -66,5 +66,45 @@ namespace HospitalProject.Controllers
 
             return View(VolunteerPosting);
         }
+
+        public ActionResult Update(int id)
+        {
+            string query = "select * from VolunteerPostings where VolunteerPostingID= @id";
+            var parameter = new SqlParameter("@id", id);
+            VolunteerPosting volunteerposting= db.VolunteerPostings.SqlQuery(query, parameter).FirstOrDefault();
+
+            return View(volunteerposting);
+        }
+        [HttpPost]
+        public ActionResult Update(int id, string VolunteerPostingDate, string VolunteerPostingTitle, string VolunteerPostingDescription)
+        {
+            string query = "update VolunteerPostings set VolunteerPostingDate = @VolunteerPostingDate, VolunteerPostingTitle= @VolunteerPostingTitle, VolunteerPostingDescription=@VolunteerPostingDescription where VolunteerPostingID= @id";
+
+            SqlParameter[] sqlparams = new SqlParameter[4];
+            sqlparams[0] = new SqlParameter("@id", id);
+            sqlparams[1] = new SqlParameter("@VolunteerPostingDate", VolunteerPostingDate);
+            sqlparams[2] = new SqlParameter("@VolunteerPostingTitle", VolunteerPostingTitle);
+            sqlparams[3] = new SqlParameter("@VolunteerPostingDescription", VolunteerPostingDescription);
+            db.Database.ExecuteSqlCommand(query, sqlparams);
+
+            return RedirectToAction("List");
+        }
+
+        public ActionResult ConfirmDelete(string id)
+        {
+            string query = "select * from VolunteerPostings where VolunteerPostingID=@id";
+            SqlParameter param = new SqlParameter("@id", id);
+            VolunteerPosting volunteerposting = db.VolunteerPostings.SqlQuery(query, param).FirstOrDefault();
+            return View(volunteerposting);
+        }
+        [HttpPost]
+        public ActionResult Delete(string id)
+        {
+            string query = "delete from VolunteerPostings where VolunteerPostingID=@id";
+            SqlParameter param = new SqlParameter("@id", id);
+            db.Database.ExecuteSqlCommand(query, param);
+            return RedirectToAction("List");
+        }
+
     }
 }

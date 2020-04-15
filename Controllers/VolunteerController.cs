@@ -141,6 +141,28 @@ namespace HospitalProject.Controllers
             return RedirectToAction("List");
         }
 
+        public ActionResult ConfirmDelete(string id)
+        {
+            string query = "select * from Volunteers where VolunteerID=@id";
+            SqlParameter param = new SqlParameter("@id", id);
+            Volunteer volunteer= db.Volunteers.SqlQuery(query, param).FirstOrDefault();
+            return View(volunteer);
+        }
+        [HttpPost]
+        public ActionResult Delete(string id)
+        {
+            string query = "delete from Volunteers where VolunteerID=@id";
+            SqlParameter param = new SqlParameter("@id", id);
+            db.Database.ExecuteSqlCommand(query, param);
+
+            //delete associated account
+            //(Account has same id -- one to one via fk and primary key).
+            string account_query = "delete from AspNetUsers where Id=@id";
+            db.Database.ExecuteSqlCommand(account_query, new SqlParameter("@id", id));
+
+            return RedirectToAction("List");
+        }
+
 
         public VolunteerController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {

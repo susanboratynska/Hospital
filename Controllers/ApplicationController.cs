@@ -71,5 +71,60 @@ namespace HospitalProject.Controllers
             Application Application = db.Applications.SqlQuery(main_query, pk_parameter).FirstOrDefault();
             return View(Application);
         }
+
+        public ActionResult Update(int id)
+        {
+            UpdateApplication viewmodel = new UpdateApplication();
+
+            //get the application
+            //Include(application=>application.postings) => join on the application, applicationsxpostings, postings bridging table
+            viewmodel.Application =
+                db.Applications
+                .Include(volunteerapplication => volunteerapplication.VolunteerPosting)
+                .FirstOrDefault(volunteerapplication => volunteerapplication.ApplicationID == id);
+
+            //get all the volunteers
+            viewmodel.Volunteers = db.Volunteers.ToList();
+
+            //get all the volunteer postings
+            viewmodel.VolunteerPostings = db.VolunteerPostings.ToList();
+
+            return View(viewmodel);
+        }
+
+
+        [HttpPost]
+        public ActionResult Update(int id, int VolunteerID, int VolunteerPostingID, string VolunteerEducation, string VolunteerOccupation, int VolunteerExperience)
+        {
+            Application application = db
+                .Applications
+                .Include(a => a.VolunteerPosting)
+                .FirstOrDefault(a => a.ApplicationID == id);
+
+            application.VolunteerID = VolunteerID;
+            application.VolunteerPostingID = VolunteerPostingID;
+            application.Education = VolunteerEducation;
+            application.CurrentOccupation = VolunteerOccupation;
+            application.Experience = VolunteerExperience;
+
+            db.SaveChanges();
+            return RedirectToAction("List");
+        }
+
+        public ActionResult ConfirmDelete(string id)
+        {
+            string query = "select * from Applications where ApplicationID=@id";
+            SqlParameter param = new SqlParameter("@id", id);
+            Application application= db.Applications.SqlQuery(query, param).FirstOrDefault();
+            return View(application);
+        }
+        [HttpPost]
+        public ActionResult Delete(string id)
+        {
+            string query = "delete from Applications where ApplicationID=@id";
+            SqlParameter param = new SqlParameter("@id", id);
+            db.Database.ExecuteSqlCommand(query, param);
+            return RedirectToAction("List");
+        }
     }
 }

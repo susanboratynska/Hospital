@@ -1,7 +1,31 @@
-﻿
+﻿@model HospitalProject.Models.VolunteerPosting
 @{
     ViewBag.Title = "Update";
 }
 
-<h2>Update</h2>
+<h2>Update @Model.VolunteerPostingTitle</h2>
+<div class="navbar">
+    <a class="navlink" href="/VolunteerPosting/List">Back to List</a>
+</div>
+<div>
+    <div class="col2">
+        <form method="post" action="/VolunteerPosting/Update/@Model.VolunteerPostingID">
+            <div class="form-group">
+                <span>Date of Posting(yyyy-mm-dd):</span>
+                <input type="date" name="VolunteerPostingDate" id="VolunteerPostingDate" value="@Model.VolunteerPostingDate" />
+            </div>
+            <div class="form-group">
+                <span>Title:</span>
+                <input type="text" name="VolunteerPostingTitle" id="VolunteerPostingTitle" value="@Model.VolunteerPostingTitle"/>
+            </div>
+            <div class="form-group">
+                <span>Description:</span>
+                <input type="text" name="VolunteerPostingDescription" id="VolunteerPostingDescription" value="=@Model.VolunteerPostingDescription"/>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value="Update Volunteer Posting" />
+            </div>
+        </form>
+    </div>
+</div>
 
