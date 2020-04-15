@@ -106,9 +106,64 @@ Individual works can be seen in the sub-folders in "Documentation".
 - Articles and News Manager  
     
 ##### Maitri Modi  
-- Media Publications  
 - Volunteers’s application/Postings  
+ - Models
+    - ViewModels
+      1. AddApplication.cs
+      2. ShowVolunteer.cs
+      3. UpdateApplication.cs
+      4. UpdateVolunteer.cs
+    1. Application.cs
+    2. Volunteer.cs
+    3. VolunteerPosting.cs
+  - Controllers
+    1. ApplicationController.cs
+    2. VolunteerController.cs
+    3. VolunteerPostingController.cs	
+  - Views
+    1. Application/Add.cshtml
+    2. Application/ConfirmDelete.cshtml
+    3. Application/List.cshtml
+    4. Application/Show.cshtml
+    5. Application/Update.cshtml
+    6. Volunteer/Add.cshtml
+    7. Volunteer/ConfirmDelete.cshtml
+    8. Volunteer/List.cshtml
+    9. Volunteer/Show.cshtml
+    10.Volunteer/Update.cshtml
+    11.VolunteerPosting/Add.cshtml
+    12.VolunteerPosting/ConfirmDelete.cshtml
+    13.VolunteerPosting/List.cshtml
+    14.VolunteerPosting/Show.cshtml
+    15.VolunteerPosting/Update.cshtml 
 - Online Bill Payment   
+- Models
+    - ViewModels
+      1. AddInvoice.cs
+      2. AddPatient.cs
+      3. ShowPatient.cs
+      4. UpdateInvoice.cs
+    1. Invoice.cs
+    2. Patient.cs
+    3. Service.cs
+  - Controllers
+    1. InvoiceController.cs
+    2. VolunteerController.cs
+    3. ServiceController.cs	
+  - Views
+    1. Invoice/Add.cshtml
+    2. Invoice/ConfirmDelete.cshtml
+    3. Invoice/List.cshtml
+    4. Invoice/Show.cshtml
+    5. Invoice/Update.cshtml
+    6. Patient/ConfirmDelete.cshtml
+    7. Patient/List.cshtml
+    8. Patient/Show.cshtml
+    9. Service/Add.cshtml
+    10.Service/ConfirmDelete.cshtml
+    11.Service/List.cshtml
+    12.Service/Show.cshtml
+    13.Service/Update.cshtml
 
 ##### Michael Pavlovic 
 - FAQ
